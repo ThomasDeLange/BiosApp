@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BiosApp.iml" filepath="$PROJECT_DIR$/BiosApp.iml" />
+      <module fileurl="file://C:\Users\steph\Desktop\Informatica\Periode 3\PM&amp;SE\BiosApp\BiosApp.iml" filepath="C:\Users\steph\Desktop\Informatica\Periode 3\PM&amp;SE\BiosApp\BiosApp.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://C:\Users\steph\Desktop\Informatica\Periode 3\PM&amp;SE\BiosApp\app\app.iml" filepath="C:\Users\steph\Desktop\Informatica\Periode 3\PM&amp;SE\BiosApp\app\app.iml" />
     </modules>
   </component>
 </project>
