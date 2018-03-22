@@ -1,9 +1,10 @@
-package com.example.thomas.biosapp;
+package com.example.thomas.biosapp.Api;
 
 import android.os.AsyncTask;
 import android.util.Log;
 
-import org.json.JSONArray;
+import com.example.thomas.biosapp.Domain.Film;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
