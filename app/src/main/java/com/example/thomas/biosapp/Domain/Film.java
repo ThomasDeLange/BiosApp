@@ -1,4 +1,4 @@
-package com.example.thomas.biosapp;
+package com.example.thomas.biosapp.Domain;
 
 /**
  * Created by steph on 21-3-2018.
