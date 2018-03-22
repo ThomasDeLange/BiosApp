@@ -2,4 +2,6 @@
     <string name="app_name">BiosApp</string>
     <string name="textview">TextView</string>
     <string name="reserveren">reserveren</string>
+    <string name="title_activity_contact">Map</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
