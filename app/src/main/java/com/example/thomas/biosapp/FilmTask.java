@@ -73,17 +73,28 @@ public class FilmTask extends AsyncTask<String, Void, String> {
             return;
         }
 
-        JSONObject film;
+        JSONObject jsonObject;
         try{
-            film = new JSONObject(response);
+            jsonObject = new JSONObject(response);
 
-            //JSONArray film = jsonObject.getJSONArray("");
-            String movieTitle = film.getString("original_title");
-            Log.i(TAG, "Got film: " + movieTitle);
+            JSONArray results = jsonObject.getJSONArray("results");
+            for(int i = 0; i < results.length(); i++){
+                JSONObject film = results.getJSONObject(i);
 
-            Film f = new Film(movieTitle);
-            f.setName(movieTitle);
-            listener.onFilmAvailable(f);
+                String movieTitle = film.getString("original_title");
+                String posterUrl = film.getString("poster_path");
+                String description = film.getString("overview");
+                String id = film.getString("id");
+                Log.i(TAG, "Got film: " + movieTitle);
+
+                Film f = new Film(movieTitle, posterUrl, description, id);
+                f.setName(movieTitle);
+                f.setPosterUrl(filmQueries.secureImageUrl + posterUrl);
+                f.setDescription(description);
+                f.setId(id);
+                listener.onFilmAvailable(f);
+            }
+
         }catch(JSONException e){
             Log.e(TAG, "onPostExecute JSONException " + e.getLocalizedMessage());
         }
@@ -110,5 +121,13 @@ public class FilmTask extends AsyncTask<String, Void, String> {
             }
         }
         return stringBuilder.toString();
+    }
+
+    public static class filmQueries{
+        //append image_path to secureImageUrl, always use "poster_path"
+        public static final String secureImageUrl = "https://image.tmdb.org/t/p/w185/";
+        //retrieve a list split in pages in a JSONArray "results", default is page=1
+        public static final String popularUrl = "https://api.themoviedb.org/3/movie/popular?api_key=f2a602049196e977fd3fc61a45ffe4ac&language=nl&page=1";
+
     }
 }

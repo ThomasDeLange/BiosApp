@@ -12,7 +12,6 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements OnFilmAvailable, View.OnClickListener{
 
     private ArrayList<Film> films;
-    private static final String apiKey = "f2a602049196e977fd3fc61a45ffe4ac";
 
 
     @Override
@@ -26,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements OnFilmAvailable, 
     @Override
     public void onClick(View v) {
         Log.i("BUTTON", "onClick aangeroepen");
-        String[] urls = new String[] {"https://api.themoviedb.org/3/movie/550?api_key=" + apiKey + "&language=nl"};
+        String[] urls = new String[] {FilmTask.filmQueries.popularUrl};
         FilmTask getFilm = new FilmTask(this);
         getFilm.execute(urls);
     }
