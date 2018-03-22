@@ -125,7 +125,7 @@ public class FilmTask extends AsyncTask<String, Void, String> {
 
     public static class filmQueries{
         //append image_path to secureImageUrl, always use "poster_path"
-        public static final String secureImageUrl = "https://image.tmdb.org/t/p/w185/";
+        public static final String secureImageUrl = "https://image.tmdb.org/t/p/w300/";
         //retrieve a list split in pages in a JSONArray "results", default is page=1
         public static final String popularUrl = "https://api.themoviedb.org/3/movie/popular?api_key=f2a602049196e977fd3fc61a45ffe4ac&language=nl&page=1";
 

@@ -3,6 +3,7 @@ package com.example.thomas.biosapp.Controllers;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,31 +12,49 @@ import android.widget.GridView;
 import android.widget.Toast;
 import android.support.v7.widget.SearchView;
 
+import com.example.thomas.biosapp.Film;
+import com.example.thomas.biosapp.FilmTask;
+import com.example.thomas.biosapp.OnFilmAvailable;
 import com.example.thomas.biosapp.R;
 import com.example.thomas.biosapp.Util.FilmGridAdapter;
 
-public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener, OnFilmAvailable {
+
+    private ArrayList<Film> films;
+    private FilmGridAdapter filmGridAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        films = new ArrayList<>();
+
         //Gridview instellen
         GridView gridview = (GridView) findViewById(R.id.filmGridView);
-        gridview.setAdapter(new FilmGridAdapter(this));
+        filmGridAdapter = new FilmGridAdapter(getApplicationContext(), getLayoutInflater(), films);
+        gridview.setAdapter(filmGridAdapter);
         gridview.setOnItemClickListener(this);
+        this.getFilmItems();
     }
 
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-
         //Juiste film verkrijgen
         //Film film =
-
+        Film film = (Film) films.get(position);
         //Verzoeken om naar een nieuw venster te gaan met het juiste film object
         Intent intent = new Intent(getApplicationContext(), DetailedActivity.class);
-        //intent.putExtra("PHOTO_OBJECT", film);
+        intent.putExtra("FILM_OBJECT", film);
         startActivity(intent);
+    }
+
+    public void getFilmItems(){
+        films.clear();
+        FilmTask task = new FilmTask(this);
+        String[] urls = new String[] {FilmTask.filmQueries.popularUrl};
+        task.execute(urls);
     }
 
     @Override
@@ -63,5 +82,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             }
         });*/
         return super.onCreateOptionsMenu(menu);
+    }
+
+
+    @Override
+    public void onFilmAvailable(Film film) {
+        films.add(film);
+        filmGridAdapter.notifyDataSetChanged();
     }
 }

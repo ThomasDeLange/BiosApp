@@ -8,7 +8,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.thomas.biosapp.Film;
 import com.example.thomas.biosapp.R;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.RequestCreator;
 
 public class DetailedActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -24,13 +27,13 @@ public class DetailedActivity extends AppCompatActivity implements View.OnClickL
         TextView filmDetailedDescription = findViewById(R.id.filmDetailedDescription);
 
         //Meegestuurde gegevens verkrijgen
-        //Film film = (Film)getIntent().getSerializableExtra("FILM_OBJECT");
-        //RequestCreator requestCreator = Picasso.with(getApplicationContext()).load(photo.getImageSource());
+        Film film = (Film)getIntent().getSerializableExtra("FILM_OBJECT");
+        RequestCreator requestCreator = Picasso.with(getApplicationContext()).load(film.getPosterUrl());
 
         //Data aanpassen
-        //filmDetailedTitle.setText(film.set)
-        //requestCreator.into(filmDetailedImage);
-        //filmDetailedDescription.setText(film.set)
+        filmDetailedTitle.setText(film.getName());
+        requestCreator.into(filmDetailedImage);
+        filmDetailedDescription.setText(film.getDescription());
 
         //Actie achter reserveer knop
         filmDetailedOrder.setOnClickListener(this);
