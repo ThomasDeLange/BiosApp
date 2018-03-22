@@ -4,14 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.thomas.biosapp.Controllers.MainActivity">
+    android:columnWidth="90dp"
+    android:gravity="center"
+    android:horizontalSpacing="10dp"
+    android:numColumns="auto_fit"
+    android:stretchMode="columnWidth"
+    android:verticalSpacing="10dp">
 
     <GridView
-        android:id="@+id/FilmGridView"
+        android:id="@+id/filmGridView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:numColumns="2"
+        android:stretchMode="columnWidth"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
+

@@ -17,13 +17,14 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        GridView gridview = (GridView) findViewById(R.id.FilmGridView);
+        GridView gridview = (GridView) findViewById(R.id.filmGridView);
         gridview.setAdapter(new FilmGridAdapter(this));
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                Toast.makeText(MainActivity.this, "" + position, Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "" + position,
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }

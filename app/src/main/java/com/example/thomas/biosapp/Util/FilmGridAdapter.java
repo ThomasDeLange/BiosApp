@@ -9,16 +9,11 @@ import android.widget.ImageView;
 
 import com.example.thomas.biosapp.R;
 
-/**
- * Created by thomas on 21-03-18.
- */
+public class FilmGridAdapter extends BaseAdapter {
+    private Context context;
 
-public class FilmGridAdapter extends BaseAdapter{
-
-    private Context mContext;
-
-    public FilmGridAdapter(Context c) {
-        mContext = c;
+    public FilmGridAdapter(Context context) {
+        this.context = context;
     }
 
     public int getCount() {
@@ -38,8 +33,8 @@ public class FilmGridAdapter extends BaseAdapter{
         ImageView imageView;
         if (convertView == null) {
             // if it's not recycled, initialize some attributes
-            imageView = new ImageView(mContext);
-            imageView.setLayoutParams(new GridView.LayoutParams(85, 85));
+            imageView = new ImageView(context);
+            imageView.setLayoutParams(new GridView.LayoutParams(200, 300));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(8, 8, 8, 8);
         } else {
