@@ -3,6 +3,7 @@ package com.example.thomas.biosapp;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -72,9 +73,17 @@ public class FilmTask extends AsyncTask<String, Void, String> {
             return;
         }
 
-        JSONObject jsonObject;
+        JSONObject film;
         try{
-            jsonObject = new JSONObject(response);
+            film = new JSONObject(response);
+
+            //JSONArray film = jsonObject.getJSONArray("");
+            String movieTitle = film.getString("original_title");
+            Log.i(TAG, "Got film: " + movieTitle);
+
+            Film f = new Film(movieTitle);
+            f.setName(movieTitle);
+            listener.onFilmAvailable(f);
         }catch(JSONException e){
             Log.e(TAG, "onPostExecute JSONException " + e.getLocalizedMessage());
         }
