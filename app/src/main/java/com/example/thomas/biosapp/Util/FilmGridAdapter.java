@@ -8,14 +8,11 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.thomas.biosapp.Film;
+import com.example.thomas.biosapp.Domain.Film;
 import com.example.thomas.biosapp.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
-
-//import com.example.thomas.biosapp.R;
-
 public class FilmGridAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater mInflator;
@@ -54,12 +51,12 @@ public class FilmGridAdapter extends BaseAdapter {
 //        return imageView;
 
         ViewHolder viewHolder;
-        if(convertView == null){
+        if (convertView == null) {
             convertView = mInflator.inflate(R.layout.film_gridview_item, null);
             viewHolder = new ViewHolder();
             viewHolder.imageView = (ImageView) convertView.findViewById(R.id.filmGridImageView);
             convertView.setTag(viewHolder);
-        }else{
+        } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
 

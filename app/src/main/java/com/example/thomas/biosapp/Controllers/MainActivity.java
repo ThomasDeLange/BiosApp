@@ -1,20 +1,16 @@
 package com.example.thomas.biosapp.Controllers;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.Toast;
-import android.support.v7.widget.SearchView;
 
-import com.example.thomas.biosapp.Film;
-import com.example.thomas.biosapp.FilmTask;
-import com.example.thomas.biosapp.OnFilmAvailable;
+import com.example.thomas.biosapp.Api.FilmTask;
+import com.example.thomas.biosapp.Api.OnFilmAvailable;
+import com.example.thomas.biosapp.Domain.Film;
 import com.example.thomas.biosapp.R;
 import com.example.thomas.biosapp.Util.FilmGridAdapter;
 
@@ -34,7 +30,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         //Gridview instellen
         GridView gridview = (GridView) findViewById(R.id.filmGridView);
-        filmGridAdapter = new FilmGridAdapter(getApplicationContext(), getLayoutInflater(), films);
+        //@TODO fix
+        // filmGridAdapter = new FilmGridAdapter(getApplicationContext(), getLayoutInflater(), films);
         gridview.setAdapter(filmGridAdapter);
         gridview.setOnItemClickListener(this);
         this.getFilmItems();
@@ -50,10 +47,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         startActivity(intent);
     }
 
-    public void getFilmItems(){
+    public void getFilmItems() {
         films.clear();
         FilmTask task = new FilmTask(this);
-        String[] urls = new String[] {FilmTask.filmQueries.popularUrl};
+        String[] urls = new String[]{FilmTask.filmQueries.popularUrl};
         task.execute(urls);
     }
 

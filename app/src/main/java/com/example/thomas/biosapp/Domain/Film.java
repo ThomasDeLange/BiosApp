@@ -6,7 +6,7 @@ import java.io.Serializable;
  * Created by steph on 21-3-2018.
  */
 
-public class Film implements Serializable{
+public class Film implements Serializable {
     private String name;
     private String posterUrl;
     private String description;
