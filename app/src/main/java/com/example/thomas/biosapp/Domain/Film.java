@@ -1,4 +1,4 @@
-package com.example.thomas.biosapp;
+package com.example.thomas.biosapp.Domain;
 
 import java.io.Serializable;
 
