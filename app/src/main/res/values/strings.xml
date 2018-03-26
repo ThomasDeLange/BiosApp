@@ -5,6 +5,7 @@
     <string name="title_activity_contact">Map</string>
     <string name="title_activity_maps">Map</string>
     <string name="feedback_geven">Feedback geven</string>
+    <string name="cinema">Bioscoop</string>
     <string name="name_cinema">Bioscoop Breda</string>
     <string name="street">Lovensdijkstraat 61</string>
     <string name="netherlands">Nederland</string>
@@ -24,4 +25,14 @@
     <string name="message_review">Bericht</string>
     <string name="send">Verzenden</string>
     <string name="default_feedback_message"> </string>
+    <string name="contactdata">Contactgegevens</string>
+    <string name="feedback_message_title">Feedback ontvangen</string>
+    <string name="feedback_message_content">Bedankt voor uw feedback!</string>
+    <string name="ok">Ok</string>
+    <string name="feedback_error_title">Fout in verstuurde feedback</string>
+    <string name="firstname_notfilled">De voornaam is niet ingevuld.</string>
+    <string name="lastname_notfilled">De achternaam is niet ingevuld</string>
+    <string name="emailadres_notfilled">Het e-mailadres is niet ingevuld.</string>
+    <string name="message_notfilled">Het bericht is niet ingevuld.</string>
+    <string name="improve_feedback">Deze fouten dienen verbeterd te worden.</string>
 </resources>

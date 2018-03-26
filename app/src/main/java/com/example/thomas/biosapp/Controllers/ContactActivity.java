@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.thomas.biosapp.Domain.Film;
 import com.example.thomas.biosapp.R;
 
 public class ContactActivity extends AppCompatActivity implements View.OnClickListener {
@@ -39,8 +40,12 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
 
         } else if (button.getText().equals(getString(R.string.feedback_geven))) {
 
+            //Nepfilm aan maken om de feedback activity te laten geloven dat het om de bioscoop gaat
+            Film film = null;
+
             //Feedback geven
             intent = new Intent(getApplicationContext(), FeedbackActivity.class);
+            intent.putExtra("FILM_OBJECT", film);
 
         } else return;
 

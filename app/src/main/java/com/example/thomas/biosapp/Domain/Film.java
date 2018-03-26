@@ -1,10 +1,12 @@
 package com.example.thomas.biosapp.Domain;
 
+import java.io.Serializable;
+
 /**
  * Created by steph on 21-3-2018.
  */
 
-public class Film {
+public class Film implements Serializable {
     private String name;
     private String posterUrl;
     private String description;
