@@ -38,6 +38,7 @@ public class TestFragment extends Fragment implements OnFilmAvailable, AdapterVi
 
         //Fragment is nog niet geladen
         loaded = false;
+        films = new ArrayList<>();
     }
 
     @Override
@@ -49,13 +50,13 @@ public class TestFragment extends Fragment implements OnFilmAvailable, AdapterVi
         gridview.setOnItemClickListener(this);
 
         //Adapter initializieren
-        films = new ArrayList<Film>();
         filmGridAdapter = new FilmGridAdapter(getContext(), getLayoutInflater(), films);
         gridview.setAdapter(filmGridAdapter);
 
-        //Films verkrijgen
-        this.getFilmItems();
+        //Films verkrijgen indien dit nog niet is gebeurt
+        getFilmItems();
     }
+
     public void getFilmItems() {
 
         //Film array legen en films uit de filmtaak halen
@@ -97,8 +98,9 @@ public class TestFragment extends Fragment implements OnFilmAvailable, AdapterVi
         filmGridAdapter.notifyDataSetChanged();
 
         //Fragment geladen, fragment één enkele keer refreshen
-        if (!loaded)
+        if (!loaded) {
+            loaded = true;
             getFragmentManager().beginTransaction().detach(this).attach(this).commit();
-        loaded = true;
+        }
     }
 }
