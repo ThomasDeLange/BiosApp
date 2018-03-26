@@ -40,7 +40,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
         //Juiste film verkrijgen
-        //Film film =
         Film film = (Film) films.get(position);
         //Verzoeken om naar een nieuw venster te gaan met het juiste film object
         Intent intent = new Intent(getApplicationContext(), DetailedActivity.class);
