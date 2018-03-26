@@ -21,6 +21,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Bypass
+        Intent intent = new Intent(getApplicationContext(), ContactActivity.class);
+        startActivity(intent);
+
         //Gridview instellen
         GridView gridview = (GridView) findViewById(R.id.filmGridView);
         gridview.setAdapter(new FilmGridAdapter(this));
