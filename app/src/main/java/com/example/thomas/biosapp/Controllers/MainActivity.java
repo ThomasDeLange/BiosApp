@@ -11,6 +11,7 @@ import android.widget.GridView;
 import android.widget.Toast;
 import android.support.v7.widget.SearchView;
 
+import com.example.thomas.biosapp.Api.SeatsActivity;
 import com.example.thomas.biosapp.R;
 import com.example.thomas.biosapp.Util.FilmGridAdapter;
 
@@ -20,6 +21,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent intent = new Intent(getApplicationContext(), SeatsActivity.class);
+        startActivity(intent);
 
         //Gridview instellen
         GridView gridview = (GridView) findViewById(R.id.filmGridView);
