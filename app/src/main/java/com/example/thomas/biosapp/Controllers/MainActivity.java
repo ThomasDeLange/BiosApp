@@ -30,8 +30,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         //Gridview instellen
         GridView gridview = (GridView) findViewById(R.id.filmGridView);
-        //@TODO fix
-        // filmGridAdapter = new FilmGridAdapter(getApplicationContext(), getLayoutInflater(), films);
+        filmGridAdapter = new FilmGridAdapter(getApplicationContext(), getLayoutInflater(), films);
         gridview.setAdapter(filmGridAdapter);
         gridview.setOnItemClickListener(this);
         this.getFilmItems();
