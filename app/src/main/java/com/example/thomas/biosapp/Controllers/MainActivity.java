@@ -117,6 +117,5 @@ public class MainActivity extends AppCompatActivity {
         adapter.addFragment(new TestFragmentTwo(), "TWO");
         adapter.addFragment(new TestFragmentThree(), "THREE");
         viewPager.setAdapter(adapter);
-
     }
 }

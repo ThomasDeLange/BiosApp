@@ -124,6 +124,8 @@ public class FilmTask extends AsyncTask<String, Void, String> {
         } catch (JSONException e) {
             Log.e(TAG, "onPostExecute JSONException " + e.getLocalizedMessage());
         }
+
+        listener.onFilmsLoaded();
     }
 
     public static class filmQueries {

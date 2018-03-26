@@ -1,9 +1,11 @@
 package com.example.thomas.biosapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,34 +27,38 @@ import java.util.ArrayList;
 
 public class TestFragment extends Fragment implements OnFilmAvailable, AdapterView.OnItemClickListener{
 
-    private ArrayList<Film> films = new ArrayList<>();
+    private ArrayList<Film> films;
     private GridView gridview;
     private FilmGridAdapter filmGridAdapter;
-
-    public TestFragment(){
-    }
+    private boolean loaded;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onAttach(Context context) {
+        super.onAttach(context);
+
+        //Fragment is nog niet geladen
+        loaded = false;
     }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-
         super.onActivityCreated(savedInstanceState);
-        //Gridview instellen
-        gridview = (GridView) getActivity().findViewById(R.id.filmGridView);
-        //@TODO fix
-        filmGridAdapter = new FilmGridAdapter(getActivity().getApplicationContext(), getLayoutInflater(), films);
-        gridview.setAdapter(filmGridAdapter);
+
+        //Grid initializeren
+        gridview = (GridView) getView().findViewById(R.id.filmGridView);
         gridview.setOnItemClickListener(this);
+
+        //Adapter initializieren
+        films = new ArrayList<Film>();
+        filmGridAdapter = new FilmGridAdapter(getContext(), getLayoutInflater(), films);
+        gridview.setAdapter(filmGridAdapter);
+
+        //Films verkrijgen
         this.getFilmItems();
-
-
     }
-
     public void getFilmItems() {
+
+        //Film array legen en films uit de filmtaak halen
         films.clear();
         FilmTask task = new FilmTask(this);
         String[] urls = new String[]{FilmTask.filmQueries.popularUrl};
@@ -60,9 +66,10 @@ public class TestFragment extends Fragment implements OnFilmAvailable, AdapterVi
     }
 
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
+
         //Juiste film verkrijgen
-        //Film film =
         Film film = (Film) films.get(position);
+
         //Verzoeken om naar een nieuw venster te gaan met het juiste film object
         Intent intent = new Intent(getActivity().getApplicationContext(), DetailedActivity.class);
         intent.putExtra("FILM_OBJECT", film);
@@ -70,18 +77,28 @@ public class TestFragment extends Fragment implements OnFilmAvailable, AdapterVi
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_films_tab, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
         // Inflate the layout for this fragment
-        return view;
+        return inflater.inflate(R.layout.fragment_films_tab, container, false);
     }
 
     @Override
     public void onFilmAvailable(Film film) {
+
+        //Film toevoegen
         films.add(film);
-        filmGridAdapter.notifyDataSetChanged();
     }
 
+    @Override
+    public void onFilmsLoaded() {
 
+        //1X grid updaten, beter voor performance
+        filmGridAdapter.notifyDataSetChanged();
+
+        //Fragment geladen, fragment één enkele keer refreshen
+        if (!loaded)
+            getFragmentManager().beginTransaction().detach(this).attach(this).commit();
+        loaded = true;
+    }
 }
