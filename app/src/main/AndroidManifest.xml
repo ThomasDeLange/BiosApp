@@ -41,8 +41,9 @@
 
         <activity android:name=".Controllers.ContactActivity" />
         <activity
-            android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:name=".Controllers.MapsActivity"
+            android:label="@string/title_activity_maps" />
+        <activity android:name=".Controllers.FeedbackActivity"></activity>
     </application>
 
 </manifest>

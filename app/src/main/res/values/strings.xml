@@ -17,4 +17,11 @@
     <string name="reachability_explaination">Onze bioscoop kan met de auto, fiets en het de bus bereikt worden. Naast de bioscoop staat een gratis parkeerplaats  voor auto\'s en fietsen. Ook bevindt er direct naast de bioscoop een bushalte.</string>
     <string name="postalcode">4818 TJ Breda</string>
     <string name="route">Routebeschrijving</string>
+    <string name="activity_feedback">Feedback</string>
+    <string name="firstname">Voornaam</string>
+    <string name="lastname">Achternaam</string>
+    <string name="email_review">E-mailadres</string>
+    <string name="message_review">Bericht</string>
+    <string name="send">Verzenden</string>
+    <string name="default_feedback_message"> </string>
 </resources>
