@@ -23,7 +23,7 @@ public class FilmUnitTest {
         assertTrue("Check id",film.getId().equals("12"));
 
     }
-
+    @Test
     public void filmEquals_twoFilms_noExeption() throws Exception {
         Film film1 = new Film("Finding nemo", "123", "A film about a fish", "12");
         Film film2 = new Film("Finding nemo", "123", "A film about a fish", "12");
