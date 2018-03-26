@@ -28,7 +28,7 @@ public class DetailedActivity extends AppCompatActivity implements View.OnClickL
 
         //Meegestuurde gegevens verkrijgen
         Film film = (Film)getIntent().getSerializableExtra("FILM_OBJECT");
-        RequestCreator requestCreator = Picasso.with(getApplicationContext()).load(film.getPosterUrl());
+        RequestCreator requestCreator = Picasso.get().load(film.getPosterUrl());
 
         //Data aanpassen
         filmDetailedTitle.setText(film.getName());

@@ -64,7 +64,7 @@ public class FilmGridAdapter extends BaseAdapter {
         }
 
         Film film = (Film) mFilmArrayList.get(position);
-        Picasso.with(context).load(film.getPosterUrl()).into(viewHolder.imageView);
+        Picasso.get().load(film.getPosterUrl()).into(viewHolder.imageView);
         return convertView;
     }
 
