@@ -1,22 +1,26 @@
 package com.example.thomas.biosapp.Database.TicketDatabase;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+
+import com.example.thomas.biosapp.Domain.Film;
+
+import java.io.Serializable;
 
 
 /**
  * Created by thomas on 26-03-18.
  */
 
-public class TicketDatabase extends SQLiteOpenHelper {
+public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
 
     private final static String TAG = "TicketDatabase";
 
-
     private final static String DB_NAME = "TicketDatabse.db";
-    private final static int DB_VERSION = 0;
+    private final static int DB_VERSION = 1;
 
     private final static String TICKET_TABLE_NAME = "Ticket";
 
@@ -58,4 +62,36 @@ public class TicketDatabase extends SQLiteOpenHelper {
 
         this.onCreate(sqLiteDatabase);
     }
+
+    public void buyTicket(Film film) {
+
+        SQLiteDatabase database = this.getWritableDatabase();
+
+        ContentValues buyerValues = new ContentValues();
+        buyerValues.put(BUYER_BUYER_ID, 12);
+        buyerValues.put(BUYER_FIRST_NAME, "Klaasje");
+
+        database.insert(BUYER_TABLE_NAME, null, buyerValues);
+
+        ContentValues seatValues = new ContentValues();
+        seatValues.put(SEAT_ROW_NUMBER, 11);
+        seatValues.put(SEAT_SEAT_NUMBER, 12);
+        seatValues.put(SEAT_SEAT_ID, 111);
+
+        database.insert(SEAT_TABLE_NAME, null, buyerValues);
+
+        ContentValues ticketValues = new ContentValues();
+        ticketValues.put(TICKET_TICKET_ID, 3);
+        ticketValues.put(TICKET_BUYER_ID, 12);
+        ticketValues.put(TICKET_QR_CODE, "qrcode");
+        ticketValues.put(TICKET_FILM_TITLE, film.getName());
+        ticketValues.put(TICKET_RUN_TIME, "11 uur");
+        ticketValues.put(TICKET_SEAT_ID, 111);
+
+        database.insert(TICKET_TABLE_NAME, null, ticketValues);
+
+        database.close();
+    }
+
+
 }

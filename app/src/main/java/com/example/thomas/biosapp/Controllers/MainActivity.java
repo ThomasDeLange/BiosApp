@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private ArrayList<Film> films;
     private FilmGridAdapter filmGridAdapter;
-    //private TicketDatabase ticketDatabase;
+    private TicketDatabase ticketDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
 
         films = new ArrayList<>();
+        ticketDatabase = new TicketDatabase(getApplicationContext());
 
         //Gridview instellen
         GridView gridview = (GridView) findViewById(R.id.filmGridView);
@@ -44,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         //Verzoeken om naar een nieuw venster te gaan met het juiste film object
         Intent intent = new Intent(getApplicationContext(), DetailedActivity.class);
         intent.putExtra("FILM_OBJECT", film);
+        //intent.putExtra("DATABASE_OBJECCT", this.ticketDatabase);
         startActivity(intent);
     }
 
