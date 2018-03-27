@@ -9,17 +9,17 @@ public class Ticket {
     private String ticketID;
     private String buyerID;
     private String qrCode;
-    private String filmTitel;
-    private String tijd;
-    private String stoelID;
+    private String filmTitle;
+    private String runTime;
+    private String seatId;
 
-    public Ticket(String ticketID, String buyerID, String qrCode, String filmTitel, String tijd, String stoelID) {
+    public Ticket(String ticketID, String buyerID, String qrCode, String filmTitel, String runTime, String seatId) {
         this.ticketID = ticketID;
         this.buyerID = buyerID;
         this.qrCode = qrCode;
-        this.filmTitel = filmTitel;
-        this.tijd = tijd;
-        this.stoelID = stoelID;
+        this.filmTitle = filmTitel;
+        this.runTime = runTime;
+        this.seatId = seatId;
     }
 
     public String getTicketID() {
@@ -47,27 +47,27 @@ public class Ticket {
     }
 
     public String getFilmTitel() {
-        return filmTitel;
+        return filmTitle;
     }
 
     public void setFilmTitel(String filmTitel) {
-        this.filmTitel = filmTitel;
+        this.filmTitle = filmTitel;
     }
 
-    public String getTijd() {
-        return tijd;
+    public String getrunTime() {
+        return runTime;
     }
 
-    public void setTijd(String tijd) {
-        this.tijd = tijd;
+    public void setrunTime(String runTime) {
+        this.runTime = runTime;
     }
 
-    public String getStoelID() {
-        return stoelID;
+    public String getseatId() {
+        return seatId;
     }
 
-    public void setStoelID(String stoelID) {
-        this.stoelID = stoelID;
+    public void setseatId(String seatId) {
+        this.seatId = seatId;
     }
 
     @Override
@@ -80,9 +80,9 @@ public class Ticket {
         if (!ticketID.equals(ticket.ticketID)) return false;
         if (!buyerID.equals(ticket.buyerID)) return false;
         if (!qrCode.equals(ticket.qrCode)) return false;
-        if (!filmTitel.equals(ticket.filmTitel)) return false;
-        if (!tijd.equals(ticket.tijd)) return false;
-        return stoelID.equals(ticket.stoelID);
+        if (!filmTitle.equals(ticket.filmTitle)) return false;
+        if (!runTime.equals(ticket.runTime)) return false;
+        return seatId.equals(ticket.seatId);
     }
 
     @Override
@@ -90,9 +90,21 @@ public class Ticket {
         int result = ticketID.hashCode();
         result = 31 * result + buyerID.hashCode();
         result = 31 * result + qrCode.hashCode();
-        result = 31 * result + filmTitel.hashCode();
-        result = 31 * result + tijd.hashCode();
-        result = 31 * result + stoelID.hashCode();
+        result = 31 * result + filmTitle.hashCode();
+        result = 31 * result + runTime.hashCode();
+        result = 31 * result + seatId.hashCode();
         return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "ticketID='" + ticketID + '\'' +
+                ", buyerID='" + buyerID + '\'' +
+                ", qrCode='" + qrCode + '\'' +
+                ", filmTitle='" + filmTitle + '\'' +
+                ", runTime='" + runTime + '\'' +
+                ", seatId='" + seatId + '\'' +
+                '}';
     }
 }

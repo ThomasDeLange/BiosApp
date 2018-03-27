@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.thomas.biosapp.Controllers.BuyTicketActivity">
+    tools:context="com.example.thomas.biosapp.Controllers.BuyTicketActivity"
+    tools:layout_editor_absoluteY="81dp">
 
     <Button
         android:id="@+id/buyTicketButton"
@@ -17,4 +18,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/testBuyTicket"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Test "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buyTicketButton" />
 </android.support.constraint.ConstraintLayout>

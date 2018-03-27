@@ -7,7 +7,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+import com.example.thomas.biosapp.Domain.Buyer;
 import com.example.thomas.biosapp.Domain.Film;
+import com.example.thomas.biosapp.Domain.Seat;
 import com.example.thomas.biosapp.Domain.Ticket;
 
 import java.io.Serializable;
@@ -66,30 +68,32 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
         this.onCreate(sqLiteDatabase);
     }
 
-    public void buyTicket(Film film) {
+    public void buyTicket(Film film, Ticket ticket, Buyer buyer, Seat seat) {
 
         SQLiteDatabase database = this.getWritableDatabase();
 
         ContentValues buyerValues = new ContentValues();
-        buyerValues.put(BUYER_BUYER_ID, 12);
-        buyerValues.put(BUYER_FIRST_NAME, "Klaasje");
+        buyerValues.put(BUYER_BUYER_ID, buyer.getBuyerID());
+        buyerValues.put(BUYER_FIRST_NAME, buyer.getFirstName());
 
         database.insert(BUYER_TABLE_NAME, null, buyerValues);
 
         ContentValues seatValues = new ContentValues();
-        seatValues.put(SEAT_ROW_NUMBER, 11);
-        seatValues.put(SEAT_SEAT_NUMBER, 122);
-        seatValues.put(SEAT_SEAT_ID, 1111);
+
+        seatValues.put(SEAT_SEAT_ID, seat.getSeatID());
+        seatValues.put(SEAT_ROW_NUMBER, seat.getRowNumber());
+        seatValues.put(SEAT_SEAT_NUMBER, seat.getSeatNumber());
 
         database.insert(SEAT_TABLE_NAME, null, seatValues);
 
         ContentValues ticketValues = new ContentValues();
-        ticketValues.put(TICKET_TICKET_ID, 33);
-        ticketValues.put(TICKET_BUYER_ID, 122);
-        ticketValues.put(TICKET_QR_CODE, "qrcode");
+        ticketValues.put(TICKET_TICKET_ID, ticket.getTicketID());
+        ticketValues.put(TICKET_BUYER_ID, ticket.getBuyerID());
+        ticketValues.put(TICKET_QR_CODE, ticket.getQrCode());
+        ticketValues.put(TICKET_RUN_TIME, ticket.getrunTime());
+        ticketValues.put(TICKET_SEAT_ID, ticket.getseatId());
         ticketValues.put(TICKET_FILM_TITLE, film.getName());
-        ticketValues.put(TICKET_RUN_TIME, "11 uur");
-        ticketValues.put(TICKET_SEAT_ID, 1111);
+
 
         database.insert(TICKET_TABLE_NAME, null, ticketValues);
 
@@ -97,29 +101,33 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
     }
 
 
-    public void printTickets(){
+    public void printTickets() {
 
         SQLiteDatabase database = this.getReadableDatabase();
 
         String query = "SELECT * FROM " + TICKET_TABLE_NAME;
         Cursor cursor = database.rawQuery(query, null);
 
-        ArrayList<Ticket> roverPhotoArrayList = new ArrayList<>();
+        ArrayList<Ticket> ticketArrayList = new ArrayList<>();
 
         cursor.moveToFirst();
-        while (!cursor.isAfterLast()) {
-            String photoUrl = cursor.getString(cursor.getColumnIndex(COLUMN_PHOTO_URL));
-            String photoId = cursor.getString(cursor.getColumnIndex(COLUMN_PHOTO_ID_));
-            String cameraFullName = cursor.getString(cursor.getColumnIndex(COLUMN_CAMERA_FULL_NAME));
 
-            roverPhotoArrayList.add(new RoverPhoto(photoUrl, photoId, cameraFullName));
+        while (!cursor.isAfterLast()) {
+            String ticketID = cursor.getString(cursor.getColumnIndex(TICKET_TICKET_ID));
+            String buyerID = cursor.getString(cursor.getColumnIndex(TICKET_BUYER_ID));
+            String qrCode = cursor.getString(cursor.getColumnIndex(TICKET_QR_CODE));
+            String filmTitle = cursor.getString(cursor.getColumnIndex(TICKET_FILM_TITLE));
+            String runTime = cursor.getString(cursor.getColumnIndex(TICKET_RUN_TIME));
+            String seatId = cursor.getString(cursor.getColumnIndex(TICKET_QR_CODE));
+
+            ticketArrayList.add(new Ticket(ticketID, buyerID, qrCode, filmTitle, runTime, seatId));
             cursor.moveToNext();
         }
+        cursor.close();
+        database.close();
+        for (Ticket t : ticketArrayList) {
+            Log.i(TAG, "Ticket: " + t);
 
-        db.close();
-        return roverPhotoArrayList;
-
-
-
+        }
     }
 }
