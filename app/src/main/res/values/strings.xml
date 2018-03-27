@@ -12,4 +12,9 @@
     <string name="no_seats_selected">Geen stoel geselecteerd</string>
     <string name="selected">geselecteerd</string>
     <string name="select_seat_description">Selecteer hieronder uw gewenste zitplaats</string>
+    <string name="tickets">Tickets</string>
+    <string name="personal_data">Persoonsgegevens</string>
+    <string name="firstname">Voornaam</string>
+    <string name="lastname">Achternaam</string>
+    <string name="validate_ticket_data">Bevestigen</string>
 </resources>
