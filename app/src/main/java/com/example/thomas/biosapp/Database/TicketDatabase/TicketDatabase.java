@@ -2,13 +2,16 @@ package com.example.thomas.biosapp.Database.TicketDatabase;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
 import com.example.thomas.biosapp.Domain.Film;
+import com.example.thomas.biosapp.Domain.Ticket;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 
 /**
@@ -75,18 +78,18 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
 
         ContentValues seatValues = new ContentValues();
         seatValues.put(SEAT_ROW_NUMBER, 11);
-        seatValues.put(SEAT_SEAT_NUMBER, 12);
-        seatValues.put(SEAT_SEAT_ID, 111);
+        seatValues.put(SEAT_SEAT_NUMBER, 122);
+        seatValues.put(SEAT_SEAT_ID, 1111);
 
-        database.insert(SEAT_TABLE_NAME, null, buyerValues);
+        database.insert(SEAT_TABLE_NAME, null, seatValues);
 
         ContentValues ticketValues = new ContentValues();
-        ticketValues.put(TICKET_TICKET_ID, 3);
-        ticketValues.put(TICKET_BUYER_ID, 12);
+        ticketValues.put(TICKET_TICKET_ID, 33);
+        ticketValues.put(TICKET_BUYER_ID, 122);
         ticketValues.put(TICKET_QR_CODE, "qrcode");
         ticketValues.put(TICKET_FILM_TITLE, film.getName());
         ticketValues.put(TICKET_RUN_TIME, "11 uur");
-        ticketValues.put(TICKET_SEAT_ID, 111);
+        ticketValues.put(TICKET_SEAT_ID, 1111);
 
         database.insert(TICKET_TABLE_NAME, null, ticketValues);
 
@@ -94,4 +97,29 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
     }
 
 
+    public void printTickets(){
+
+        SQLiteDatabase database = this.getReadableDatabase();
+
+        String query = "SELECT * FROM " + TICKET_TABLE_NAME;
+        Cursor cursor = database.rawQuery(query, null);
+
+        ArrayList<Ticket> roverPhotoArrayList = new ArrayList<>();
+
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            String photoUrl = cursor.getString(cursor.getColumnIndex(COLUMN_PHOTO_URL));
+            String photoId = cursor.getString(cursor.getColumnIndex(COLUMN_PHOTO_ID_));
+            String cameraFullName = cursor.getString(cursor.getColumnIndex(COLUMN_CAMERA_FULL_NAME));
+
+            roverPhotoArrayList.add(new RoverPhoto(photoUrl, photoId, cameraFullName));
+            cursor.moveToNext();
+        }
+
+        db.close();
+        return roverPhotoArrayList;
+
+
+
+    }
 }
