@@ -74,10 +74,10 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
         //Kijken waar op geklikt is
         if (id == R.id.buttonSelectChair) {
 
-                //Laad volgende scherm
-                Intent intent = new Intent(getApplicationContext(), PaymentMethodActivity.class);
-                //intent.putExtra("FILM_OBJECT", film);
-                startActivity(intent);
+            //Laad volgende scherm
+            Intent intent = new Intent(getApplicationContext(), PaymentMethodActivity.class);
+            //intent.putExtra("FILM_OBJECT", film);
+            startActivity(intent);
 
         } else {
 

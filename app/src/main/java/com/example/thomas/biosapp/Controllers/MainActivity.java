@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
 
         //Gridview instellen
+        films = new ArrayList<Film>();
         GridView gridview = (GridView) findViewById(R.id.filmGridView);
         filmGridAdapter = new FilmGridAdapter(getApplicationContext(), getLayoutInflater(), films);
         gridview.setAdapter(filmGridAdapter);

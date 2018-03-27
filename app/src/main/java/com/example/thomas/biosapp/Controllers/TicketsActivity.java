@@ -10,6 +10,7 @@ import android.widget.EditText;
 import com.example.thomas.biosapp.Controllers.PaymentMethodActivity;
 import com.example.thomas.biosapp.Controllers.SeatsActivity;
 import com.example.thomas.biosapp.R;
+import com.example.thomas.biosapp.Util.TicketDataValidator;
 
 public class TicketsActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -33,9 +34,18 @@ public class TicketsActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
 
-        //Naar volgende scherm
-        Intent intent = new Intent(getApplicationContext(), SeatsActivity.class);
-        //intent.putExtra("FILM_OBJECT", film);
-        startActivity(intent);
+        //String krijgen
+        String firstName = editTextTicketsFirstName.getText().toString();
+        String lastName = editTextTicketsLastName.getText().toString();
+
+        //Data valideren
+        TicketDataValidator ticketDataValidator = new TicketDataValidator(this);
+        if (ticketDataValidator.validate(firstName, lastName)) {
+
+            //Naar volgende scherm
+            Intent intent = new Intent(getApplicationContext(), SeatsActivity.class);
+            //intent.putExtra("FILM_OBJECT", film);
+            startActivity(intent);
+        }
     }
 }

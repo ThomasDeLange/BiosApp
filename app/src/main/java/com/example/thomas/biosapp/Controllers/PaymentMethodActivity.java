@@ -1,5 +1,6 @@
 package com.example.thomas.biosapp.Controllers;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -71,7 +72,9 @@ public class PaymentMethodActivity extends AppCompatActivity implements View.OnC
 
             case R.id.buttonConfirmPayment:
 
-                //Naar de volgende activiteit
+                //Naar de volgende activiteit, verwijder vorige activiteiten zodat de gebruiker niet terug naar de betaling kan
+                Intent intent = new Intent(getApplicationContext(), PaymentFinishedActivity.class);
+                startActivity(intent);
                 break;
 
             case R.id.buttonCancelPayment:

@@ -1,5 +1,6 @@
 package com.example.thomas.biosapp.Controllers;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -42,7 +43,9 @@ public class DetailedActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
 
-        //Reserveren
-        Toast.makeText(DetailedActivity.this, "Reserveren", Toast.LENGTH_SHORT).show();
+        //Naar volgende scherm
+        Intent intent = new Intent(getApplicationContext(), TicketsActivity.class);
+        //intent.putExtra("FILM_OBJECT", film);
+        startActivity(intent);
     }
 }

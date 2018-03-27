@@ -12,17 +12,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Controllers.MainActivity"></activity>
-        <activity android:name=".Controllers.DetailedActivity" />
-        <activity android:name=".Controllers.PaymentMethodActivity" />
-        <activity android:name=".Controllers.SeatsActivity">
+        <activity android:name=".Controllers.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Controllers.TicketsActivity"></activity>
+        <activity android:name=".Controllers.DetailedActivity" />
+        <activity android:name=".Controllers.PaymentMethodActivity" />
+        <activity android:name=".Controllers.SeatsActivity"></activity>
+        <activity android:name=".Controllers.TicketsActivity" />
+        <activity android:name=".Controllers.PaymentFinishedActivity"></activity>
     </application>
 
 </manifest>

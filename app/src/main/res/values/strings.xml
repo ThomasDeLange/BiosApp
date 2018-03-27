@@ -17,4 +17,14 @@
     <string name="firstname">Voornaam</string>
     <string name="lastname">Achternaam</string>
     <string name="validate_ticket_data">Bevestigen</string>
+    <string name="feedback_message_title">Feedback ontvangen</string>
+    <string name="feedback_message_content">Bedankt voor uw feedback!</string>
+    <string name="ok">Ok</string>
+    <string name="feedback_error_title">Fout in verstuurde feedback</string>
+    <string name="firstname_notfilled">De voornaam is niet ingevuld.</string>
+    <string name="lastname_notfilled">De achternaam is niet ingevuld</string>
+    <string name="improve_feedback">Deze fouten dienen verbeterd te worden.</string>
+    <string name="payment_succesful">Betaling geslaagd!</string>
+    <string name="show_ticket">Ga naar ticket</string>
+    <string name="return_main">Ga naar hoofdscherm</string>
 </resources>
