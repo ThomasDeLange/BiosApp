@@ -1,4 +1,4 @@
-package com.example.thomas.biosapp;
+package com.example.thomas.biosapp.Controllers;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +9,7 @@ import android.widget.EditText;
 
 import com.example.thomas.biosapp.Controllers.PaymentMethodActivity;
 import com.example.thomas.biosapp.Controllers.SeatsActivity;
+import com.example.thomas.biosapp.R;
 
 public class TicketsActivity extends AppCompatActivity implements View.OnClickListener {
 
