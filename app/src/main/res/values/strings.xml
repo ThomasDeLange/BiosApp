@@ -2,4 +2,7 @@
     <string name="app_name">BiosApp</string>
     <string name="textview">TextView</string>
     <string name="reserveren">reserveren</string>
+    <string name="payment">Betalen</string>
+    <string name="payment_method">Betalingsmethode:</string>
+    <string name="cancel">Annuleren</string>
 </resources>
