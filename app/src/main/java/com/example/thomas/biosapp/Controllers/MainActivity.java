@@ -10,9 +10,7 @@ import android.widget.GridView;
 
 import com.example.thomas.biosapp.Api.FilmTask;
 import com.example.thomas.biosapp.Api.OnFilmAvailable;
-import com.example.thomas.biosapp.Api.PaymentMethodActivity;
 import com.example.thomas.biosapp.Domain.Film;
-import com.example.thomas.biosapp.Api.SeatsActivity;
 import com.example.thomas.biosapp.R;
 import com.example.thomas.biosapp.Util.FilmGridAdapter;
 
@@ -27,15 +25,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-        //Hack
-        Intent intent = new Intent(getApplicationContext(), PaymentMethodActivity.class);
-        startActivity(intent);
-
-        films = new ArrayList<>();
-        Intent intent = new Intent(getApplicationContext(), SeatsActivity.class);
-        startActivity(intent);
 
         //Gridview instellen
         GridView gridview = (GridView) findViewById(R.id.filmGridView);

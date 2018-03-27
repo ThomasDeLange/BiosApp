@@ -13,15 +13,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Controllers.MainActivity">
+        </activity>
+        <activity android:name=".Controllers.DetailedActivity" />
+        <activity android:name=".Controllers.PaymentMethodActivity"></activity>
+        <activity android:name=".Controllers.SeatsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Controllers.DetailedActivity" />
-        <activity android:name=".Api.PaymentMethodActivity"></activity>
-        <activity android:name=".Api.SeatsActivity"></activity>
+            </intent-filter></activity>
     </application>
 
 </manifest>
