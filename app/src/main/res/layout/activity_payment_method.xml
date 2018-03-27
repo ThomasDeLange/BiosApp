@@ -14,7 +14,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/payment"
-        android:textSize="@dimen/activity_title"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -27,7 +27,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="@string/payment_method"
-        android:textSize="@dimen/contact_big"
+        android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewPayment" />
@@ -39,7 +39,7 @@
         android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="@+id/textViewChoosePayment"
         app:layout_constraintTop_toBottomOf="@+id/textViewChoosePayment"
-        app:srcCompat="@drawable/PayPal" />
+        app:srcCompat="@drawable/paypal" />
 
     <ImageView
         android:id="@+id/imageViewIDeal"
@@ -48,7 +48,7 @@
         android:layout_marginStart="16dp"
         app:layout_constraintStart_toEndOf="@+id/imageViewPayPal"
         app:layout_constraintTop_toTopOf="@+id/imageViewPayPal"
-        app:srcCompat="@drawable/iDeal" />
+        app:srcCompat="@drawable/ideal" />
 
     <Button
         android:id="@+id/buttonCancelPayment"
