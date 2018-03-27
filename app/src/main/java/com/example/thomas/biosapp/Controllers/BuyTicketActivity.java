@@ -6,7 +6,10 @@ import android.view.View;
 import android.widget.Button;
 
 import com.example.thomas.biosapp.Database.TicketDatabase.TicketDatabase;
+import com.example.thomas.biosapp.Domain.Buyer;
 import com.example.thomas.biosapp.Domain.Film;
+import com.example.thomas.biosapp.Domain.Seat;
+import com.example.thomas.biosapp.Domain.Ticket;
 import com.example.thomas.biosapp.R;
 
 public class BuyTicketActivity extends AppCompatActivity implements View.OnClickListener {
@@ -15,6 +18,11 @@ public class BuyTicketActivity extends AppCompatActivity implements View.OnClick
     Button testBuyTicketButton;
     TicketDatabase ticketDatabase;
     Film film;
+    Buyer buyer;
+    Ticket ticket;
+    Seat seat;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +51,7 @@ public class BuyTicketActivity extends AppCompatActivity implements View.OnClick
 
             case R.id.buyTicketButton:
 
-                ticketDatabase.buyTicket(film);
+                //ticketDatabase.buyTicket(film, buyer, ticket, seat);
                 break;
 
             case R.id.testBuyTicket:
