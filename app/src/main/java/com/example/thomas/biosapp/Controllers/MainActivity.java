@@ -11,6 +11,7 @@ import android.widget.GridView;
 import com.example.thomas.biosapp.Api.FilmTask;
 import com.example.thomas.biosapp.Api.OnFilmAvailable;
 import com.example.thomas.biosapp.Domain.Film;
+import com.example.thomas.biosapp.Api.SeatsActivity;
 import com.example.thomas.biosapp.R;
 import com.example.thomas.biosapp.Util.FilmGridAdapter;
 
@@ -27,6 +28,8 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
 
         films = new ArrayList<>();
+        Intent intent = new Intent(getApplicationContext(), SeatsActivity.class);
+        startActivity(intent);
 
         //Gridview instellen
         GridView gridview = (GridView) findViewById(R.id.filmGridView);
