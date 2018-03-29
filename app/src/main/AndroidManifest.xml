@@ -13,19 +13,20 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Controllers.MainActivity">
+        </activity>
+        <activity android:name=".Controllers.DetailedActivity" />
+        <activity android:name=".Controllers.PaymentMethodActivity" />
+        <activity android:name=".Controllers.SeatsActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".Controllers.DetailedActivity" />
-        <activity android:name=".Controllers.PaymentMethodActivity" />
-        <activity android:name=".Controllers.SeatsActivity" />
+            </intent-filter></activity>
         <activity android:name=".Controllers.TicketsActivity" />
         <activity android:name=".Controllers.PaymentFinishedActivity" />
         <activity android:name=".Controllers.PaymentProgressActivity" />
-        <activity android:name=".TicketViewActivity"></activity>
+        <activity android:name=".Controllers.TicketViewActivity"></activity>
     </application>
 
 </manifest>

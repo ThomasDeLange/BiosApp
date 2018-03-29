@@ -39,7 +39,7 @@ public class PaymentFinishedActivity extends AppCompatActivity implements View.O
             case R.id.buttonShowTicket:
 
                 //Ga naar ticketscherm
-                Intent intentTicket = new Intent(getApplicationContext(), MainActivity.class);
+                Intent intentTicket = new Intent(getApplicationContext(), TicketViewActivity.class);
                 startActivity(intentTicket);
                 break;
         }

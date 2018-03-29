@@ -39,7 +39,7 @@ public class PaymentMethodActivity extends AppCompatActivity implements View.OnC
         buttonCancelPayment.setOnClickListener(this);
 
         //Gegevens aan spinner toevoegen
-        String[] spinnerTitles = new String[] {"ABM AMRO", "ASN Bank", "bunq", "ING", "Knab", "Rabobank", "RegioBank","SNS", "Triodos Bank", "Van Lanschot"};
+        String[] spinnerTitles = new String[] {"ABN AMRO", "ASN Bank", "bunq", "ING", "Knab", "Rabobank", "RegioBank","SNS", "Triodos Bank", "Van Lanschot"};
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, spinnerTitles);
         spinnerBank.setAdapter(spinnerAdapter);
 
@@ -73,7 +73,7 @@ public class PaymentMethodActivity extends AppCompatActivity implements View.OnC
             case R.id.buttonConfirmPayment:
 
                 //Naar de volgende activiteit, verwijder vorige activiteiten zodat de gebruiker niet terug naar de betaling kan
-                Intent intent = new Intent(getApplicationContext(), PaymentProgressActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PaymentFinishedActivity.class);
                 startActivity(intent);
                 break;
 

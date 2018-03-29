@@ -7,9 +7,9 @@
     <string name="cancel">Annuleren</string>
     <string name="validate_payment">Betaling bevestigen</string>
     <string name="bank">Bank</string>
-    <string name="select_chair">Selecteer deze zitplaats</string>
-    <string name="seats">Zitplaats</string>
-    <string name="no_seats_selected">Geen stoel geselecteerd</string>
+    <string name="select_chair">Selecteer deze zitplaats(en)</string>
+    <string name="seats">Zitplaats(en)</string>
+    <string name="no_seats_selected">Geen zitplaats geselecteerd</string>
     <string name="selected">geselecteerd</string>
     <string name="select_seat_description">Selecteer hieronder uw gewenste zitplaats</string>
     <string name="tickets">Tickets</string>
