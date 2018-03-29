@@ -73,7 +73,7 @@ public class PaymentMethodActivity extends AppCompatActivity implements View.OnC
             case R.id.buttonConfirmPayment:
 
                 //Naar de volgende activiteit, verwijder vorige activiteiten zodat de gebruiker niet terug naar de betaling kan
-                Intent intent = new Intent(getApplicationContext(), PaymentFinishedActivity.class);
+                Intent intent = new Intent(getApplicationContext(), PaymentProgressActivity.class);
                 startActivity(intent);
                 break;
 

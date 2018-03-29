@@ -21,9 +21,11 @@
         </activity>
         <activity android:name=".Controllers.DetailedActivity" />
         <activity android:name=".Controllers.PaymentMethodActivity" />
-        <activity android:name=".Controllers.SeatsActivity"></activity>
+        <activity android:name=".Controllers.SeatsActivity" />
         <activity android:name=".Controllers.TicketsActivity" />
-        <activity android:name=".Controllers.PaymentFinishedActivity"></activity>
+        <activity android:name=".Controllers.PaymentFinishedActivity" />
+        <activity android:name=".Controllers.PaymentProgressActivity" />
+        <activity android:name=".TicketViewActivity"></activity>
     </application>
 
 </manifest>

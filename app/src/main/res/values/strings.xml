@@ -27,4 +27,6 @@
     <string name="payment_succesful">Betaling geslaagd!</string>
     <string name="show_ticket">Ga naar ticket</string>
     <string name="return_main">Ga naar hoofdscherm</string>
+    <string name="payment_progress">Bezig met betalingsprocedure ...</string>
+    <string name="ticket">Ticket</string>
 </resources>
