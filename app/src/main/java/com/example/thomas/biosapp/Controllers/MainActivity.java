@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private ArrayList<Film> films;
     private FilmGridAdapter filmGridAdapter;
-    private TicketDatabase ticketDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +28,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         setContentView(R.layout.activity_main);
 
         films = new ArrayList<>();
-        ticketDatabase = new TicketDatabase(getApplicationContext());
 
         //Gridview instellen
         GridView gridview = (GridView) findViewById(R.id.filmGridView);
