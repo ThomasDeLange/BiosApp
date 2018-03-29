@@ -8,5 +8,4 @@ import com.example.thomas.biosapp.Domain.Film;
 
 public interface OnFilmAvailable {
     void onFilmAvailable(Film film);
-    void onFilmsLoaded();
 }
