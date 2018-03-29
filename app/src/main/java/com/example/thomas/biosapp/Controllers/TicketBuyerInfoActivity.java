@@ -9,10 +9,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
+import com.example.thomas.biosapp.Domain.Buyer;
+import com.example.thomas.biosapp.Domain.Film;
 import com.example.thomas.biosapp.R;
 
 import java.util.ArrayList;
@@ -22,9 +25,11 @@ public class TicketBuyerInfoActivity extends AppCompatActivity implements View.O
 
     private static final String TAG = "TicketBuyerInfoActivity";
 
+    Film film;
+
     Button proceedButton;
 
-    TextView firstNameEditView;
+    EditText firstNameEditView;
     String buyername;
 
     SpinnerAdapter spinnerAdapter;
@@ -33,13 +38,15 @@ public class TicketBuyerInfoActivity extends AppCompatActivity implements View.O
 
     ArrayList<String> spinnerInput;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ticket_buyer_info);
 
+        film = (Film) getIntent().getSerializableExtra("FILM_OBJECT");
+
         proceedButton = (Button) findViewById(R.id.proceedButton);
+
         proceedButton.setOnClickListener(this);
 
         firstNameEditView = findViewById(R.id.firstNameEditView);
@@ -50,7 +57,7 @@ public class TicketBuyerInfoActivity extends AppCompatActivity implements View.O
         numberOfTicketsSpinner.setOnItemSelectedListener(this);
 
         spinnerInput = new ArrayList<>();
-        spinnerInput.addAll(Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9", "10"));
+        spinnerInput.addAll(Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9"));
 
         spinnerAdapter = new ArrayAdapter<String>(TicketBuyerInfoActivity.this, android.R.layout.simple_spinner_item, spinnerInput);
 
@@ -59,18 +66,21 @@ public class TicketBuyerInfoActivity extends AppCompatActivity implements View.O
 
     @Override
     public void onClick(View v) {
+
+        Buyer buyer = new Buyer(buyername);
+
         Intent intent = new Intent(getApplicationContext(), TicketSeatInfoActivity.class);
+        intent.putExtra("BUYER_OBJECT", buyer);
+        intent.putExtra("FILM_OBJECT", film);
         startActivity(intent);
     }
 
     @Override
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-        buyername = (String) firstNameEditView.getText();
-        Log.i(TAG, "onEditorAction: name = " + buyername);
-        return false;
+        buyername = firstNameEditView.getText().toString();
+        Log.d(TAG, "firstname: " + buyername);
+        return true;
     }
-
-
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -82,4 +92,5 @@ public class TicketBuyerInfoActivity extends AppCompatActivity implements View.O
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
 }

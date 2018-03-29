@@ -1,13 +1,19 @@
 package com.example.thomas.biosapp.Domain;
 
+import java.io.Serializable;
+
 /**
  * Created by thomas on 27-03-18.
  */
 
-public class Buyer {
+public class Buyer implements Serializable {
 
     private int buyerID;
     private String firstName;
+
+    public Buyer(String firstName) {
+        this.firstName = firstName;
+    }
 
     public Buyer(int buyerID, String firstName) {
         this.buyerID = buyerID;

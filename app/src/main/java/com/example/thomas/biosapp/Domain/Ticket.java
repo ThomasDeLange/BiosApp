@@ -13,11 +13,16 @@ public class Ticket {
     private String runTime;
     private String seatId;
 
-    public Ticket(String ticketID, String buyerID, String qrCode, String filmTitel, String runTime, String seatId) {
+    public Ticket(String qrCode, String runTime) {
+        this.qrCode = qrCode;
+        this.runTime = runTime;
+    }
+
+    public Ticket(String ticketID, String buyerID, String qrCode, String filmTitle, String runTime, String seatId) {
         this.ticketID = ticketID;
         this.buyerID = buyerID;
         this.qrCode = qrCode;
-        this.filmTitle = filmTitel;
+        this.filmTitle = filmTitle;
         this.runTime = runTime;
         this.seatId = seatId;
     }

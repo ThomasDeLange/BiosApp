@@ -34,8 +34,6 @@ public class DetailedActivity extends AppCompatActivity implements View.OnClickL
         film = (Film) getIntent().getSerializableExtra("FILM_OBJECT");
         RequestCreator requestCreator = Picasso.get().load(film.getPosterUrl());
 
-        //ticketDatabase = (TicketDatabase) getIntent().getSerializableExtra("DATABASE_OBJECT");
-
         //Data aanpassen
         filmDetailedTitle.setText(film.getName());
         requestCreator.into(filmDetailedImage);
@@ -51,7 +49,6 @@ public class DetailedActivity extends AppCompatActivity implements View.OnClickL
         //Verzoeken om naar een nieuw venster te gaan met het juiste film object
         Intent intent = new Intent(getApplicationContext(), TicketBuyerInfoActivity.class);
         intent.putExtra("FILM_OBJECT", film);
-        //intent.putExtra("DATABASE_OBJECCT", ticketDatabase);
-        startActivity(intent);
+startActivity(intent);
     }
 }

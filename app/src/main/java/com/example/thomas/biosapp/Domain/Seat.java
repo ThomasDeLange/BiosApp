@@ -10,12 +10,16 @@ public class Seat {
     private int rowNumber;
     private int seatNumber;
 
+    public Seat(int rowNumber, int seatNumber) {
+        this.rowNumber = rowNumber;
+        this.seatNumber = seatNumber;
+    }
+
     public Seat(int seatID, int rowNumber, int seatNumber) {
         this.seatID = seatID;
         this.rowNumber = rowNumber;
         this.seatNumber = seatNumber;
     }
-
 
     public int getSeatID() {
         return seatID;
