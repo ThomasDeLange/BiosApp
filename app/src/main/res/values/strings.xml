@@ -35,4 +35,10 @@
     <string name="emailadres_notfilled">Het e-mailadres is niet ingevuld.</string>
     <string name="message_notfilled">Het bericht is niet ingevuld.</string>
     <string name="improve_feedback">Deze fouten dienen verbeterd te worden.</string>
+    <string name="title_activity_films_tab">FilmsTab</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

@@ -24,11 +24,34 @@ import java.net.URLConnection;
 
 public class FilmTask extends AsyncTask<String, Void, String> {
 
-    private OnFilmAvailable listener = null;
     private static final String TAG = FilmTask.class.getSimpleName();
+    private OnFilmAvailable listener = null;
 
     public FilmTask(OnFilmAvailable listener) {
         this.listener = listener;
+    }
+
+    private static String getStringFromInputStream(InputStream inputStream) {
+        BufferedReader bufferedReader = null;
+        StringBuilder stringBuilder = new StringBuilder();
+        String line;
+        try {
+            bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            while ((line = bufferedReader.readLine()) != null) {
+                stringBuilder.append(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (bufferedReader != null) {
+                try {
+                    bufferedReader.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return stringBuilder.toString();
     }
 
     @Override
@@ -38,10 +61,10 @@ public class FilmTask extends AsyncTask<String, Void, String> {
         String filmUrl = strings[0];
         String response = "";
 
-        try{
+        try {
             URL url = new URL(filmUrl);
             URLConnection urlConnection = url.openConnection();
-            if(!(urlConnection instanceof HttpURLConnection)){
+            if (!(urlConnection instanceof HttpURLConnection)) {
                 return null;
             }
             HttpURLConnection httpConnection = (HttpURLConnection) urlConnection;
@@ -51,36 +74,37 @@ public class FilmTask extends AsyncTask<String, Void, String> {
             httpConnection.connect();
 
             responseCode = httpConnection.getResponseCode();
-            if(responseCode == HttpURLConnection.HTTP_OK){
+            if (responseCode == HttpURLConnection.HTTP_OK) {
                 inputStream = httpConnection.getInputStream();
                 response = getStringFromInputStream(inputStream);
-            }else{
+            } else {
                 Log.e(TAG, "Error, invalid response");
             }
-        }catch(MalformedURLException e){
+        } catch (MalformedURLException e) {
             Log.e(TAG, "doInBackground MalformedURLEXception " + e.getLocalizedMessage());
             return null;
-        }catch(IOException e){
+        } catch (IOException e) {
             Log.e(TAG, "doInBackground IOException " + e.getLocalizedMessage());
             return null;
         }
         return response;
+
     }
 
     @Override
     protected void onPostExecute(String response) {
         Log.i(TAG, "onPostExecute " + response);
-        if(response == null || response == ""){
+        if (response == null || response == "") {
             Log.e(TAG, "onPostExecute empty response");
             return;
         }
 
         JSONObject jsonObject;
-        try{
+        try {
             jsonObject = new JSONObject(response);
 
             JSONArray results = jsonObject.getJSONArray("results");
-            for(int i = 0; i < results.length(); i++){
+            for (int i = 0; i < results.length(); i++) {
                 JSONObject film = results.getJSONObject(i);
 
                 String movieTitle = film.getString("original_title");
@@ -97,37 +121,16 @@ public class FilmTask extends AsyncTask<String, Void, String> {
                 listener.onFilmAvailable(f);
             }
 
-        }catch(JSONException e){
+        } catch (JSONException e) {
             Log.e(TAG, "onPostExecute JSONException " + e.getLocalizedMessage());
         }
+
+        listener.onFilmsLoaded();
     }
 
-    private static String getStringFromInputStream(InputStream inputStream){
-        BufferedReader bufferedReader = null;
-        StringBuilder stringBuilder = new StringBuilder();
-        String line;
-        try{
-            bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-            while((line = bufferedReader.readLine()) != null){
-                stringBuilder.append(line);
-            }
-        }catch (IOException e){
-            e.printStackTrace();
-        }finally{
-            if(bufferedReader != null){
-                try{
-                    bufferedReader.close();
-                }catch (IOException e){
-                    e.printStackTrace();
-                }
-            }
-        }
-        return stringBuilder.toString();
-    }
-
-    public static class filmQueries{
+    public static class filmQueries {
         //append image_path to secureImageUrl, always use "poster_path"
-        public static final String secureImageUrl = "https://image.tmdb.org/t/p/w185/";
+        public static final String secureImageUrl = "https://image.tmdb.org/t/p/w300/";
         //retrieve a list split in pages in a JSONArray "results", default is page=1
         public static final String popularUrl = "https://api.themoviedb.org/3/movie/popular?api_key=f2a602049196e977fd3fc61a45ffe4ac&language=nl&page=1";
 
