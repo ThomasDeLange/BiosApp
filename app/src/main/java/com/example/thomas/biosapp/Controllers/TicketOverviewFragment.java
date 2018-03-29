@@ -12,9 +12,9 @@ import com.example.thomas.biosapp.R;
  * Created by steph on 26-3-2018.
  */
 
-public class TestFragmentTwo extends Fragment{
+public class TicketOverviewFragment extends Fragment {
 
-    public TestFragmentTwo(){
+    public TicketOverviewFragment(){
 
     }
 
@@ -27,7 +27,7 @@ public class TestFragmentTwo extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_test_fragment_one, container, false);
+        return inflater.inflate(R.layout.fragment_contact, container, false);
     }
 
 }

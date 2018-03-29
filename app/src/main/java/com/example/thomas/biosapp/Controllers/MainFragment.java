@@ -25,7 +25,7 @@ import java.util.ArrayList;
  * Created by steph on 26-3-2018.
  */
 
-public class TestFragment extends Fragment implements OnFilmAvailable, AdapterView.OnItemClickListener{
+public class MainFragment extends Fragment implements OnFilmAvailable, AdapterView.OnItemClickListener{
 
     private ArrayList<Film> films;
     private GridView gridview;

@@ -1,28 +1,39 @@
 package com.example.thomas.biosapp.Controllers;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.thomas.biosapp.Domain.Film;
 import com.example.thomas.biosapp.R;
 
-public class ContactActivity extends AppCompatActivity implements View.OnClickListener {
+/**
+ * Created by steph on 26-3-2018.
+ */
+
+public class ContactFragment extends Fragment implements View.OnClickListener{
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contact);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
-        //Verkrijg buttons
-        Button buttonRoute = findViewById(R.id.buttonRoute);
-        Button buttonFeedback = findViewById(R.id.buttonFeedback);
+        //View
+        View view = inflater.inflate(R.layout.fragment_ticket_overview, container, false);
+
+        //Verkrijg buttons;
+        Button buttonRoute = view.findViewById(R.id.buttonRoute);
+        Button buttonFeedback = view.findViewById(R.id.buttonFeedback);
 
         //Clicklisteners toevoegen
         buttonRoute.setOnClickListener(this);
         buttonFeedback.setOnClickListener(this);
+
+        // Inflate the layout for this fragment
+        return view;
     }
 
     @Override
@@ -36,7 +47,7 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
         if (button.getText().equals(getString(R.string.route))) {
 
             //Routebeschrijving
-            intent = new Intent(getApplicationContext(), MapsActivity.class);
+            intent = new Intent(getContext(), MapsActivity.class);
 
         } else if (button.getText().equals(getString(R.string.feedback_geven))) {
 
@@ -44,7 +55,7 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
             Film film = null;
 
             //Feedback geven
-            intent = new Intent(getApplicationContext(), FeedbackActivity.class);
+            intent = new Intent(getContext(), FeedbackActivity.class);
             intent.putExtra("FILM_OBJECT", film);
 
         } else return;

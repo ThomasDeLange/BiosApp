@@ -20,6 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Controllers.DetailedActivity" />
+        <activity android:name=".Controllers.FeedbackActivity"/>
+        <activity android:name=".Controllers.MapsActivity"/>
     </application>
 
 </manifest>

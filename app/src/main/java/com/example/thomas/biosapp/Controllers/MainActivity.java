@@ -103,10 +103,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager){
         PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager());
-        Fragment fragment = new TestFragment();
-        adapter.addFragment(fragment, "ONE");
-        adapter.addFragment(new TestFragmentTwo(), "TWO");
-        adapter.addFragment(new TestFragmentThree(), "THREE");
+        Fragment fragment = new MainFragment();
+        adapter.addFragment(fragment, "Overzicht");
+        adapter.addFragment(new ContactFragment(), "Contact");
+        adapter.addFragment(new TicketOverviewFragment(), "Tickets");
         viewPager.setAdapter(adapter);
     }
 }
