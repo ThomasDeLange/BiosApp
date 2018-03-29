@@ -1,10 +1,12 @@
-package com.example.thomas.biosapp;
+package com.example.thomas.biosapp.Controllers;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.thomas.biosapp.R;
 
 /**
  * Created by steph on 26-3-2018.

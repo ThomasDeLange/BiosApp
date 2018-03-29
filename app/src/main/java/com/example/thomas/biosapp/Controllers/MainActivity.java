@@ -1,24 +1,15 @@
 package com.example.thomas.biosapp.Controllers;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
-import android.view.View;
-import android.widget.AdapterView;
 import android.support.v7.widget.Toolbar;
-import android.widget.GridView;
 
-import com.example.thomas.biosapp.Api.FilmTask;
-import com.example.thomas.biosapp.Api.OnFilmAvailable;
 import com.example.thomas.biosapp.Domain.Film;
 import com.example.thomas.biosapp.R;
-import com.example.thomas.biosapp.TestFragment;
-import com.example.thomas.biosapp.TestFragmentThree;
-import com.example.thomas.biosapp.TestFragmentTwo;
 import com.example.thomas.biosapp.Util.FilmGridAdapter;
 import com.example.thomas.biosapp.Util.PagerAdapter;
 

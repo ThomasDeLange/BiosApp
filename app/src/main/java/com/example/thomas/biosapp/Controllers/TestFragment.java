@@ -1,4 +1,4 @@
-package com.example.thomas.biosapp;
+package com.example.thomas.biosapp.Controllers;
 
 import android.content.Context;
 import android.content.Intent;
