@@ -13,6 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Controllers.Main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="a\ndroid.intent.category.LAUNCHER" />
+
+
+            </intent-filter>
         </activity>
         <activity android:name=".Controllers.Main.DetailedActivity" />
         <activity android:name=".Controllers.Payments.PaymentMethodActivity" />
@@ -27,15 +34,18 @@
         <activity android:name=".Controllers.Unused.TicketSeatInfoActivity" />
         <activity android:name=".Controllers.Tickets.TicketActivity" />
         <activity android:name=".Controllers.Tickets.TicketDetailActivity"></activity>
-        <activity android:name=".Controllers.ContactActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".Controllers.Contact.ContactActivity">
+            <!--<intent-filter>-->
+                <!--<action android:name="android.intent.action.MAIN" />-->
 
-                <category android:name="a\ndroid.intent.category.LAUNCHER" />
+                <!--<category android:name="a\ndroid.intent.category.LAUNCHER" />-->
 
 
-            </intent-filter>
+            <!--</intent-filter>-->
         </activity>
+        <activity android:name=".Controllers.Contact.FeedbackActivity"></activity>
+        <activity android:name=".Controllers.Contact.MapsActivity"></activity>
+
     </application>
 
 </manifest>

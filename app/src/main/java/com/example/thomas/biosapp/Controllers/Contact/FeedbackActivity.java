@@ -1,4 +1,4 @@
-package com.example.thomas.biosapp.Controllers;
+package com.example.thomas.biosapp.Controllers.Contact;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
