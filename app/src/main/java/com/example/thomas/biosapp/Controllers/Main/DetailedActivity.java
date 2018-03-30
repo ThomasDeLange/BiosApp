@@ -1,18 +1,23 @@
 package com.example.thomas.biosapp.Controllers.Main;
 
+<<<<<<< HEAD:app/src/main/java/com/example/thomas/biosapp/Controllers/DetailedActivity.java
+=======
 import android.content.Intent;
 import android.os.Bundle;
+>>>>>>> TicketBesteling:app/src/main/java/com/example/thomas/biosapp/Controllers/Main/DetailedActivity.java
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+<<<<<<< HEAD:app/src/main/java/com/example/thomas/biosapp/Controllers/DetailedActivity.java
+=======
 import com.example.thomas.biosapp.Controllers.Seats.SeatsActivity;
 import com.example.thomas.biosapp.Domain.Film;
+>>>>>>> TicketBesteling:app/src/main/java/com/example/thomas/biosapp/Controllers/Main/DetailedActivity.java
 import com.example.thomas.biosapp.R;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.RequestCreator;
 
 public class DetailedActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -31,13 +36,18 @@ public class DetailedActivity extends AppCompatActivity implements View.OnClickL
         TextView filmDetailedDescription = findViewById(R.id.filmDetailedDescription);
 
         //Meegestuurde gegevens verkrijgen
+<<<<<<< HEAD:app/src/main/java/com/example/thomas/biosapp/Controllers/DetailedActivity.java
+        //Film film = (Film)getIntent().getSerializableExtra("FILM_OBJECT");
+        //RequestCreator requestCreator = Picasso.with(getApplicationContext()).load(photo.getImageSource());
+=======
         film = (Film) getIntent().getSerializableExtra("FILM_OBJECT");
         RequestCreator requestCreator = Picasso.get().load(film.getPosterUrl());
+>>>>>>> TicketBesteling:app/src/main/java/com/example/thomas/biosapp/Controllers/Main/DetailedActivity.java
 
         //Data aanpassen
-        filmDetailedTitle.setText(film.getName());
-        requestCreator.into(filmDetailedImage);
-        filmDetailedDescription.setText(film.getDescription());
+        //filmDetailedTitle.setText(film.set)
+        //requestCreator.into(filmDetailedImage);
+        //filmDetailedDescription.setText(film.set)
 
         //Actie achter reserveer knop
         filmDetailedOrder.setOnClickListener(this);
