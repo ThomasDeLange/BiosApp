@@ -1,115 +1,105 @@
 package com.example.thomas.biosapp.Domain;
 
+import java.util.Objects;
+
 /**
  * Created by thomas on 27-03-18.
  */
 
 public class Ticket {
 
-    private String ticketID;
-    private String buyerID;
-    private String qrCode;
+    private int rownumber;
+    private int beginSeatNumber;
+    private int endSeatNumber;
     private String filmTitle;
     private String runTime;
-    private String seatId;
+    private String qRCode;
 
-    public Ticket(String qrCode, String runTime) {
-        this.qrCode = qrCode;
-        this.runTime = runTime;
-    }
-
-    public Ticket(String ticketID, String buyerID, String qrCode, String filmTitle, String runTime, String seatId) {
-        this.ticketID = ticketID;
-        this.buyerID = buyerID;
-        this.qrCode = qrCode;
+    public Ticket(int rownumber, int beginSeatNumber, int endSeatNumber, String filmTitle, String runTime, String qRCode) {
+        this.rownumber = rownumber;
+        this.beginSeatNumber = beginSeatNumber;
+        this.endSeatNumber = endSeatNumber;
         this.filmTitle = filmTitle;
         this.runTime = runTime;
-        this.seatId = seatId;
+        this.qRCode = qRCode;
     }
 
-    public String getTicketID() {
-        return ticketID;
+    public int getRownumber() {
+        return rownumber;
     }
 
-    public void setTicketID(String ticketID) {
-        this.ticketID = ticketID;
+    public void setRownumber(int rownumber) {
+        this.rownumber = rownumber;
     }
 
-    public String getBuyerID() {
-        return buyerID;
+    public int getBeginSeatNumber() {
+        return beginSeatNumber;
     }
 
-    public void setBuyerID(String buyerID) {
-        this.buyerID = buyerID;
+    public void setBeginSeatNumber(int beginSeatNumber) {
+        this.beginSeatNumber = beginSeatNumber;
     }
 
-    public String getQrCode() {
-        return qrCode;
+    public int getEndSeatNumber() {
+        return endSeatNumber;
     }
 
-    public void setQrCode(String qrCode) {
-        this.qrCode = qrCode;
+    public void setEndSeatNumber(int endSeatNumber) {
+        this.endSeatNumber = endSeatNumber;
     }
 
-    public String getFilmTitel() {
+    public String getFilmTitle() {
         return filmTitle;
     }
 
-    public void setFilmTitel(String filmTitel) {
-        this.filmTitle = filmTitel;
+    public void setFilmTitle(String filmTitle) {
+        this.filmTitle = filmTitle;
     }
 
-    public String getrunTime() {
+    public String getRunTime() {
         return runTime;
     }
 
-    public void setrunTime(String runTime) {
+    public void setRunTime(String runTime) {
         this.runTime = runTime;
     }
 
-    public String getseatId() {
-        return seatId;
+    public String getqRCode() {
+        return qRCode;
     }
 
-    public void setseatId(String seatId) {
-        this.seatId = seatId;
+    public void setqRCode(String qRCode) {
+        this.qRCode = qRCode;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Ticket ticket = (Ticket) o;
-
-        if (!ticketID.equals(ticket.ticketID)) return false;
-        if (!buyerID.equals(ticket.buyerID)) return false;
-        if (!qrCode.equals(ticket.qrCode)) return false;
-        if (!filmTitle.equals(ticket.filmTitle)) return false;
-        if (!runTime.equals(ticket.runTime)) return false;
-        return seatId.equals(ticket.seatId);
+        return rownumber == ticket.rownumber &&
+                beginSeatNumber == ticket.beginSeatNumber &&
+                endSeatNumber == ticket.endSeatNumber &&
+                Objects.equals(filmTitle, ticket.filmTitle) &&
+                Objects.equals(runTime, ticket.runTime) &&
+                Objects.equals(qRCode, ticket.qRCode);
     }
 
     @Override
     public int hashCode() {
-        int result = ticketID.hashCode();
-        result = 31 * result + buyerID.hashCode();
-        result = 31 * result + qrCode.hashCode();
-        result = 31 * result + filmTitle.hashCode();
-        result = 31 * result + runTime.hashCode();
-        result = 31 * result + seatId.hashCode();
-        return result;
+
+        return Objects.hash(rownumber, beginSeatNumber, endSeatNumber, filmTitle, runTime, qRCode);
     }
 
     @Override
     public String toString() {
         return "Ticket{" +
-                "ticketID='" + ticketID + '\'' +
-                ", buyerID='" + buyerID + '\'' +
-                ", qrCode='" + qrCode + '\'' +
+                "rownumber=" + rownumber +
+                ", beginSeatNumber=" + beginSeatNumber +
+                ", endSeatNumber=" + endSeatNumber +
                 ", filmTitle='" + filmTitle + '\'' +
                 ", runTime='" + runTime + '\'' +
-                ", seatId='" + seatId + '\'' +
+                ", qRCode='" + qRCode + '\'' +
                 '}';
     }
 }

@@ -45,14 +45,14 @@ public class TicketBuyerInfoActivity extends AppCompatActivity implements View.O
 
         film = (Film) getIntent().getSerializableExtra("FILM_OBJECT");
 
-        proceedButton = (Button) findViewById(R.id.proceedButton);
+        proceedButton = findViewById(R.id.proceedButton);
 
         proceedButton.setOnClickListener(this);
 
         firstNameEditView = findViewById(R.id.firstNameEditView);
         firstNameEditView.setOnEditorActionListener(this);
 
-        numberOfTicketsSpinner = (Spinner) findViewById(R.id.numberOfTicketsSpinner);
+        numberOfTicketsSpinner = findViewById(R.id.numberOfTicketsSpinner);
 
         numberOfTicketsSpinner.setOnItemSelectedListener(this);
 

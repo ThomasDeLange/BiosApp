@@ -10,7 +10,6 @@ import android.widget.GridView;
 
 import com.example.thomas.biosapp.Api.FilmTask;
 import com.example.thomas.biosapp.Api.OnFilmAvailable;
-import com.example.thomas.biosapp.Database.TicketDatabase.TicketDatabase;
 import com.example.thomas.biosapp.Domain.Film;
 import com.example.thomas.biosapp.R;
 import com.example.thomas.biosapp.Util.FilmGridAdapter;
@@ -30,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         films = new ArrayList<>();
 
         //Gridview instellen
-        GridView gridview = (GridView) findViewById(R.id.filmGridView);
+        GridView gridview = findViewById(R.id.filmGridView);
         filmGridAdapter = new FilmGridAdapter(getApplicationContext(), getLayoutInflater(), films);
         gridview.setAdapter(filmGridAdapter);
         gridview.setOnItemClickListener(this);
@@ -39,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
         //Juiste film verkrijgen
-        Film film = (Film) films.get(position);
+        Film film = films.get(position);
         //Verzoeken om naar een nieuw venster te gaan met het juiste film object
         Intent intent = new Intent(getApplicationContext(), DetailedActivity.class);
         intent.putExtra("FILM_OBJECT", film);

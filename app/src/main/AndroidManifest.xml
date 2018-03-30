@@ -22,7 +22,8 @@
         <activity android:name=".Controllers.DetailedActivity" />
         <activity android:name=".Controllers.BuyTicketActivity" />
         <activity android:name=".Controllers.TicketBuyerInfoActivity" />
-        <activity android:name=".Controllers.TicketSeatInfoActivity"></activity>
+        <activity android:name=".Controllers.TicketSeatInfoActivity" />
+        <activity android:name=".TicketActivity"></activity>
     </application>
 
 </manifest>

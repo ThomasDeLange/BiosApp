@@ -50,11 +50,11 @@ public class TicketSeatInfoActivity extends AppCompatActivity implements View.On
         buyer = (Buyer) getIntent().getSerializableExtra("BUYER_OBJECT");
         film = (Film) getIntent().getSerializableExtra("FILM_OBJECT");
 
-        proceedButton = (Button) findViewById(R.id.payButton);
+        proceedButton = findViewById(R.id.payButton);
         proceedButton.setOnClickListener(this);
 
-        seatNumberSpinner = (Spinner) findViewById(R.id.seatNumberSpinner);
-        rowNumberSpinner = (Spinner) findViewById(R.id.rowNumberSpinner);
+        seatNumberSpinner = findViewById(R.id.seatNumberSpinner);
+        rowNumberSpinner = findViewById(R.id.rowNumberSpinner);
 
         spinnerInput = new ArrayList<>();
         spinnerInput.addAll(Arrays.asList("1", "2", "3", "4", "5", "6", "7", "8", "9"));
@@ -67,24 +67,20 @@ public class TicketSeatInfoActivity extends AppCompatActivity implements View.On
         seatNumberSpinner.setOnItemSelectedListener(this);
         rowNumberSpinner.setOnItemSelectedListener(this);
 
-        seatNumber = 1;
-        rowNumber = 4;
-
     }
 
     @Override
     public void onClick(View v) {
-        Seat seat = new Seat(rowNumber, seatNumber);
 
-        Ticket ticket = new Ticket("Qrcode", "11 uur");
+        Ticket ticket = new Ticket(4, 3, 5, film.getName(), "11 uur", "qrcode");
 
         TicketDatabase database = new TicketDatabase(getApplicationContext());
-        database.buyTicket(film, ticket, buyer, seat);
+        database.buyTicket(film, ticket);
 
-        database.printAll();
+        database.printTickets();
 
-        Intent intent = new Intent(getApplicationContext(), DetailedActivity.class);
-        intent.putExtra("FILM_OBJECT", film);
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        //intent.putExtra("FILM_OBJECT", film);
         startActivity(intent);
     }
 

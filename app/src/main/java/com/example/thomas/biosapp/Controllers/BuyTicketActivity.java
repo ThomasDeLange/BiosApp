@@ -29,10 +29,10 @@ public class BuyTicketActivity extends AppCompatActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buy_ticket);
 
-        buyTicketButton = (Button) findViewById(R.id.buyTicketButton);
+        buyTicketButton = findViewById(R.id.buyTicketButton);
         buyTicketButton.setOnClickListener(this);
 
-        testBuyTicketButton = (Button) findViewById(R.id.testBuyTicket);
+        testBuyTicketButton = findViewById(R.id.testBuyTicket);
         testBuyTicketButton.setOnClickListener(this);
 
 

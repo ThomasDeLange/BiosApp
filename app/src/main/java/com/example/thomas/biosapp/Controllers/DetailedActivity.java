@@ -8,7 +8,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.thomas.biosapp.Database.TicketDatabase.TicketDatabase;
 import com.example.thomas.biosapp.Domain.Film;
 import com.example.thomas.biosapp.R;
 import com.squareup.picasso.Picasso;
@@ -47,8 +46,8 @@ public class DetailedActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         //Verzoeken om naar een nieuw venster te gaan met het juiste film object
-        Intent intent = new Intent(getApplicationContext(), TicketBuyerInfoActivity.class);
+        Intent intent = new Intent(getApplicationContext(), TicketSeatInfoActivity.class);
         intent.putExtra("FILM_OBJECT", film);
-startActivity(intent);
+        startActivity(intent);
     }
 }
