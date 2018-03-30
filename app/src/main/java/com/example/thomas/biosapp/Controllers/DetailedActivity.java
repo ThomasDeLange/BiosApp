@@ -54,8 +54,9 @@ public class DetailedActivity extends AppCompatActivity implements View.OnClickL
         //Intent intent = new Intent(getApplicationContext(), TicketSeatInfoActivity.class);
         //intent.putExtra("FILM_OBJECT", film);
         //Verzoeken om naar een nieuw venster te gaan met het juiste film object
-        Intent intent = new Intent(getApplicationContext(), TicketSeatInfoActivity.class);
+        intent = new Intent(getApplicationContext(), TicketSeatInfoActivity.class);
         intent.putExtra("FILM_OBJECT", film);
         startActivity(intent);
     }
 }
+
