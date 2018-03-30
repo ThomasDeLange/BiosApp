@@ -1,4 +1,4 @@
-package com.example.thomas.biosapp.Controllers;
+package com.example.thomas.biosapp.Controllers.Main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.thomas.biosapp.Controllers.Seats.SeatsActivity;
 import com.example.thomas.biosapp.Domain.Film;
 import com.example.thomas.biosapp.R;
 import com.squareup.picasso.Picasso;
@@ -46,15 +47,11 @@ public class DetailedActivity extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
 
-        //Naar volgende scherm
-        Intent intent = new Intent(getApplicationContext(), TicketsActivity.class);
-        //intent.putExtra("FILM_OBJECT", film);
-      
-      //Verzoeken om naar een nieuw venster te gaan met het juiste film object
+        //Verzoeken om naar een nieuw venster te gaan met het juiste film object
         //Intent intent = new Intent(getApplicationContext(), TicketSeatInfoActivity.class);
         //intent.putExtra("FILM_OBJECT", film);
         //Verzoeken om naar een nieuw venster te gaan met het juiste film object
-        intent = new Intent(getApplicationContext(), TicketSeatInfoActivity.class);
+        Intent intent = new Intent(getApplicationContext(), SeatsActivity.class);
         intent.putExtra("FILM_OBJECT", film);
         startActivity(intent);
     }

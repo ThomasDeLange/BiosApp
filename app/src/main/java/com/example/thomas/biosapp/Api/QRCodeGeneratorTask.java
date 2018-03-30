@@ -1,11 +1,8 @@
-package com.example.thomas.biosapp.Util;
+package com.example.thomas.biosapp.Api;
 
-import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.os.AsyncTask;
 
-import com.example.thomas.biosapp.R;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.MultiFormatWriter;
 import com.google.zxing.common.BitMatrix;

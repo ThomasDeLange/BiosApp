@@ -1,4 +1,4 @@
-package com.example.thomas.biosapp.Controllers;
+package com.example.thomas.biosapp.Controllers.Unused;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -7,8 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.thomas.biosapp.Controllers.PaymentMethodActivity;
-import com.example.thomas.biosapp.Controllers.SeatsActivity;
+import com.example.thomas.biosapp.Controllers.Seats.SeatsActivity;
 import com.example.thomas.biosapp.R;
 import com.example.thomas.biosapp.Util.TicketDataValidator;
 

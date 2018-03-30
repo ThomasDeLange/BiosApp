@@ -1,4 +1,4 @@
-package com.example.thomas.biosapp.Util;
+package com.example.thomas.biosapp.Api;
 
 import android.graphics.Bitmap;
 

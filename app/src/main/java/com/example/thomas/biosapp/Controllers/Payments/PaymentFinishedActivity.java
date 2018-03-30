@@ -1,11 +1,13 @@
-package com.example.thomas.biosapp.Controllers;
+package com.example.thomas.biosapp.Controllers.Payments;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.thomas.biosapp.Controllers.Main.MainActivity;
+import com.example.thomas.biosapp.Controllers.Unused.TicketViewActivity;
 import com.example.thomas.biosapp.R;
 
 public class PaymentFinishedActivity extends AppCompatActivity implements View.OnClickListener {

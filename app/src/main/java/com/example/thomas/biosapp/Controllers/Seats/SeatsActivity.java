@@ -1,4 +1,4 @@
-package com.example.thomas.biosapp.Controllers;
+package com.example.thomas.biosapp.Controllers.Seats;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,13 +10,12 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.thomas.biosapp.Controllers.Payments.PaymentMethodActivity;
+import com.example.thomas.biosapp.Domain.Ticket;
 import com.example.thomas.biosapp.R;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Set;
 
 public class SeatsActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -80,9 +79,6 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
             //Verhoog index
             index++;
         }
-
-        //Eerste stoel selecteren
-        //onClick(first);
     }
 
     @Override
@@ -100,6 +96,11 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
 
             //Laad volgende scherm
             Intent intent = new Intent(getApplicationContext(), PaymentMethodActivity.class);
+
+            Ticket ticket = new Ticket();
+            ticket.setBeginSeatNumber(selectedChairIDs.get(0));
+            ticket.setEndSeatNumber(selectedChairIDs.get(selectedChairIDs.size() - 1));
+
             //intent.putExtra("FILM_OBJECT", film);
             startActivity(intent);
 

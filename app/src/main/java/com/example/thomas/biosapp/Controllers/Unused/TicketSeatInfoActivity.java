@@ -1,4 +1,4 @@
-package com.example.thomas.biosapp.Controllers;
+package com.example.thomas.biosapp.Controllers.Unused;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 
+import com.example.thomas.biosapp.Controllers.Main.MainActivity;
 import com.example.thomas.biosapp.Database.TicketDatabase;
 import com.example.thomas.biosapp.Domain.Buyer;
 import com.example.thomas.biosapp.Domain.Film;

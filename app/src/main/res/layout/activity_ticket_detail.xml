@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Controllers.TicketDetailActivity">
+    tools:context=".Controllers.Tickets.TicketDetailActivity">
 
     <TextView
         android:id="@+id/filmTitle"

@@ -1,4 +1,4 @@
-package com.example.thomas.biosapp.Controllers;
+package com.example.thomas.biosapp.Controllers.Payments;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;

@@ -1,4 +1,4 @@
-package com.example.thomas.biosapp.Controllers;
+package com.example.thomas.biosapp.Controllers.Unused;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -9,9 +9,10 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 
+import com.example.thomas.biosapp.Controllers.Main.MainActivity;
 import com.example.thomas.biosapp.R;
-import com.example.thomas.biosapp.Util.OnQRCodeGenerated;
-import com.example.thomas.biosapp.Util.QRCodeGeneratorTask;
+import com.example.thomas.biosapp.Api.OnQRCodeGenerated;
+import com.example.thomas.biosapp.Api.QRCodeGeneratorTask;
 
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
 

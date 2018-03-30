@@ -1,4 +1,4 @@
-package com.example.thomas.biosapp.Controllers;
+package com.example.thomas.biosapp.Controllers.Main;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -39,10 +39,10 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
         //Juiste film verkrijgen
         Film film = films.get(position);
+
         //Verzoeken om naar een nieuw venster te gaan met het juiste film object
         Intent intent = new Intent(getApplicationContext(), DetailedActivity.class);
         intent.putExtra("FILM_OBJECT", film);
-        //intent.putExtra("DATABASE_OBJECCT", this.ticketDatabase);
         startActivity(intent);
     }
 
@@ -54,36 +54,34 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        //Verander toolbar menu
-        getMenuInflater().inflate(R.menu.menu_search, menu);
-
-        /*
-        //Verkrijg de zoekknop
-        SearchView searchView = (android.support.v7.widget.SearchView)menu.findItem(R.id.filterButton);
-
-        //Voeg zoekactie toe aan zoekknop
-        searchView.setOnQueryTextListener(new android.support.v7.widget.SearchView.OnQueryTextListener() {
-
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                Toast.makeText(MainActivity.this, "Zoeken op '" + query + "'", Toast.LENGTH_SHORT);
-                return false;
-            }
-
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });*/
-        return super.onCreateOptionsMenu(menu);
-    }
-
-
-    @Override
     public void onFilmAvailable(Film film) {
         films.add(film);
         filmGridAdapter.notifyDataSetChanged();
     }
+    //    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//
+//        //Verander toolbar menu
+//        getMenuInflater().inflate(R.menu.menu_search, menu);
+//
+//        /*
+//        //Verkrijg de zoekknop
+//        SearchView searchView = (android.support.v7.widget.SearchView)menu.findItem(R.id.filterButton);
+//
+//        //Voeg zoekactie toe aan zoekknop
+//        searchView.setOnQueryTextListener(new android.support.v7.widget.SearchView.OnQueryTextListener() {
+//
+//            @Override
+//            public boolean onQueryTextSubmit(String query) {
+//                Toast.makeText(MainActivity.this, "Zoeken op '" + query + "'", Toast.LENGTH_SHORT);
+//                return false;
+//            }
+//
+//            @Override
+//            public boolean onQueryTextChange(String newText) {
+//                return false;
+//            }
+//        });*/
+//        return super.onCreateOptionsMenu(menu);
+//    }
 }

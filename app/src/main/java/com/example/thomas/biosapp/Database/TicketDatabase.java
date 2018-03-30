@@ -25,7 +25,7 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
     private final static String TAG = "TicketDatabase";
 
     private final static String DB_NAME = "TicketDatabse.db";
-    private final static int DB_VERSION = 8;
+    private final static int DB_VERSION = 9;
 
     private final static String TICKET_TABLE_NAME = "Ticket";
 
