@@ -51,4 +51,36 @@ public class Film implements Serializable {
     public void setId(String id) {
         this.id = id;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Film film = (Film) o;
+
+        if (!name.equals(film.name)) return false;
+        if (!posterUrl.equals(film.posterUrl)) return false;
+        if (!description.equals(film.description)) return false;
+        return id.equals(film.id);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name.hashCode();
+        result = 31 * result + posterUrl.hashCode();
+        result = 31 * result + description.hashCode();
+        result = 31 * result + id.hashCode();
+        return result;
+    }
+
+    @Override
+    public String toString() {
+        return "Film{" +
+                "name='" + name + '\'' +
+                ", posterUrl='" + posterUrl + '\'' +
+                ", description='" + description + '\'' +
+                ", id='" + id + '\'' +
+                '}';
+    }
 }

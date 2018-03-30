@@ -6,18 +6,18 @@ import android.content.Context;
 import com.example.thomas.biosapp.R;
 
 /**
- * Created by Julian on 26-3-2018.
+ * Created by Julian on 27-3-2018.
  */
 
-public class FeedbackValidator {
+public class TicketDataValidator {
 
     private Context context;
 
-    public FeedbackValidator(Context context) {
+    public TicketDataValidator(Context context) {
         this.context = context;
     }
 
-    public boolean validate(float rating, String firstName, String lastName, String emailadres, String message) {
+    public boolean validate(String firstName, String lastName) {
 
         //Errors
         String errors = "";
@@ -30,14 +30,6 @@ public class FeedbackValidator {
         if (lastName.length() == 0)
 
             errors += context.getString(R.string.lastname_notfilled) + "\n";
-
-        if (emailadres.length() == 0)
-
-            errors += context.getString(R.string.emailadres_notfilled) + "\n";
-
-        if (message.length() == 0)
-
-            errors += context.getString(R.string.message_notfilled) + "\n";
 
         //Controleren of error variabele leeg is
         if (errors.length() == 0) {

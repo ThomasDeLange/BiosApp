@@ -1,6 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="contact_big">20sp</dimen>
-    <dimen name="contact_normal">14sp</dimen>
-    <dimen name="activity_title">28sp</dimen>
+    <dimen name="chair_size">32dp</dimen>
 </resources>

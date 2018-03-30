@@ -1,59 +1,72 @@
 package com.example.thomas.biosapp.Util;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import com.example.thomas.biosapp.Domain.Film;
 import com.example.thomas.biosapp.R;
+import com.squareup.picasso.Picasso;
 
-//import com.example.thomas.biosapp.R;
-
+import java.util.ArrayList;
 public class FilmGridAdapter extends BaseAdapter {
     private Context context;
-    // references to our images
-    private Integer[] mThumbIds = {
-            R.drawable.sample_2, R.drawable.sample_3,
-            R.drawable.sample_4, R.drawable.sample_5,
-            R.drawable.sample_6, R.drawable.sample_7,
-            R.drawable.sample_0, R.drawable.sample_1,
-            R.drawable.sample_2, R.drawable.sample_3,
-            R.drawable.sample_4, R.drawable.sample_5,
-            R.drawable.sample_6, R.drawable.sample_7,
-            R.drawable.sample_0, R.drawable.sample_1,
-            R.drawable.sample_2, R.drawable.sample_3,
-            R.drawable.sample_4, R.drawable.sample_5,
-            R.drawable.sample_6, R.drawable.sample_7
-    };
+    private LayoutInflater mInflator;
+    private ArrayList mFilmArrayList;
 
-    public FilmGridAdapter(Context context) {
+    public FilmGridAdapter(Context context, LayoutInflater layoutInflater, ArrayList<Film> filmArrayList) {
         this.context = context;
+        this.mInflator = layoutInflater;
+        this.mFilmArrayList = filmArrayList;
     }
 
     public int getCount() {
-        return mThumbIds.length;
+        int size = mFilmArrayList.size();
+        return size;
     }
 
     public Object getItem(int position) {
-        return null;
+        return mFilmArrayList.get(position);
     }
 
     public long getItemId(int position) {
-        return 0;
+        return position;
     }
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-        ImageView imageView;
+//        ImageView imageView;
+//        if (convertView == null) {
+//            // if it's not recycled, initialize some attributes
+//            imageView = new ImageView(context);
+//        } else {
+//            imageView = (ImageView) convertView;
+//        }
+//
+//        imageView.setImageResource(mThumbIds[position]);
+//        return imageView;
+
+        ViewHolder viewHolder;
         if (convertView == null) {
-            // if it's not recycled, initialize some attributes
-            imageView = new ImageView(context);
+            convertView = mInflator.inflate(R.layout.film_gridview_item, null);
+            viewHolder = new ViewHolder();
+            viewHolder.imageView = convertView.findViewById(R.id.filmGridImageView);
+            convertView.setTag(viewHolder);
         } else {
-            imageView = (ImageView) convertView;
+            viewHolder = (ViewHolder) convertView.getTag();
         }
 
-        imageView.setImageResource(mThumbIds[position]);
-        return imageView;
+        Film film = (Film) mFilmArrayList.get(position);
+        Picasso.get().load(film.getPosterUrl()).into(viewHolder.imageView);
+        return convertView;
+    }
+
+    private static class ViewHolder {
+        public ImageView imageView;
+        public TextView movieTitle;
     }
 }
