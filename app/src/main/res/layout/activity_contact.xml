@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.thomas.biosapp.Controllers.ContactActivity"
+    tools:layout_editor_absoluteY="81dp">
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/textViewContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/contactdata"
+                android:textSize="@dimen/activity_title"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewEmailadres"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/emailadres"
+                android:textSize="@dimen/contact_normal"
+                android:textStyle="italic"
+                app:layout_constraintStart_toStartOf="@+id/textViewPhoneNumber"
+                app:layout_constraintTop_toBottomOf="@+id/textViewPhoneNumber" />
+
+            <TextView
+                android:id="@+id/textViewPostalCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/postalcode"
+                app:layout_constraintStart_toStartOf="@+id/textViewAdres"
+                app:layout_constraintTop_toBottomOf="@+id/textViewAdres" />
+
+            <Button
+                android:id="@+id/buttonRoute"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/route"
+                app:layout_constraintEnd_toEndOf="@+id/textViewReachabilityExplaination"
+                app:layout_constraintStart_toStartOf="@+id/textViewReachabilityExplaination"
+                app:layout_constraintTop_toBottomOf="@+id/textViewReachabilityExplaination" />
+
+            <TextView
+                android:id="@+id/textViewReachability"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/reachability"
+                android:textSize="@dimen/contact_big"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/textViewEmail"
+                app:layout_constraintTop_toBottomOf="@+id/textViewEmail" />
+
+            <TextView
+                android:id="@+id/textViewEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/email_contact"
+                android:textSize="@dimen/contact_normal"
+                app:layout_constraintStart_toStartOf="@+id/textViewPhone"
+                app:layout_constraintTop_toBottomOf="@+id/textViewPhone" />
+
+            <TextView
+                android:id="@+id/textViewPhoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:text="@string/phonenumber"
+                android:textSize="@dimen/contact_normal"
+                android:textStyle="italic"
+                app:layout_constraintStart_toEndOf="@+id/textViewEmail"
+                app:layout_constraintTop_toTopOf="@+id/textViewPhone" />
+
+            <TextView
+                android:id="@+id/textViewAdres"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/street"
+                android:textSize="@dimen/contact_normal"
+                app:layout_constraintStart_toStartOf="@+id/textViewBioscoopBreda"
+                app:layout_constraintTop_toBottomOf="@+id/textViewBioscoopBreda" />
+
+            <TextView
+                android:id="@+id/textViewReachabilityExplaination"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="8dp"
+                android:text="@string/reachability_explaination"
+                android:textSize="@dimen/contact_normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/textViewReachability"
+                app:layout_constraintTop_toBottomOf="@+id/textViewReachability" />
+
+            <Button
+                android:id="@+id/buttonFeedback"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/feedback_geven"
+                app:layout_constraintEnd_toEndOf="@+id/buttonRoute"
+                app:layout_constraintStart_toStartOf="@+id/buttonRoute"
+                app:layout_constraintTop_toBottomOf="@+id/buttonRoute" />
+
+            <TextView
+                android:id="@+id/textViewBioscoopBreda"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/name_cinema"
+                android:textSize="@dimen/contact_big"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewContact" />
+
+            <TextView
+                android:id="@+id/textViewPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/phone_contact"
+                android:textSize="@dimen/contact_normal"
+                app:layout_constraintStart_toStartOf="@+id/textViewContactMethods"
+                app:layout_constraintTop_toBottomOf="@+id/textViewContactMethods" />
+
+            <TextView
+                android:id="@+id/textViewContactMethods"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:text="@string/contact_methods"
+                android:textSize="@dimen/contact_big"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@+id/textViewCountry"
+                app:layout_constraintTop_toBottomOf="@+id/textViewCountry" />
+
+            <TextView
+                android:id="@+id/textViewCountry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/netherlands"
+                android:textSize="@dimen/contact_normal"
+                app:layout_constraintStart_toStartOf="@+id/textViewPostalCode"
+                app:layout_constraintTop_toBottomOf="@+id/textViewPostalCode" />
+        </android.support.constraint.ConstraintLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
