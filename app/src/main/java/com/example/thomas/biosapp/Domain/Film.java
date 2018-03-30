@@ -73,4 +73,14 @@ public class Film implements Serializable {
         result = 31 * result + id.hashCode();
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "Film{" +
+                "name='" + name + '\'' +
+                ", posterUrl='" + posterUrl + '\'' +
+                ", description='" + description + '\'' +
+                ", id='" + id + '\'' +
+                '}';
+    }
 }

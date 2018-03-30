@@ -29,4 +29,5 @@
     <string name="return_main">Ga naar hoofdscherm</string>
     <string name="payment_progress">Bezig met betalingsprocedure ...</string>
     <string name="ticket">Ticket</string>
+    <string name="boeken">Boek nu!</string>
 </resources>

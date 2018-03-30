@@ -54,7 +54,7 @@ public class FilmGridAdapter extends BaseAdapter {
         if (convertView == null) {
             convertView = mInflator.inflate(R.layout.film_gridview_item, null);
             viewHolder = new ViewHolder();
-            viewHolder.imageView = (ImageView) convertView.findViewById(R.id.filmGridImageView);
+            viewHolder.imageView = convertView.findViewById(R.id.filmGridImageView);
             convertView.setTag(viewHolder);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
