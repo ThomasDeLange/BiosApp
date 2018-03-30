@@ -26,21 +26,6 @@
     <string name="send">Verzenden</string>
     <string name="default_feedback_message"> </string>
     <string name="contactdata">Contactgegevens</string>
-    <string name="payment">Betalen</string>
-    <string name="payment_method">Betalingsmethode:</string>
-    <string name="cancel">Annuleren</string>
-    <string name="validate_payment">Betaling bevestigen</string>
-    <string name="bank">Bank</string>
-    <string name="select_chair">Selecteer deze zitplaats(en)</string>
-    <string name="seats">Zitplaats(en)</string>
-    <string name="no_seats_selected">Geen zitplaats geselecteerd</string>
-    <string name="selected">geselecteerd</string>
-    <string name="select_seat_description">Selecteer hieronder uw gewenste zitplaats</string>
-    <string name="tickets">Tickets</string>
-    <string name="personal_data">Persoonsgegevens</string>
-    <string name="firstname">Voornaam</string>
-    <string name="lastname">Achternaam</string>
-    <string name="validate_ticket_data">Bevestigen</string>
     <string name="feedback_message_title">Feedback ontvangen</string>
     <string name="feedback_message_content">Bedankt voor uw feedback!</string>
     <string name="ok">Ok</string>
@@ -50,11 +35,4 @@
     <string name="emailadres_notfilled">Het e-mailadres is niet ingevuld.</string>
     <string name="message_notfilled">Het bericht is niet ingevuld.</string>
     <string name="improve_feedback">Deze fouten dienen verbeterd te worden.</string>
-    <string name="improve_feedback">Deze fouten dienen verbeterd te worden.</string>
-    <string name="payment_succesful">Betaling geslaagd!</string>
-    <string name="show_ticket">Ga naar ticket</string>
-    <string name="return_main">Ga naar hoofdscherm</string>
-    <string name="payment_progress">Bezig met betalingsprocedure ...</string>
-    <string name="ticket">Ticket</string>
-    <string name="boeken">Boek nu!</string>
 </resources>

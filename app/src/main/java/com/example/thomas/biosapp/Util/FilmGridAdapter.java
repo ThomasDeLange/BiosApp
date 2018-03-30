@@ -49,10 +49,6 @@ public class FilmGridAdapter extends BaseAdapter {
         if (convertView == null) {
             // if it's not recycled, initialize some attributes
             imageView = new ImageView(context);
-            convertView = mInflator.inflate(R.layout.film_gridview_item, null);
-            viewHolder = new ViewHolder();
-            viewHolder.imageView = convertView.findViewById(R.id.filmGridImageView);
-            convertView.setTag(viewHolder);
         } else {
             imageView = (ImageView) convertView;
         }

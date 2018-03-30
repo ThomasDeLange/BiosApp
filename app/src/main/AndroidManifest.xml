@@ -19,13 +19,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Controllers.Main.MainActivity">
+        <activity android:name=".Controllers.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="a\ndroid.intent.category.LAUNCHER" />
-
-
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".Controllers.DetailedActivity" />
@@ -46,19 +44,6 @@
             android:name=".Controllers.MapsActivity"
             android:label="@string/title_activity_maps" />
         <activity android:name=".Controllers.FeedbackActivity"></activity>
-        <activity android:name=".Controllers.Main.DetailedActivity" />
-        <activity android:name=".Controllers.Payments.PaymentMethodActivity" />
-        <activity android:name=".Controllers.Seats.SeatsActivity">
-        </activity>
-        <activity android:name=".Controllers.Unused.TicketsActivity" />
-        <activity android:name=".Controllers.Payments.PaymentFinishedActivity" />
-        <activity android:name=".Controllers.Payments.PaymentProgressActivity" />
-        <activity android:name=".Controllers.Unused.TicketViewActivity"></activity>
-        <activity android:name=".Controllers.Payments.BuyTicketActivity" />
-        <activity android:name=".Controllers.Unused.TicketBuyerInfoActivity" />
-        <activity android:name=".Controllers.Unused.TicketSeatInfoActivity" />
-        <activity android:name=".Controllers.Tickets.TicketActivity" />
-        <activity android:name=".Controllers.Tickets.TicketDetailActivity"></activity>
     </application>
 
 </manifest>

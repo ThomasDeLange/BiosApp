@@ -7,5 +7,3 @@
 /build
 /captures
 .externalNativeBuild
-app/src/main/java/com/example/thomas/biosapp/Controllers/MainActivity.java
-app/src/main/AndroidManifest.xml
