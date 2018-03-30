@@ -38,6 +38,8 @@
     <string name="select_seat_description">Selecteer hieronder uw gewenste zitplaats</string>
     <string name="tickets">Tickets</string>
     <string name="personal_data">Persoonsgegevens</string>
+    <string name="firstname">Voornaam</string>
+    <string name="lastname">Achternaam</string>
     <string name="validate_ticket_data">Bevestigen</string>
     <string name="feedback_message_title">Feedback ontvangen</string>
     <string name="feedback_message_content">Bedankt voor uw feedback!</string>
@@ -47,6 +49,7 @@
     <string name="lastname_notfilled">De achternaam is niet ingevuld</string>
     <string name="emailadres_notfilled">Het e-mailadres is niet ingevuld.</string>
     <string name="message_notfilled">Het bericht is niet ingevuld.</string>
+    <string name="improve_feedback">Deze fouten dienen verbeterd te worden.</string>
     <string name="improve_feedback">Deze fouten dienen verbeterd te worden.</string>
     <string name="payment_succesful">Betaling geslaagd!</string>
     <string name="show_ticket">Ga naar ticket</string>
