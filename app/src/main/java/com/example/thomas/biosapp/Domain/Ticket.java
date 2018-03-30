@@ -1,12 +1,13 @@
 package com.example.thomas.biosapp.Domain;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  * Created by thomas on 27-03-18.
  */
 
-public class Ticket {
+public class Ticket implements Serializable{
 
     private int rownumber;
     private int beginSeatNumber;
@@ -14,14 +15,16 @@ public class Ticket {
     private String filmTitle;
     private String runTime;
     private String qRCode;
+    private String posterURL;
 
-    public Ticket(int rownumber, int beginSeatNumber, int endSeatNumber, String filmTitle, String runTime, String qRCode) {
+    public Ticket(int rownumber, int beginSeatNumber, int endSeatNumber, String filmTitle, String runTime, String qRCode, String posterURL) {
         this.rownumber = rownumber;
         this.beginSeatNumber = beginSeatNumber;
         this.endSeatNumber = endSeatNumber;
         this.filmTitle = filmTitle;
         this.runTime = runTime;
         this.qRCode = qRCode;
+        this.posterURL = posterURL;
     }
 
     public int getRownumber() {
@@ -72,6 +75,14 @@ public class Ticket {
         this.qRCode = qRCode;
     }
 
+    public String getPosterURL() {
+        return posterURL;
+    }
+
+    public void setPosterURL(String posterURL) {
+        this.posterURL = posterURL;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -82,13 +93,14 @@ public class Ticket {
                 endSeatNumber == ticket.endSeatNumber &&
                 Objects.equals(filmTitle, ticket.filmTitle) &&
                 Objects.equals(runTime, ticket.runTime) &&
-                Objects.equals(qRCode, ticket.qRCode);
+                Objects.equals(qRCode, ticket.qRCode) &&
+                Objects.equals(posterURL, ticket.posterURL);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(rownumber, beginSeatNumber, endSeatNumber, filmTitle, runTime, qRCode);
+        return Objects.hash(rownumber, beginSeatNumber, endSeatNumber, filmTitle, runTime, qRCode, posterURL);
     }
 
     @Override
@@ -100,6 +112,7 @@ public class Ticket {
                 ", filmTitle='" + filmTitle + '\'' +
                 ", runTime='" + runTime + '\'' +
                 ", qRCode='" + qRCode + '\'' +
+                ", posterURL='" + posterURL + '\'' +
                 '}';
     }
 }

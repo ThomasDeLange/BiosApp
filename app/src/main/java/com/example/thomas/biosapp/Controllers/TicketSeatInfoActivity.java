@@ -11,10 +11,9 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.SpinnerAdapter;
 
-import com.example.thomas.biosapp.Database.TicketDatabase.TicketDatabase;
+import com.example.thomas.biosapp.Database.TicketDatabase;
 import com.example.thomas.biosapp.Domain.Buyer;
 import com.example.thomas.biosapp.Domain.Film;
-import com.example.thomas.biosapp.Domain.Seat;
 import com.example.thomas.biosapp.Domain.Ticket;
 import com.example.thomas.biosapp.R;
 
@@ -72,7 +71,7 @@ public class TicketSeatInfoActivity extends AppCompatActivity implements View.On
     @Override
     public void onClick(View v) {
 
-        Ticket ticket = new Ticket(4, 3, 5, film.getName(), "11 uur", "qrcode");
+        Ticket ticket = new Ticket(4, 3, 5, film.getName(), "11 uur", "qrcode", film.getPosterUrl());
 
         TicketDatabase database = new TicketDatabase(getApplicationContext());
         database.buyTicket(film, ticket);
