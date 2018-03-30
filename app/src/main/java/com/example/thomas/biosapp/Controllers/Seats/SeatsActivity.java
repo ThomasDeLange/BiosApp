@@ -10,8 +10,9 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.example.thomas.biosapp.Controllers.Payments.PaymentMethodActivity;
-import com.example.thomas.biosapp.Domain.Ticket;
+import com.example.thomas.biosapp.Controllers.Payments.PaymentActivity;
+import com.example.thomas.biosapp.Domain.Film;
+import com.example.thomas.biosapp.Domain.Seat;
 import com.example.thomas.biosapp.R;
 
 import java.util.ArrayList;
@@ -24,11 +25,12 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
     private final String CHAIR_ID_NAME = "selectableChair";
     private ArrayList<Integer> selectedChairIDs;
     private Spinner spinnerChairAmount;
+    private Film film;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_seats);
+        setContentView(R.layout.activity_seat);
 
         //Spinner
         spinnerChairAmount = findViewById(R.id.spinnerChairAmount);
@@ -48,37 +50,9 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
 
         //Verkrijg stoelen
         getSeats();
-    }
 
-    private void getSeats() {
-
-        //Creeër lijst met stoelen
-        seats = new HashMap<>();
-        int index = 1;
-        ImageView first = null;
-        while(true) {
-
-            //Verkrijg id van de stoel
-            int id = getResources().getIdentifier(CHAIR_ID_NAME + index, "id", getPackageName());
-
-            //Verkrijg object
-            ImageView seat = findViewById(id);
-
-            //Eerste opslaan
-            if (index == 1) first = seat;
-
-            //Als het NULL is zijn er geen stoelen meer
-            if (seat == null) break;
-
-            //Toevoegen aan de lijst
-            seats.put(seat, index);
-
-            //Add on click
-            seat.setOnClickListener(this);
-
-            //Verhoog index
-            index++;
-        }
+        //Verkrijg intent
+        film = (Film) getIntent().getSerializableExtra("FILM_OBJECT");
     }
 
     @Override
@@ -95,13 +69,19 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
         if (id == R.id.buttonSelectChair) {
 
             //Laad volgende scherm
-            Intent intent = new Intent(getApplicationContext(), PaymentMethodActivity.class);
+            Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
 
-            Ticket ticket = new Ticket();
-            ticket.setBeginSeatNumber(selectedChairIDs.get(0));
-            ticket.setEndSeatNumber(selectedChairIDs.get(selectedChairIDs.size() - 1));
+            //Reserveer de seats voor in de database
+            int beginSeatNumber= selectedChairIDs.get(0);
+            int endSeatNumber = selectedChairIDs.get(selectedChairIDs.size() - 1);
 
-            //intent.putExtra("FILM_OBJECT", film);
+            //@TODO aanpassen
+            int rowNumber = 1;
+
+            Seat seat = new Seat(rowNumber, beginSeatNumber, endSeatNumber);
+
+            intent.putExtra("SEAT_OBJECT", seat);
+            intent.putExtra("FILM_OBJECT", film);
             startActivity(intent);
 
         } else {
@@ -132,6 +112,36 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
 
             //Geselecteerde stoelnummer weergeven
             textViewChairSelected.setText(getString(R.string.seats) + " " + chairString + " " + getString(R.string.selected));
+        }
+    }
+    private void getSeats() {
+
+        //Creeër lijst met stoelen
+        seats = new HashMap<>();
+        int index = 1;
+        ImageView first = null;
+        while(true) {
+
+            //Verkrijg id van de stoel
+            int id = getResources().getIdentifier(CHAIR_ID_NAME + index, "id", getPackageName());
+
+            //Verkrijg object
+            ImageView seat = findViewById(id);
+
+            //Eerste opslaan
+            if (index == 1) first = seat;
+
+            //Als het NULL is zijn er geen stoelen meer
+            if (seat == null) break;
+
+            //Toevoegen aan de lijst
+            seats.put(seat, index);
+
+            //Add on click
+            seat.setOnClickListener(this);
+
+            //Verhoog index
+            index++;
         }
     }
 

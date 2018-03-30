@@ -10,19 +10,27 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.thomas.biosapp.Controllers.Tickets.TicketsActivity;
+import com.example.thomas.biosapp.Database.TicketDatabase;
+import com.example.thomas.biosapp.Domain.Film;
+import com.example.thomas.biosapp.Domain.Seat;
+import com.example.thomas.biosapp.Domain.Ticket;
 import com.example.thomas.biosapp.R;
 
-public class PaymentMethodActivity extends AppCompatActivity implements View.OnClickListener {
+public class PaymentActivity extends AppCompatActivity implements View.OnClickListener {
 
     private ImageView imageViewPayPal;
     private ImageView imageViewIDeal;
     private TextView textViewBank;
     private Spinner spinnerBank;
+    private Seat seat;
+    private Film film;
+    private TicketDatabase database;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_payment_method);
+        setContentView(R.layout.activity_payment);
 
         //Verkrijg afbeeldingen, spinner en buttons
         imageViewPayPal = findViewById(R.id.imageViewPayPal);
@@ -40,11 +48,16 @@ public class PaymentMethodActivity extends AppCompatActivity implements View.OnC
 
         //Gegevens aan spinner toevoegen
         String[] spinnerTitles = new String[] {"ABN AMRO", "ASN Bank", "bunq", "ING", "Knab", "Rabobank", "RegioBank","SNS", "Triodos Bank", "Van Lanschot"};
-        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, spinnerTitles);
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, spinnerTitles);
         spinnerBank.setAdapter(spinnerAdapter);
 
         //Eerste payment methode weergeven
         onClick(imageViewPayPal);
+
+        //Serializeble verkrijgen
+        seat = (Seat) getIntent().getSerializableExtra("SEAT_OBJECT");
+        film = (Film) getIntent().getSerializableExtra("FILM_OBJECT");
+
     }
 
     @Override
@@ -72,8 +85,25 @@ public class PaymentMethodActivity extends AppCompatActivity implements View.OnC
 
             case R.id.buttonConfirmPayment:
 
+                //Zet alle gegevens in de database
+                database = new TicketDatabase(this);
+
+                int rowNumber = seat.getRowNumber();
+                int beginSeatNumber = seat.getBeginSeatNumber();
+                int endSeatNumber = seat.getEndsSeatNumber();
+
+                String filmName = film.getName();
+                String runtime = "11 uur";
+                String qrCode = "qrcode";
+
+                String posterURL = film.getPosterUrl();
+
+                Ticket ticket = new Ticket(rowNumber,beginSeatNumber , endSeatNumber, filmName, runtime, qrCode, posterURL);
+
+                database.buyTicket(film, ticket);
+
                 //Naar de volgende activiteit, verwijder vorige activiteiten zodat de gebruiker niet terug naar de betaling kan
-                Intent intent = new Intent(getApplicationContext(), PaymentFinishedActivity.class);
+                Intent intent = new Intent(getApplicationContext(), TicketsActivity.class);
                 startActivity(intent);
                 break;
 

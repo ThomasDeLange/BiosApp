@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.thomas.biosapp.Controllers.Payments.PaymentFinishedActivity">
+    tools:context="com.example.thomas.biosapp.Controllers.Unused.PaymentFinishedActivity">
 
     <TextView
         android:id="@+id/textViewPaymentSuccesful"

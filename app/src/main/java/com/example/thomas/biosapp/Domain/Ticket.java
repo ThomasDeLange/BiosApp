@@ -17,8 +17,7 @@ public class Ticket implements Serializable{
     private String qRCode;
     private String posterURL;
 
-    public Ticket() {
-    }
+
 
     public Ticket(int rownumber, int beginSeatNumber, int endSeatNumber, String filmTitle, String runTime, String qRCode, String posterURL) {
         this.rownumber = rownumber;

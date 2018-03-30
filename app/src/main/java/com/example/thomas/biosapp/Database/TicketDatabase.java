@@ -14,6 +14,7 @@ import com.example.thomas.biosapp.Domain.Ticket;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 
 
 /**
@@ -78,6 +79,33 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
         database.insert(TICKET_TABLE_NAME, null, ticketValues);
 
         database.close();
+    }
+
+    public ArrayList<Ticket> getTickets(){
+        SQLiteDatabase database = this.getReadableDatabase();
+
+        String query = "SELECT * FROM " + TICKET_TABLE_NAME;
+        Cursor cursor = database.rawQuery(query, null);
+
+        ArrayList<Ticket> ticketArrayList = new ArrayList<>();
+
+        cursor.moveToFirst();
+
+        while (!cursor.isAfterLast()) {
+            int rownumber = cursor.getInt(cursor.getColumnIndex(TICKET_ROWNUMBER));
+            int beginSeatNumber = cursor.getInt(cursor.getColumnIndex(TICKET_BEGIN_SEATNUMBER));
+            int endSeatNumber = cursor.getInt(cursor.getColumnIndex(TICKET_END_SEATNUMBER));
+            String filmTitle = cursor.getString(cursor.getColumnIndex(TICKET_FILM_TITLE));
+            String runTime = cursor.getString(cursor.getColumnIndex(TICKET_RUN_TIME));
+            String qrCode = cursor.getString(cursor.getColumnIndex(TICKET_QR_CODE));
+            String posterURL = cursor.getString(cursor.getColumnIndex(TICKET_POSTER_URL));
+
+
+            ticketArrayList.add(new Ticket(rownumber, beginSeatNumber, endSeatNumber, filmTitle, runTime, qrCode, posterURL));
+            cursor.moveToNext();
+        }
+        Collections.reverse(ticketArrayList);
+        return ticketArrayList;
     }
 
     public void printTickets() {

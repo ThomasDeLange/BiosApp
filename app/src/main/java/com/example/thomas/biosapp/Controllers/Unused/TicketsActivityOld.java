@@ -11,7 +11,7 @@ import com.example.thomas.biosapp.Controllers.Seats.SeatsActivity;
 import com.example.thomas.biosapp.R;
 import com.example.thomas.biosapp.Util.TicketDataValidator;
 
-public class TicketsActivity extends AppCompatActivity implements View.OnClickListener {
+public class TicketsActivityOld extends AppCompatActivity implements View.OnClickListener {
 
     private EditText editTextTicketsFirstName;
     private EditText editTextTicketsLastName;
@@ -19,7 +19,7 @@ public class TicketsActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tickets);
+        setContentView(R.layout.activity_tickets_old);
 
         //Verkrijg views
         editTextTicketsFirstName = findViewById(R.id.editTextTicketsFirstName);
