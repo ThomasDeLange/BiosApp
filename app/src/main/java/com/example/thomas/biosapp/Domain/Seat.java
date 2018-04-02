@@ -9,23 +9,23 @@ import java.util.Objects;
 
 public class Seat implements Serializable{
 
-    private int rowNumber;
+    //private int rowNumber;
     private int beginSeatNumber;
     private int endsSeatNumber;
 
-    public Seat(int rowNumber, int beginSeatNumber, int endsSeatNumber) {
-        this.rowNumber = rowNumber;
+    public Seat(/*int rowNumber, */int beginSeatNumber, int endsSeatNumber) {
+        //this.rowNumber = rowNumber;
         this.beginSeatNumber = beginSeatNumber;
         this.endsSeatNumber = endsSeatNumber;
     }
 
-    public int getRowNumber() {
+    /*public int getRowNumber() {
         return rowNumber;
     }
 
     public void setRowNumber(int rowNumber) {
         this.rowNumber = rowNumber;
-    }
+    }*/
 
     public int getBeginSeatNumber() {
         return beginSeatNumber;
@@ -42,7 +42,7 @@ public class Seat implements Serializable{
     public void setEndsSeatNumber(int endsSeatNumber) {
         this.endsSeatNumber = endsSeatNumber;
     }
-
+/*
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -66,5 +66,5 @@ public class Seat implements Serializable{
                 ", beginSeatNumber=" + beginSeatNumber +
                 ", endsSeatNumber=" + endsSeatNumber +
                 '}';
-    }
+    }*/
 }

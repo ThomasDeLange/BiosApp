@@ -9,7 +9,7 @@ import java.util.Objects;
 
 public class Ticket implements Serializable{
 
-    private int rownumber;
+    //private int rownumber;
     private int beginSeatNumber;
     private int endSeatNumber;
     private String filmTitle;
@@ -19,8 +19,8 @@ public class Ticket implements Serializable{
 
 
 
-    public Ticket(int rownumber, int beginSeatNumber, int endSeatNumber, String filmTitle, String runTime, String qRCode, String posterURL) {
-        this.rownumber = rownumber;
+    public Ticket(/*int rownumber, */int beginSeatNumber, int endSeatNumber, String filmTitle, String runTime, String qRCode, String posterURL) {
+        //this.rownumber = rownumber;
         this.beginSeatNumber = beginSeatNumber;
         this.endSeatNumber = endSeatNumber;
         this.filmTitle = filmTitle;
@@ -29,13 +29,13 @@ public class Ticket implements Serializable{
         this.posterURL = posterURL;
     }
 
-    public int getRownumber() {
+    /*public int getRownumber() {
         return rownumber;
     }
 
     public void setRownumber(int rownumber) {
         this.rownumber = rownumber;
-    }
+    }*/
 
     public int getBeginSeatNumber() {
         return beginSeatNumber;
@@ -85,7 +85,7 @@ public class Ticket implements Serializable{
         this.posterURL = posterURL;
     }
 
-    @Override
+    /*@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -116,5 +116,5 @@ public class Ticket implements Serializable{
                 ", qRCode='" + qRCode + '\'' +
                 ", posterURL='" + posterURL + '\'' +
                 '}';
-    }
+    }*/
 }

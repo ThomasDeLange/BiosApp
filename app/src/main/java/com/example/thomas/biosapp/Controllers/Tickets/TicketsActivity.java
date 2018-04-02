@@ -33,7 +33,7 @@ public class TicketsActivity extends AppCompatActivity {
         this.listView = (ListView) findViewById(R.id.ticketListView);
 
         database = new TicketDatabase(this);
-        ticketArrayList = database.getTickets();
+        ticketArrayList = database.getAllTickets();
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

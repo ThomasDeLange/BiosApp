@@ -11,8 +11,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.thomas.biosapp.Controllers.Payments.PaymentActivity;
+import com.example.thomas.biosapp.Database.TicketDatabase;
 import com.example.thomas.biosapp.Domain.Film;
 import com.example.thomas.biosapp.Domain.Seat;
+import com.example.thomas.biosapp.Domain.Ticket;
 import com.example.thomas.biosapp.R;
 
 import java.util.ArrayList;
@@ -26,17 +28,17 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
     private ArrayList<Integer> selectedChairIDs;
     private Spinner spinnerChairAmount;
     private Film film;
+    private TicketDatabase database;
+    private int lastSeat;
+    private ArrayList<Integer> orderedSeats;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_seat);
 
-        //Spinner
-        spinnerChairAmount = findViewById(R.id.spinnerChairAmount);
-        Integer[] integers = new Integer[] {1, 2, 3, 4, 5, 6, 7, 8, 9};
-        ArrayAdapter<Integer> spinnerAdapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_dropdown_item, integers);
-        spinnerChairAmount.setAdapter(spinnerAdapter);
+        //Database
+        database = new TicketDatabase(this);
 
         //Chairlijst aanmaken
         selectedChairIDs = new ArrayList<Integer>();
@@ -48,11 +50,27 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
         Button buttonSelectChair = findViewById(R.id.buttonSelectChair);
         buttonSelectChair.setOnClickListener(this);
 
+        //Verkrijg intent
+        film = (Film) getIntent().getSerializableExtra("FILM_OBJECT");
+
         //Verkrijg stoelen
         getSeats();
 
-        //Verkrijg intent
-        film = (Film) getIntent().getSerializableExtra("FILM_OBJECT");
+        //Spinner
+        createSpinner();
+    }
+
+    private void createSpinner() {
+
+        //Spinner
+        spinnerChairAmount = findViewById(R.id.spinnerChairAmount);
+        ArrayList<Integer> integerList = new ArrayList<Integer>();
+        int maxAmount = seats.size() > 9 ? 9 : seats.size();
+        for (int a = 1; a <= maxAmount; a++)
+            integerList.add(a);
+        System.out.println(maxAmount);
+        ArrayAdapter<Integer> spinnerAdapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_dropdown_item, integerList);
+        spinnerChairAmount.setAdapter(spinnerAdapter);
     }
 
     @Override
@@ -68,18 +86,17 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
         //Kijken waar op geklikt is
         if (id == R.id.buttonSelectChair) {
 
-            //Laad volgende scherm
-            Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
-
             //Reserveer de seats voor in de database
             int beginSeatNumber= selectedChairIDs.get(0);
             int endSeatNumber = selectedChairIDs.get(selectedChairIDs.size() - 1);
 
-            //@TODO aanpassen
-            int rowNumber = 1;
+            //@TODO aanpassen ! ROWNUMBER IS ONNODIG
+            //int rowNumber = 1;
 
-            Seat seat = new Seat(rowNumber, beginSeatNumber, endSeatNumber);
+            Seat seat = new Seat(/*rowNumber, */beginSeatNumber, endSeatNumber);
 
+            //Laad volgende scherm
+            Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
             intent.putExtra("SEAT_OBJECT", seat);
             intent.putExtra("FILM_OBJECT", film);
             startActivity(intent);
@@ -97,8 +114,6 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
             //Nummer van geselecteerde stoel verkrijgen en selecteren, ervoor zorgen dat het niet de beschikbare stoelen overschrijd
             int number = seats.get(v);
             int chairAmount = (Integer)spinnerChairAmount.getSelectedItem();
-            if ((number + chairAmount) > seats.size())
-                number = (seats.size() - chairAmount) + 1;
             for (int a = 0; a < chairAmount; a++)
                 selectChair(number + a);
 
@@ -116,29 +131,46 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
     }
     private void getSeats() {
 
+        //Bestelde stoelen van de database verkrijgen
+        ArrayList<Ticket> orderedTickets = database.getTicketsByFilmTitle(film.getName());
+        orderedSeats = new ArrayList<Integer>();
+        for (Ticket ticket : orderedTickets) {
+            for (int a = ticket.getBeginSeatNumber(); a <= ticket.getEndSeatNumber(); a++) {
+                orderedSeats.add(a);
+            }
+        }
+
         //Creeër lijst met stoelen
         seats = new HashMap<>();
         int index = 1;
-        ImageView first = null;
         while(true) {
 
-            //Verkrijg id van de stoel
-            int id = getResources().getIdentifier(CHAIR_ID_NAME + index, "id", getPackageName());
+            //Kijken of de stoel gereserveerd is
+            if (orderedSeats.contains(index)) {
 
-            //Verkrijg object
-            ImageView seat = findViewById(id);
+                //Maak stoel rood
+                selectOrderedChair(index);
 
-            //Eerste opslaan
-            if (index == 1) first = seat;
+            } else {
 
-            //Als het NULL is zijn er geen stoelen meer
-            if (seat == null) break;
+                //Verkrijg id van de stoel
+                int id = getResources().getIdentifier(CHAIR_ID_NAME + index, "id", getPackageName());
 
-            //Toevoegen aan de lijst
-            seats.put(seat, index);
+                //Verkrijg object
+                ImageView seat = findViewById(id);
 
-            //Add on click
-            seat.setOnClickListener(this);
+                //Als het NULL is zijn er geen stoelen meer
+                if (seat == null) break;
+
+                //Toevoegen aan de lijst
+                seats.put(seat, index);
+
+                //Add on click
+                seat.setOnClickListener(this);
+            }
+
+            //Laatste seat
+            lastSeat = index;
 
             //Verhoog index
             index++;
@@ -147,12 +179,39 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
 
     private void selectChair(int number) {
 
+        //Checken of het geen georderde chair is
+        if (orderedSeats.contains(number) || selectedChairIDs.contains(number)) {
+
+            //Volgende chair proberen
+            selectChair(number + 1);
+
+        } else if (number > lastSeat) {
+
+            //Eerste chair proberen
+            selectChair(1);
+
+        } else {
+
+            //Goede view krijgen
+            int id = getResources().getIdentifier(CHAIR_ID_NAME + number, "id", getPackageName());
+            ImageView v = findViewById(id);
+
+            //Selectie op geselecteerde stoel zetten
+            v.setBackgroundColor(getColor(R.color.colorSelected));
+            selectedChairIDs.add(number);
+        }
+    }
+
+    private void selectOrderedChair(int number) {
+
         //Goede view krijgen
         int id = getResources().getIdentifier(CHAIR_ID_NAME + number, "id", getPackageName());
         ImageView v = findViewById(id);
 
+        //Als het NULL is zijn er geen stoelen meer
+        if (v == null) return;
+
         //Selectie op geselecteerde stoel zetten
-        v.setBackgroundColor(getColor(R.color.colorSelected));
-        selectedChairIDs.add(number);
+        v.setBackgroundColor(getColor(R.color.colorOrdered));
     }
 }

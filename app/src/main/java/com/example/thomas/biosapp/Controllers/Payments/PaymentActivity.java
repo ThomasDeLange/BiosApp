@@ -88,7 +88,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
                 //Zet alle gegevens in de database
                 database = new TicketDatabase(this);
 
-                int rowNumber = seat.getRowNumber();
+                //int rowNumber = seat.getRowNumber();
                 int beginSeatNumber = seat.getBeginSeatNumber();
                 int endSeatNumber = seat.getEndsSeatNumber();
 
@@ -98,7 +98,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
 
                 String posterURL = film.getPosterUrl();
 
-                Ticket ticket = new Ticket(rowNumber,beginSeatNumber , endSeatNumber, filmName, runtime, qrCode, posterURL);
+                Ticket ticket = new Ticket(beginSeatNumber , endSeatNumber, filmName, runtime, qrCode, posterURL);
 
                 database.buyTicket(film, ticket);
 

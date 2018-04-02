@@ -72,7 +72,7 @@ public class TicketSeatInfoActivity extends AppCompatActivity implements View.On
     @Override
     public void onClick(View v) {
 
-        Ticket ticket = new Ticket(4, 3, 5, film.getName(), "11 uur", "qrcode", film.getPosterUrl());
+        Ticket ticket = null;//new Ticket(4, 3, 5, film.getName(), "11 uur", "qrcode", film.getPosterUrl());
 
         TicketDatabase database = new TicketDatabase(getApplicationContext());
         database.buyTicket(film, ticket);

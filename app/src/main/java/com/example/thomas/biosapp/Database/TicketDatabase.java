@@ -26,7 +26,7 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
     private final static String TAG = "TicketDatabase";
 
     private final static String DB_NAME = "TicketDatabse.db";
-    private final static int DB_VERSION = 9;
+    private final static int DB_VERSION = 10;
 
     private final static String TICKET_TABLE_NAME = "Ticket";
 
@@ -68,7 +68,7 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
         SQLiteDatabase database = this.getWritableDatabase();
 
         ContentValues ticketValues = new ContentValues();
-        ticketValues.put(TICKET_ROWNUMBER, ticket.getRownumber());
+        ticketValues.put(TICKET_ROWNUMBER, 0/*ticket.getRownumber()*/);
         ticketValues.put(TICKET_BEGIN_SEATNUMBER, ticket.getBeginSeatNumber());
         ticketValues.put(TICKET_END_SEATNUMBER, ticket.getEndSeatNumber());
         ticketValues.put(TICKET_FILM_TITLE, film.getName());
@@ -81,10 +81,16 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
         database.close();
     }
 
-    public ArrayList<Ticket> getTickets(){
-        SQLiteDatabase database = this.getReadableDatabase();
+    public ArrayList<Ticket> getTicketsByFilmTitle(String filmTitle) {
+        return getTickets("SELECT * FROM " + TICKET_TABLE_NAME + " WHERE " + TICKET_FILM_TITLE + " = '" + filmTitle + "'"  + " ORDER BY " + TICKET_BEGIN_SEATNUMBER);
+    }
 
-        String query = "SELECT * FROM " + TICKET_TABLE_NAME;
+    public ArrayList<Ticket> getAllTickets() {
+        return getTickets("SELECT * FROM " + TICKET_TABLE_NAME);
+    }
+
+    private ArrayList<Ticket> getTickets(String query){
+        SQLiteDatabase database = this.getReadableDatabase();
         Cursor cursor = database.rawQuery(query, null);
 
         ArrayList<Ticket> ticketArrayList = new ArrayList<>();
@@ -101,10 +107,10 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
             String posterURL = cursor.getString(cursor.getColumnIndex(TICKET_POSTER_URL));
 
 
-            ticketArrayList.add(new Ticket(rownumber, beginSeatNumber, endSeatNumber, filmTitle, runTime, qrCode, posterURL));
+            ticketArrayList.add(new Ticket(/*rownumber, */beginSeatNumber, endSeatNumber, filmTitle, runTime, qrCode, posterURL));
             cursor.moveToNext();
         }
-        Collections.reverse(ticketArrayList);
+
         return ticketArrayList;
     }
 
@@ -129,7 +135,7 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
             String posterURL = cursor.getString(cursor.getColumnIndex(TICKET_POSTER_URL));
 
 
-            ticketArrayList.add(new Ticket(rownumber, beginSeatNumber, endSeatNumber, filmTitle, runTime, qrCode, posterURL));
+            ticketArrayList.add(new Ticket(/*rownumber, */beginSeatNumber, endSeatNumber, filmTitle, runTime, qrCode, posterURL));
             cursor.moveToNext();
         }
         cursor.close();
