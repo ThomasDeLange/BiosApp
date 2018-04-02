@@ -59,7 +59,6 @@ public class QRCodeGeneratorTask extends AsyncTask<String, Void, Bitmap> {
             Bitmap bitmap = Bitmap.createBitmap(bitMatrixWidth, bitMatrixHeight, Bitmap.Config.ARGB_4444);
 
             bitmap.setPixels(pixels, 0, 500, 0, 0, bitMatrixWidth, bitMatrixHeight);
-            System.out.println(0);
             qrCodeListener.onQRCodeGenerated(bitmap);
             return bitmap;
         }
