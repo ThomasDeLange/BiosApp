@@ -14,6 +14,7 @@
     <string name="select_seat_description">Selecteer hieronder uw gewenste zitplaats</string>
     <string name="tickets">Tickets</string>
     <string name="personal_data">Persoonsgegevens</string>
+    <string name="chair">Stoel</string>
     <string name="firstname">Voornaam</string>
     <string name="lastname">Achternaam</string>
     <string name="validate_ticket_data">Bevestigen</string>

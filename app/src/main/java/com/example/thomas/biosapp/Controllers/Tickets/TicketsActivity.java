@@ -25,6 +25,7 @@ public class TicketsActivity extends AppCompatActivity {
     private ArrayList<Ticket> ticketArrayList;
     private TicketsAdapter ticketsAdapter;
     private TicketDatabase database;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +43,7 @@ public class TicketsActivity extends AppCompatActivity {
 
                 Ticket ticket = (Ticket) ticketArrayList.get(i);
 
-                Intent intent = new Intent(getApplicationContext(), TicketDetailActivity.class);
+                Intent intent = new Intent(getApplicationContext(), TicketViewActivity.class);
                 intent.putExtra("TICKET_OBJECT", ticket);
                 startActivity(intent);
             }
@@ -51,7 +52,6 @@ public class TicketsActivity extends AppCompatActivity {
         //Zet de data in de listview door via een adapter de data aan de listview te koppelen
         this.ticketsAdapter = new TicketsAdapter(this, ticketArrayList);
         this.listView.setAdapter(ticketsAdapter);
-
     }
 
     public static class BuyTicketActivity extends AppCompatActivity implements View.OnClickListener {

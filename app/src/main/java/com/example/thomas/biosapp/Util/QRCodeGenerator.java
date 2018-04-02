@@ -1,4 +1,4 @@
-package com.example.thomas.biosapp.Api;
+package com.example.thomas.biosapp.Util;
 
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
@@ -11,28 +11,23 @@ import com.google.zxing.common.BitMatrix;
  * Created by Julian on 29-3-2018.
  */
 
-public class QRCodeGeneratorTask extends AsyncTask<String, Void, Bitmap> {
+public class QRCodeGenerator {
 
     private int QRcodeWidth = 500;
-    private Bitmap bitmap;
-    private OnQRCodeGenerated qrCodeListener;
     private int colorPrimary;
     private int colorSecondary;
 
-    public QRCodeGeneratorTask(int colorPrimary, int colorSecondary, OnQRCodeGenerated qrCodeListener) {
+    public QRCodeGenerator(int colorPrimary, int colorSecondary) {
         this.colorPrimary = colorPrimary;
         this.colorSecondary = colorSecondary;
-        this.qrCodeListener = qrCodeListener;
     }
 
-    @Override
-    protected Bitmap doInBackground(String... strings) {
-
+    public Bitmap generate(String code) {
         try {
             BitMatrix bitMatrix;
             try {
                 bitMatrix = new MultiFormatWriter().encode(
-                        strings[0],
+                        code,
                         BarcodeFormat.DATA_MATRIX.QR_CODE,
                         QRcodeWidth, QRcodeWidth, null
                 );
@@ -59,11 +54,10 @@ public class QRCodeGeneratorTask extends AsyncTask<String, Void, Bitmap> {
             Bitmap bitmap = Bitmap.createBitmap(bitMatrixWidth, bitMatrixHeight, Bitmap.Config.ARGB_4444);
 
             bitmap.setPixels(pixels, 0, 500, 0, 0, bitMatrixWidth, bitMatrixHeight);
-            qrCodeListener.onQRCodeGenerated(bitmap);
             return bitmap;
         }
         catch (Exception e) {
-            System.out.println(e);
+            System.out.println("@!#@!$#!" + e);
             return null;
         }
     }

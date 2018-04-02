@@ -55,8 +55,9 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         onClick(imageViewPayPal);
 
         //Serializeble verkrijgen
-        seat = (Seat) getIntent().getSerializableExtra("SEAT_OBJECT");
-        film = (Film) getIntent().getSerializableExtra("FILM_OBJECT");
+        Intent intent = getIntent();
+        seat = (Seat) intent.getSerializableExtra("SEAT_OBJECT");
+        film = (Film) intent.getSerializableExtra("FILM_OBJECT");
 
     }
 
