@@ -27,7 +27,7 @@
     </style>
 
 
-    <style name="AppTheme.PopupOverlay">1</style>
+    <!--<style name="AppTheme.PopupOverlay">1</style>-->
     <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimaryDark">@color/colorText</item>
     </style>
