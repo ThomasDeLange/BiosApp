@@ -11,13 +11,10 @@
         <item name="coordinatorLayoutStyle">@style/Widget.Design.CoordinatorLayout</item>
         <item name="android:textColor">@color/colorText</item>
         <item name="android:background">@color/colorPrimary</item>
-
-
-
     </style>
 
     <style name="AppTheme.PopupOverlay">1</style>
-    <style name="AlertDialogCustom" parent="ThemeOverlay.AppCompat.Dark">
-        <item name="android:textColor">#FFFFFF</item>
+    <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimaryDark">@color/colorText</item>
     </style>
 </resources>
