@@ -23,7 +23,7 @@ public class TicketViewActivity extends AppCompatActivity implements View.OnClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ticket_view_activity);
+        setContentView(R.layout.activity_ticket);
 
         //Verkrijg ticket
         ticket = (Ticket)getIntent().getSerializableExtra("TICKET_OBJECT");
