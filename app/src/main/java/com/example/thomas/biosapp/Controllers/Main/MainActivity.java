@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         gridview.setAdapter(filmGridAdapter);
         gridview.setOnItemClickListener(this);
         this.getFilmItems();
+
     }
 
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {

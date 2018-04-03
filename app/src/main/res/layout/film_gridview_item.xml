@@ -9,7 +9,7 @@
     <ImageView
         android:id="@+id/filmGridImageView"
         android:layout_width="145dp"
-        android:layout_height="169dp"
+        android:layout_height="211dp"
         android:contentDescription="filmPoster"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
