@@ -17,4 +17,7 @@
     </style>
 
     <style name="AppTheme.PopupOverlay">1</style>
+    <style name="AlertDialogCustom" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
 </resources>

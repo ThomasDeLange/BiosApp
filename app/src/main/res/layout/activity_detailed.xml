@@ -49,10 +49,11 @@
         android:id="@+id/scrollView2"
         android:layout_width="344dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/filmDetailedOrder"
+        app:layout_constraintBottom_toTopOf="@+id/buttonGiveMovieFeedback"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/filmDetailedImage">
@@ -63,5 +64,15 @@
             android:layout_height="wrap_content"
             android:text="TextView" />
     </ScrollView>
+
+    <Button
+        android:id="@+id/buttonGiveMovieFeedback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="@string/feedback_geven"
+        app:layout_constraintBottom_toTopOf="@+id/filmDetailedOrder"
+        app:layout_constraintEnd_toEndOf="@+id/filmDetailedOrder"
+        app:layout_constraintStart_toStartOf="@+id/filmDetailedOrder" />
 
 </android.support.constraint.ConstraintLayout>
