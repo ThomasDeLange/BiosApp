@@ -63,7 +63,11 @@ public class TicketOverviewFragment extends Fragment {
         this.listView.setAdapter(ticketsAdapter);
 
         // Inflate the layout for this fragment
+<<<<<<< HEAD
         return view;
+=======
+        return inflater.inflate(R.layout.fragment_contact_old, container, false);
+>>>>>>> 6f39b03661f8350572a6150b12ea792adbd20d12
     }
 
 }

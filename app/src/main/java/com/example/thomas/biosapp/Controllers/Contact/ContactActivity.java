@@ -14,7 +14,7 @@ public class ContactActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_contact);
+        setContentView(R.layout.fragment_contact_old);
 
         //Verkrijg buttons
         Button buttonRoute = findViewById(R.id.buttonRoute);
