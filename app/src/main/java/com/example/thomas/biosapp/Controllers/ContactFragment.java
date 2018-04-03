@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.thomas.biosapp.Controllers.Contact.FeedbackActivity;
+import com.example.thomas.biosapp.Controllers.Contact.MapsActivity;
 import com.example.thomas.biosapp.Domain.Film;
 import com.example.thomas.biosapp.R;
 

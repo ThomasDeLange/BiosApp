@@ -80,6 +80,7 @@ public class TicketSeatInfoActivity extends AppCompatActivity implements View.On
         database.printTickets();
 
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+
         //intent.putExtra("FILM_OBJECT", film);
         startActivity(intent);
     }
