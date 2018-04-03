@@ -21,9 +21,9 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="TextView"
-        android:textSize="30sp"
+        android:textSize="@dimen/activity_title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/filmPosterView"
         app:layout_constraintTop_toTopOf="@+id/view" />

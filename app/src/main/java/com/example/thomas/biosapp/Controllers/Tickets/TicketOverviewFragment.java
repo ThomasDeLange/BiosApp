@@ -17,6 +17,7 @@ import com.example.thomas.biosapp.R;
 import com.example.thomas.biosapp.Util.TicketsAdapter;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by steph on 26-3-2018.
@@ -44,6 +45,7 @@ public class TicketOverviewFragment extends Fragment {
 
         database = new TicketDatabase(getContext());
         ticketArrayList = database.getAllTickets();
+        Collections.reverse(ticketArrayList);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
