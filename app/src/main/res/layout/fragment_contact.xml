@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:theme="@style/AppTheme"
     tools:context="com.example.thomas.biosapp.Controllers.ContactActivity"
     tools:layout_editor_absoluteY="81dp">
 
@@ -127,8 +128,10 @@
                 android:text="@string/feedback_geven"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/buttonRoute"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/buttonRoute"
-                app:layout_constraintTop_toBottomOf="@+id/buttonRoute" />
+                app:layout_constraintTop_toBottomOf="@+id/buttonRoute"
+                app:layout_constraintVertical_bias="0.0" />
 
             <TextView
                 android:id="@+id/textViewBioscoopBreda"
