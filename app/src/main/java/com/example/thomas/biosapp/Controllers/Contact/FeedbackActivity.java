@@ -58,7 +58,7 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
         if (validator.validate(rating, firstName, lastName, emailadres, message)) {
 
             //Window maken met popup
-            AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogCustom);
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle(getString(R.string.feedback_message_title));
             builder.setMessage(getString(R.string.feedback_message_content));
             builder.setPositiveButton(R.string.ok, this);
