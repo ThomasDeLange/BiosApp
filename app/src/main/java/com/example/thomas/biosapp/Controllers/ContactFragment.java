@@ -24,7 +24,7 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
                              Bundle savedInstanceState) {
 
         //View
-        View view = inflater.inflate(R.layout.fragment_ticket_overview, container, false);
+        View view = inflater.inflate(R.layout.fragment_contact, container, false);
 
         //Verkrijg buttons;
         Button buttonRoute = view.findViewById(R.id.buttonRoute);
