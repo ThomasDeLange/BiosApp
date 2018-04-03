@@ -1,4 +1,4 @@
-package com.example.thomas.biosapp.Controllers;
+package com.example.thomas.biosapp.Controllers.Contact;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
