@@ -27,7 +27,4 @@
         <item name="android:colorBackground">@color/colorPrimary</item>
     </style>
 
-
-    <!--<style name="AppTheme.PopupOverlay">1</style>-->
-    <style name="MainTheme.PopupOverlay">1</style>
 </resources>
