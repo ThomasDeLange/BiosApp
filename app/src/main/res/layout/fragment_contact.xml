@@ -59,7 +59,7 @@
                 android:id="@+id/buttonRoute"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="32dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/route"
                 app:layout_constraintEnd_toEndOf="@+id/textViewReachabilityExplaination"
                 app:layout_constraintStart_toStartOf="@+id/textViewReachabilityExplaination"
@@ -122,7 +122,7 @@
             <Button
                 android:id="@+id/buttonFeedback"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="46dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginTop="8dp"
                 android:text="@string/feedback_geven"
