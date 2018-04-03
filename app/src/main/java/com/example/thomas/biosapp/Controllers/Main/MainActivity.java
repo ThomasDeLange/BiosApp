@@ -8,9 +8,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.support.v7.widget.Toolbar;
 
-import com.example.thomas.biosapp.Controllers.ContactFragment;
-import com.example.thomas.biosapp.Controllers.MainFragment;
-import com.example.thomas.biosapp.Controllers.TicketOverviewFragment;
 import com.example.thomas.biosapp.Domain.Film;
 import com.example.thomas.biosapp.R;
 import com.example.thomas.biosapp.Util.FilmGridAdapter;
@@ -43,14 +40,15 @@ public class MainActivity extends AppCompatActivity {
 //        this.getFilmItems();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitleTextColor(getColor(R.color.colorText));
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         viewPager = (ViewPager) findViewById(R.id.container);
         setupViewPager(viewPager);
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
+        tabLayout.setTabTextColors(getColor(R.color.colorText), getColor(R.color.colorText));
     }
 
 //    public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
