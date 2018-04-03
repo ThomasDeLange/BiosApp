@@ -11,7 +11,6 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.thomas.biosapp.Controllers.Main.MainActivity;
-import com.example.thomas.biosapp.Controllers.Tickets.TicketsActivity;
 import com.example.thomas.biosapp.Database.TicketDatabase;
 import com.example.thomas.biosapp.Domain.Film;
 import com.example.thomas.biosapp.Domain.Seat;

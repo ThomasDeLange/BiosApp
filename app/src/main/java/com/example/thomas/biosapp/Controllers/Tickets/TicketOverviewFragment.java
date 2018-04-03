@@ -1,4 +1,4 @@
-package com.example.thomas.biosapp.Controllers.Main;
+package com.example.thomas.biosapp.Controllers.Tickets;
 
 import android.content.Intent;
 import android.support.v4.app.Fragment;

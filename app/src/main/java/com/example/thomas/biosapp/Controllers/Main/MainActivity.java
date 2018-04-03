@@ -8,6 +8,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.support.v7.widget.Toolbar;
 
+import com.example.thomas.biosapp.Controllers.Contact.ContactFragment;
+import com.example.thomas.biosapp.Controllers.Tickets.TicketOverviewFragment;
 import com.example.thomas.biosapp.Domain.Film;
 import com.example.thomas.biosapp.R;
 import com.example.thomas.biosapp.Util.FilmGridAdapter;

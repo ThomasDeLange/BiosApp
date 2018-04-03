@@ -31,16 +31,8 @@
         <activity android:name=".Controllers.Main.DetailedActivity" />
         <activity android:name=".Controllers.Payments.PaymentActivity" />
         <activity android:name=".Controllers.Seats.SeatsActivity"></activity>
-        <activity android:name=".Controllers.Unused.TicketsActivityOld" />
-        <activity android:name=".Controllers.Unused.PaymentFinishedActivity" />
-        <activity android:name=".Controllers.Unused.PaymentProgressActivity" />
         <activity android:name=".Controllers.Tickets.TicketViewActivity"></activity>
         <activity android:name=".Controllers.Tickets.TicketsActivity$BuyTicketActivity" />
-        <activity android:name=".Controllers.Unused.TicketBuyerInfoActivity" />
-        <activity android:name=".Controllers.Unused.TicketSeatInfoActivity" />
-        <activity android:name=".Controllers.Tickets.TicketsActivity" />
-        <activity android:name=".Controllers.Unused.TicketDetailActivity"></activity>
-        <activity android:name=".Controllers.Contact.ContactActivity"></activity>
 
     </application>
 

@@ -7,14 +7,11 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import com.example.thomas.biosapp.Domain.Buyer;
 import com.example.thomas.biosapp.Domain.Film;
-import com.example.thomas.biosapp.Domain.Seat;
 import com.example.thomas.biosapp.Domain.Ticket;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 
 
 /**
