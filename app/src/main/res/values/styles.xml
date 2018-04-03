@@ -25,4 +25,14 @@
         <item name="android:navigationBarColor">@color/colorPrimary</item>
         <item name="android:colorBackground">@color/colorPrimary</item>
     </style>
+
+
+    <!--<style name="AppTheme.PopupOverlay">1</style>-->
+    <style name="MainTheme.PopupOverlay">1</style>
+    <style name="AlertDialogCustom" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:textColor">#FFFFFF</item>
+    <style name="AppTheme.PopupOverlay">1</style>
+    <style name="AlertDialogCustom" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimaryDark">@color/colorText</item>
+    </style>
 </resources>
