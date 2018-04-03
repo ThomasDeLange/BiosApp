@@ -51,7 +51,7 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
         buttonSelectChair.setOnClickListener(this);
 
         //Verkrijg intent
-        film = (Film) getIntent().getSerializableExtra("FILM_OBJECT");
+        film = (Film) getIntent().getSerializableExtra("TICKET_OBJECT");
 
         //Verkrijg stoelen
         getSeats();

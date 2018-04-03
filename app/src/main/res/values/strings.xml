@@ -63,4 +63,5 @@
     <string name="contactdata">Contactgegevens</string>
     <string name="emailadres_notfilled">Het e-mailadres is niet ingevuld.</string>
     <string name="message_notfilled">Het bericht is niet ingevuld.</string>
+    <string name="TicketSelectionButton">Doorgaan</string>
 </resources>
