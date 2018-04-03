@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitleTextColor(getColor(R.color.colorText));
-        setSupportActionBar(toolbar);
+        //setSupportActionBar(toolbar);
 
         viewPager = (ViewPager) findViewById(R.id.container);
         setupViewPager(viewPager);

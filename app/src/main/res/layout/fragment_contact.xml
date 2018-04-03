@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:theme="@style/AppTheme"
-    tools:context="com.example.thomas.biosapp.Controllers.ContactActivity"
+    android:theme="@style/MainTheme"
+    tools:context="com.example.thomas.biosapp.Controllers.Main.MainActivity"
     tools:layout_editor_absoluteY="81dp">
 
     <ScrollView
