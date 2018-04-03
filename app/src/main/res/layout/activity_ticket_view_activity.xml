@@ -14,7 +14,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:text="@string/ticket"
-        android:textSize="20sp"
+        android:textSize="@dimen/activity_title"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,13 +45,12 @@
 
     <ImageView
         android:id="@+id/imageViewQRCode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_width="144dp"
+        android:layout_height="134dp"
+        android:layout_marginTop="28dp"
         android:src="@drawable/ic_launcher_background"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="@+id/textViewTicketSeatRange"
-        app:layout_constraintHorizontal_bias="0.538"
         app:layout_constraintStart_toStartOf="@+id/textViewTicketSeatRange"
         app:layout_constraintTop_toBottomOf="@+id/textViewTicketSeatRange"
         app:srcCompat="@color/qrCodeSecondary" />
