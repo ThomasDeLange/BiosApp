@@ -10,12 +10,15 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.example.thomas.biosapp.Controllers.Main.MainActivity;
 import com.example.thomas.biosapp.Controllers.Tickets.TicketsActivity;
 import com.example.thomas.biosapp.Database.TicketDatabase;
 import com.example.thomas.biosapp.Domain.Film;
 import com.example.thomas.biosapp.Domain.Seat;
 import com.example.thomas.biosapp.Domain.Ticket;
 import com.example.thomas.biosapp.R;
+
+import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
 
 public class PaymentActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -103,8 +106,10 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
 
                 database.buyTicket(film, ticket);
 
+
                 //Naar de volgende activiteit, verwijder vorige activiteiten zodat de gebruiker niet terug naar de betaling kan
-                Intent intent = new Intent(getApplicationContext(), TicketsActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.setFlags(FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 break;
 

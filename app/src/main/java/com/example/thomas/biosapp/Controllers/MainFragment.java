@@ -14,7 +14,7 @@ import android.widget.GridView;
 
 import com.example.thomas.biosapp.Api.FilmTask;
 import com.example.thomas.biosapp.Api.OnFilmAvailable;
-import com.example.thomas.biosapp.Controllers.DetailedActivity;
+import com.example.thomas.biosapp.Controllers.Main.DetailedActivity;
 import com.example.thomas.biosapp.Domain.Film;
 import com.example.thomas.biosapp.Util.FilmGridAdapter;
 import com.example.thomas.biosapp.R;
