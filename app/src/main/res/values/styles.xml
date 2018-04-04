@@ -9,6 +9,7 @@
         <item name="android:statusBarColor">@color/colorPrimaryDark</item>
         <item name="android:navigationBarColor">@color/colorPrimary</item>
         <item name="android:colorBackground">@color/colorPrimary</item>
+        <item name="android:actionMenuTextColor">@color/colorText</item>
     </style>
 
 </resources>

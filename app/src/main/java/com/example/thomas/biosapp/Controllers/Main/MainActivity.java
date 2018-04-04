@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.view.Menu;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,17 +37,6 @@ public class MainActivity extends AppCompatActivity {
         //Tijdelijk veranderd naar R.layout_activity_films_tab, default is activity_main
         setContentView(R.layout.activity_main);
 
-//        films = new ArrayList<>();
-//
-//        //Gridview instellen
-//        GridView gridview = (GridView) findViewById(R.id.filmGridView);
-//        //@TODO fix
-//        filmGridAdapter = new FilmGridAdapter(getApplicationContext(), getLayoutInflater(), films);
-//        gridview.setAdapter(filmGridAdapter);
-//        gridview.setOnItemClickListener(this);
-//        this.getFilmItems();
-
-
         mainFragment = new MainFragment();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -69,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Verkrijg de zoekknop
         SearchView searchView = (android.support.v7.widget.SearchView) menu.findItem(R.id.search_button).getActionView();
+        System.out.println(searchView.getSolidColor());
 
         //Voeg zoekactie toe aan zoekknop die in de mainfragment staat
         searchView.setOnQueryTextListener(mainFragment);

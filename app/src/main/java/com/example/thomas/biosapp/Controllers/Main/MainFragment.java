@@ -27,7 +27,7 @@ import java.util.ArrayList;
  * Created by steph on 26-3-2018.
  */
 
-public class MainFragment extends Fragment implements OnFilmAvailable, AdapterView.OnItemClickListener, SearchView.OnQueryTextListener {
+public class MainFragment extends Fragment implements OnFilmAvailable, AdapterView.OnItemClickListener, SearchView.OnQueryTextListener, View.OnClickListener {
 
     private ArrayList<Film> films;
     private ArrayList<Film> filteredFilms;
@@ -53,7 +53,6 @@ public class MainFragment extends Fragment implements OnFilmAvailable, AdapterVi
         gridview = (GridView) getView().findViewById(R.id.filmGridView);
         gridview.setOnItemClickListener(this);
 
-
         //Adapter initializieren
         filmGridAdapter = new FilmGridAdapter(getContext(), getLayoutInflater(), filteredFilms);
         gridview.setAdapter(filmGridAdapter);
@@ -74,7 +73,7 @@ public class MainFragment extends Fragment implements OnFilmAvailable, AdapterVi
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 
         //Juiste film verkrijgen
-        Film film = (Film) films.get(position);
+        Film film = (Film) filteredFilms.get(position);
 
         //Verzoeken om naar een nieuw venster te gaan met het juiste film object
         Intent intent = new Intent(getActivity().getApplicationContext(), DetailedActivity.class);
@@ -137,5 +136,10 @@ public class MainFragment extends Fragment implements OnFilmAvailable, AdapterVi
         //Weergave updaten
         filmGridAdapter.notifyDataSetChanged();
         return false;
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

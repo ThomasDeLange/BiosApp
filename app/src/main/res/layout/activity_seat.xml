@@ -93,55 +93,55 @@
                         android:id="@+id/selectableChair1"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair2"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair3"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair4"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair5"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair6"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair7"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair8"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair9"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
                 </GridLayout>
 
                 <GridLayout
@@ -160,55 +160,55 @@
                         android:id="@+id/selectableChair10"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair11"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair12"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair13"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair14"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair15"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair16"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair17"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair18"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                 </GridLayout>
 
@@ -238,55 +238,55 @@
                         android:id="@+id/selectableChair19"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair20"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair21"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair22"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair23"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair24"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair25"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair26"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair27"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
                 </GridLayout>
 
                 <GridLayout
@@ -305,55 +305,55 @@
                         android:id="@+id/selectableChair28"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair29"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair30"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair31"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair32"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair33"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair34"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair35"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair36"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                 </GridLayout>
 
@@ -383,55 +383,55 @@
                         android:id="@+id/selectableChair37"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair38"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair39"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair40"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair41"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair42"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair43"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair44"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair45"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
                 </GridLayout>
 
                 <GridLayout
@@ -450,55 +450,55 @@
                         android:id="@+id/selectableChair46"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair47"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair48"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair49"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair50"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair51"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair52"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair53"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                     <ImageView
                         android:id="@+id/selectableChair54"
                         android:layout_width="@dimen/chair_size"
                         android:layout_height="@dimen/chair_size"
-                        app:srcCompat="@drawable/chair" />
+                        app:srcCompat="@drawable/chair_green" />
 
                 </GridLayout>
 
