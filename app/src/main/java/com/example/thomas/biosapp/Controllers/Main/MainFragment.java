@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.support.v7.widget.SearchView;
+import android.widget.Toast;
 
 import com.example.thomas.biosapp.Api.FilmTask;
 import com.example.thomas.biosapp.Api.OnFilmAvailable;
@@ -25,9 +27,10 @@ import java.util.ArrayList;
  * Created by steph on 26-3-2018.
  */
 
-public class MainFragment extends Fragment implements OnFilmAvailable, AdapterView.OnItemClickListener{
+public class MainFragment extends Fragment implements OnFilmAvailable, AdapterView.OnItemClickListener, SearchView.OnQueryTextListener, View.OnClickListener {
 
     private ArrayList<Film> films;
+    private ArrayList<Film> filteredFilms;
     private GridView gridview;
     private FilmGridAdapter filmGridAdapter;
     private boolean loaded;
@@ -39,6 +42,7 @@ public class MainFragment extends Fragment implements OnFilmAvailable, AdapterVi
         //Fragment is nog niet geladen
         loaded = false;
         films = new ArrayList<>();
+        filteredFilms = new ArrayList<>();
     }
 
     @Override
@@ -50,7 +54,7 @@ public class MainFragment extends Fragment implements OnFilmAvailable, AdapterVi
         gridview.setOnItemClickListener(this);
 
         //Adapter initializieren
-        filmGridAdapter = new FilmGridAdapter(getContext(), getLayoutInflater(), films);
+        filmGridAdapter = new FilmGridAdapter(getContext(), getLayoutInflater(), filteredFilms);
         gridview.setAdapter(filmGridAdapter);
 
         //Films verkrijgen indien dit nog niet is gebeurt
@@ -69,7 +73,7 @@ public class MainFragment extends Fragment implements OnFilmAvailable, AdapterVi
     public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
 
         //Juiste film verkrijgen
-        Film film = (Film) films.get(position);
+        Film film = (Film) filteredFilms.get(position);
 
         //Verzoeken om naar een nieuw venster te gaan met het juiste film object
         Intent intent = new Intent(getActivity().getApplicationContext(), DetailedActivity.class);
@@ -95,6 +99,7 @@ public class MainFragment extends Fragment implements OnFilmAvailable, AdapterVi
     public void onFilmsLoaded() {
 
         //1X grid updaten, beter voor performance
+        filteredFilms.addAll(films);
         filmGridAdapter.notifyDataSetChanged();
 
         //Fragment geladen, fragment één enkele keer refreshen
@@ -102,5 +107,39 @@ public class MainFragment extends Fragment implements OnFilmAvailable, AdapterVi
             loaded = true;
             getFragmentManager().beginTransaction().detach(this).attach(this).commit();
         }
+    }
+
+    //Filteren
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+
+        //Toast
+        Toast.makeText(getContext(), getString(R.string.action_search_results) + ": '" + query + "'", Toast.LENGTH_SHORT).show();
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+
+        //Gefilterde films legen
+        filteredFilms.clear();
+
+        //Alle films bekijken
+        for (Film film : films)
+
+            //Bevat de film de query?
+            if (film.getName().toLowerCase().contains(newText.toLowerCase()))
+
+                //Film toevoegen
+                filteredFilms.add(film);
+
+        //Weergave updaten
+        filmGridAdapter.notifyDataSetChanged();
+        return false;
+    }
+
+    @Override
+    public void onClick(View v) {
+
     }
 }

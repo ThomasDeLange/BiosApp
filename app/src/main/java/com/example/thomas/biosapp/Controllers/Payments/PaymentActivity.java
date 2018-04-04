@@ -1,5 +1,7 @@
 package com.example.thomas.biosapp.Controllers.Payments;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,7 +21,7 @@ import com.example.thomas.biosapp.R;
 
 import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
 
-public class PaymentActivity extends AppCompatActivity implements View.OnClickListener {
+public class PaymentActivity extends AppCompatActivity implements View.OnClickListener, DialogInterface.OnClickListener {
 
     private ImageView imageViewPayPal;
     private ImageView imageViewIDeal;
@@ -60,7 +62,6 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         Intent intent = getIntent();
         seat = (Seat) intent.getSerializableExtra("SEAT_OBJECT");
         film = (Film) intent.getSerializableExtra("FILM_OBJECT");
-
     }
 
     @Override
@@ -96,7 +97,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
                 int endSeatNumber = seat.getEndsSeatNumber();
 
                 String filmName = film.getName();
-                String runtime = "11 uur";
+                String runtime = "11 uur - 13 uur";
                 String qrCode = "qrcode";
 
                 String posterURL = film.getPosterUrl();
@@ -105,11 +106,14 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
 
                 database.buyTicket(film, ticket);
 
+                //Eindbericht toevoegen
+                //Geslaagd
+                AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                builder.setTitle("De betaling is geslaagd!");
+                builder.setPositiveButton(getApplicationContext().getString(R.string.ok), this);
+                AlertDialog dialog = builder.create();
+                dialog.show();
 
-                //Naar de volgende activiteit, verwijder vorige activiteiten zodat de gebruiker niet terug naar de betaling kan
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                intent.setFlags(FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(intent);
                 break;
 
             case R.id.buttonCancelPayment:
@@ -118,5 +122,14 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
                 finish();
                 break;
         }
+    }
+
+    @Override
+    public void onClick(DialogInterface dialog, int which) {
+
+        //Naar de volgende activiteit, verwijder vorige activiteiten zodat de gebruiker niet terug naar de betaling kan
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        intent.setFlags(FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);
     }
 }

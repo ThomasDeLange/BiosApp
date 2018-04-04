@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.thomas.biosapp.Controllers.Payments.PaymentActivity">
+    tools:context="com.example.thomas.biosapp.Controllers.Payments.PaymentActivity"
+    tools:layout_editor_absoluteY="25dp">
 
     <TextView
         android:id="@+id/textViewPayment"
@@ -12,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:text="@string/payment"
         android:textSize="@dimen/activity_title"
         android:textStyle="bold"
@@ -24,11 +25,13 @@
         android:id="@+id/textViewChoosePayment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="@string/payment_method"
         android:textSize="20dp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewPayment" />
 
@@ -36,9 +39,12 @@
         android:id="@+id/imageViewPayPal"
         android:layout_width="@android:dimen/notification_large_icon_height"
         android:layout_height="@android:dimen/notification_large_icon_height"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintStart_toStartOf="@+id/textViewChoosePayment"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toStartOf="@+id/imageViewIDeal"
+        app:layout_constraintHorizontal_bias="0.71"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewChoosePayment"
         app:srcCompat="@drawable/paypal_icon" />
 
@@ -46,9 +52,13 @@
         android:id="@+id/imageViewIDeal"
         android:layout_width="@android:dimen/notification_large_icon_height"
         android:layout_height="@android:dimen/notification_large_icon_width"
-        android:layout_marginStart="12dp"
-        app:layout_constraintStart_toEndOf="@+id/imageViewPayPal"
-        app:layout_constraintTop_toTopOf="@+id/imageViewPayPal"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.689"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewChoosePayment"
         app:srcCompat="@drawable/ideal_logo" />
 
     <Button
@@ -58,28 +68,34 @@
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:text="@string/cancel"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonConfirmPayment" />
 
     <Button
         android:id="@+id/buttonConfirmPayment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="164dp"
         android:text="@string/validate_payment"
-        app:layout_constraintBottom_toTopOf="@+id/buttonCancelPayment"
-        app:layout_constraintEnd_toEndOf="@+id/buttonCancelPayment"
-        app:layout_constraintStart_toStartOf="@+id/buttonCancelPayment" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerBank" />
 
     <Spinner
         android:id="@+id/spinnerBank"
         android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="12dp"
         android:spinnerMode="dialog"
+        app:layout_constraintEnd_toEndOf="@+id/textViewBank"
         app:layout_constraintStart_toStartOf="@+id/textViewBank"
         app:layout_constraintTop_toBottomOf="@+id/textViewBank" />
 
@@ -87,10 +103,11 @@
         android:id="@+id/textViewBank"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="@string/bank"
         android:textSize="20dp"
         android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imageViewIDeal"
         app:layout_constraintStart_toStartOf="@+id/imageViewPayPal"
         app:layout_constraintTop_toBottomOf="@+id/imageViewPayPal" />
 </android.support.constraint.ConstraintLayout>

@@ -3,6 +3,7 @@ package com.example.thomas.biosapp.Controllers.Contact;
 import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import com.example.thomas.biosapp.R;
  */
 
 public class ContactFragment extends Fragment implements View.OnClickListener{
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

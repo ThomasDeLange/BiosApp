@@ -9,6 +9,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="action_search">Zoeken...</string>
+    <string name="action_search_results">Resultaten voor</string>
 
     <string name="payment">Betalen</string>
     <string name="payment_method">Betalingsmethode:</string>

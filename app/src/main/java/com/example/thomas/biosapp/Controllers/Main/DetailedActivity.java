@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.thomas.biosapp.Controllers.Contact.FeedbackActivity;
 import com.example.thomas.biosapp.Controllers.Seats.SeatsActivity;
 import com.example.thomas.biosapp.Controllers.Seats.TicketSelectionActivity;
 import com.example.thomas.biosapp.Domain.Film;
@@ -29,6 +30,7 @@ public class DetailedActivity extends AppCompatActivity implements View.OnClickL
         TextView filmDetailedTitle = findViewById(R.id.filmDetailedTitle);
         ImageView filmDetailedImage = findViewById(R.id.filmDetailedImage);
         Button filmDetailedOrder = findViewById(R.id.filmDetailedOrder);
+        Button buttonGiveMovieFeedback = findViewById(R.id.buttonGiveMovieFeedback);
         TextView filmDetailedDescription = findViewById(R.id.filmDetailedDescription);
 
         //Meegestuurde gegevens verkrijgen
@@ -42,6 +44,7 @@ public class DetailedActivity extends AppCompatActivity implements View.OnClickL
 
         //Actie achter reserveer knop
         filmDetailedOrder.setOnClickListener(this);
+        buttonGiveMovieFeedback.setOnClickListener(this);
 
     }
 
@@ -52,7 +55,16 @@ public class DetailedActivity extends AppCompatActivity implements View.OnClickL
         //Intent intent = new Intent(getApplicationContext(), TicketSeatInfoActivity.class);
         //intent.putExtra("FILM_OBJECT", film);
         //Verzoeken om naar een nieuw venster te gaan met het juiste film object
-        Intent intent = new Intent(getApplicationContext(), TicketSelectionActivity.class);
+        Intent intent = null;
+        switch (v.getId()) {
+            case R.id.filmDetailedOrder:
+                intent = new Intent(getApplicationContext(), SeatsActivity.class);
+                break;
+            case R.id.buttonGiveMovieFeedback:
+                intent = new Intent(getApplicationContext(), FeedbackActivity.class);
+                break;
+        }
+
         intent.putExtra("FILM_OBJECT", film);
         startActivity(intent);
     }
