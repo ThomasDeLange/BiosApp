@@ -13,6 +13,7 @@ import com.example.thomas.biosapp.R;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
 public class FilmGridAdapter extends BaseAdapter {
     private Context context;
     private LayoutInflater mInflator;

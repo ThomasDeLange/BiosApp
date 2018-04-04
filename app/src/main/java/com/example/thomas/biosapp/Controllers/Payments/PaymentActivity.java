@@ -3,8 +3,8 @@ package com.example.thomas.biosapp.Controllers.Payments;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -55,7 +55,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         buttonCancelPayment.setOnClickListener(this);
 
         //Gegevens aan spinner toevoegen
-        String[] spinnerTitles = new String[] {"ABN AMRO", "ASN Bank", "bunq", "ING", "Knab", "Rabobank", "RegioBank","SNS", "Triodos Bank", "Van Lanschot"};
+        String[] spinnerTitles = new String[]{"ABN AMRO", "ASN Bank", "bunq", "ING", "Knab", "Rabobank", "RegioBank", "SNS", "Triodos Bank", "Van Lanschot"};
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, spinnerTitles);
         spinnerBank.setAdapter(spinnerAdapter);
 

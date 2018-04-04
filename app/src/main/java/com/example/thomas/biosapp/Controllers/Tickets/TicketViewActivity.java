@@ -2,8 +2,8 @@ package com.example.thomas.biosapp.Controllers.Tickets;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -26,7 +26,7 @@ public class TicketViewActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_ticket);
 
         //Verkrijg ticket
-        ticket = (Ticket)getIntent().getSerializableExtra("TICKET_OBJECT");
+        ticket = (Ticket) getIntent().getSerializableExtra("TICKET_OBJECT");
 
         //Verkrijg views, buttons
         Button buttonReturnMain = findViewById(R.id.buttonReturnMain);

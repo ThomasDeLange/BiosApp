@@ -22,8 +22,7 @@ public class ContactFragment extends Fragment implements View.OnClickListener{
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         //View
         View view = inflater.inflate(R.layout.fragment_contact, container, false);

@@ -4,8 +4,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
-import android.view.View;
-import android.support.v7.widget.SearchView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +17,7 @@ public class PagerAdapter extends FragmentPagerAdapter {
     private final List<Fragment> fragmentList = new ArrayList<>();
     private final List<String> fragmentTitleList = new ArrayList<>();
 
-    public PagerAdapter(FragmentManager fm){
+    public PagerAdapter(FragmentManager fm) {
         super(fm);
     }
 
@@ -33,12 +31,10 @@ public class PagerAdapter extends FragmentPagerAdapter {
         return fragmentList.size();
     }
 
-    public void addFragment(Fragment fragment, String title){
+    public void addFragment(Fragment fragment, String title) {
         fragmentList.add(fragment);
         fragmentTitleList.add(title);
     }
-
-
 
     @Nullable
     @Override

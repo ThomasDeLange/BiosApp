@@ -3,13 +3,11 @@ package com.example.thomas.biosapp.Controllers.Seats;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.thomas.biosapp.Controllers.Payments.PaymentActivity;
@@ -24,13 +22,12 @@ import java.util.HashMap;
 
 public class SeatsActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private final String CHAIR_ID_NAME = "selectableChair";
     private Bitmap redChair;
     private Bitmap blueChair;
     private Bitmap greenChair;
-
     private HashMap<ImageView, Integer> seats;
     private TextView textViewChairSelected;
-    private final String CHAIR_ID_NAME = "selectableChair";
     private ArrayList<Integer> selectedChairIDs;
     private Film film;
     private TicketDatabase database;
@@ -65,7 +62,7 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
         film = (Film) getIntent().getSerializableExtra("TICKET_OBJECT");
         totalChairs = (int) getIntent().getSerializableExtra("totalNumberOfChairs");
         price = (String) getIntent().getSerializableExtra("totalPrice");
-        
+
         //Verkrijg stoelen
         getSeats();
     }
@@ -76,7 +73,7 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
         //Er zijn stoelen geselecteerd
         Button buttonSelectChair = findViewById(R.id.buttonSelectChair);
 
-        if(totalChairs >= 1) {
+        if (totalChairs >= 1) {
             buttonSelectChair.setVisibility(View.VISIBLE);
         }
         //Verkrijg ID
@@ -86,7 +83,7 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
         if (id == R.id.buttonSelectChair) {
 
             //Reserveer de seats voor in de database
-            int beginSeatNumber= selectedChairIDs.get(0);
+            int beginSeatNumber = selectedChairIDs.get(0);
             int endSeatNumber = selectedChairIDs.get(selectedChairIDs.size() - 1);
 
             Seat seat = new Seat(/*rowNumber, */beginSeatNumber, endSeatNumber);
@@ -141,7 +138,7 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
         //Creeër lijst met stoelen
         seats = new HashMap<>();
         int index = 1;
-        while(true) {
+        while (true) {
 
             //Kijken of de stoel gereserveerd is
             if (orderedSeats.contains(index)) {

@@ -21,15 +21,8 @@ public class Seat implements Serializable{
         return beginSeatNumber;
     }
 
-    public void setBeginSeatNumber(int beginSeatNumber) {
-        this.beginSeatNumber = beginSeatNumber;
-    }
-
     public int getEndsSeatNumber() {
         return endsSeatNumber;
     }
 
-    public void setEndsSeatNumber(int endsSeatNumber) {
-        this.endsSeatNumber = endsSeatNumber;
-    }
 }

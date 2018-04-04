@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -107,10 +106,6 @@ public class TicketSelectionActivity extends AppCompatActivity implements View.O
             case R.id.buttonConfirmTickets:
                 Intent intent = new Intent(getApplicationContext(), SeatsActivity.class);
                 intent.putExtra("TICKET_OBJECT", film);
-//                intent.putExtra("numberOfChairsChild", intChildNumberOfTickets);
-//                intent.putExtra("numberOfChairsStudent", intStudentNumberOfTickets);
-//                intent.putExtra("numberOfChairsNormal", intNormalNumberOfTickets);
-//                intent.putExtra("numberOfChairs65plus", int65plusNumberOfTickets);
                 intent.putExtra("totalNumberOfChairs", int65plusNumberOfTickets + intChildNumberOfTickets + intNormalNumberOfTickets + intStudentNumberOfTickets);
                 intent.putExtra("totalPrice", intChildNumberOfTickets * 5 + intStudentNumberOfTickets * 7.5 + intNormalNumberOfTickets * 20 + int65plusNumberOfTickets * 15 + "$");
                 startActivity(intent);
@@ -202,7 +197,7 @@ public class TicketSelectionActivity extends AppCompatActivity implements View.O
         }
     }
 
-    public void updatePrice(){
+    public void updatePrice() {
         priceView.setText(intChildNumberOfTickets * 5 + intStudentNumberOfTickets * 7.5 + intNormalNumberOfTickets * 20 + int65plusNumberOfTickets * 15 + "$");
     }
 

@@ -39,12 +39,12 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL("CREATE TABLE `"+TICKET_TABLE_NAME +"` (" +
-                "`"+TICKET_BEGIN_SEATNUMBER +"` INTEGER NOT NULL," +
-                "`"+TICKET_END_SEATNUMBER +"` INTEGER NOT NULL," +
-                "`"+TICKET_FILM_TITLE +"` TEXT NOT NULL," +
-                "`"+TICKET_RUN_TIME +"` TEXT NOT NULL," +
-                "`"+TICKET_POSTER_URL +"` TEXT NOT NULL" +
+        sqLiteDatabase.execSQL("CREATE TABLE `" + TICKET_TABLE_NAME + "` (" +
+                "`" + TICKET_BEGIN_SEATNUMBER + "` INTEGER NOT NULL," +
+                "`" + TICKET_END_SEATNUMBER + "` INTEGER NOT NULL," +
+                "`" + TICKET_FILM_TITLE + "` TEXT NOT NULL," +
+                "`" + TICKET_RUN_TIME + "` TEXT NOT NULL," +
+                "`" + TICKET_POSTER_URL + "` TEXT NOT NULL" +
                 ");");
     }
 
@@ -73,14 +73,14 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
     }
 
     public ArrayList<Ticket> getTicketsByFilmTitle(String filmTitle) {
-        return getTickets("SELECT * FROM " + TICKET_TABLE_NAME + " WHERE " + TICKET_FILM_TITLE + " = '" + filmTitle + "'"  + " ORDER BY " + TICKET_BEGIN_SEATNUMBER);
+        return getTickets("SELECT * FROM " + TICKET_TABLE_NAME + " WHERE " + TICKET_FILM_TITLE + " = '" + filmTitle + "'" + " ORDER BY " + TICKET_BEGIN_SEATNUMBER);
     }
 
     public ArrayList<Ticket> getAllTickets() {
         return getTickets("SELECT * FROM " + TICKET_TABLE_NAME);
     }
 
-    private ArrayList<Ticket> getTickets(String query){
+    private ArrayList<Ticket> getTickets(String query) {
         SQLiteDatabase database = this.getReadableDatabase();
         Cursor cursor = database.rawQuery(query, null);
 

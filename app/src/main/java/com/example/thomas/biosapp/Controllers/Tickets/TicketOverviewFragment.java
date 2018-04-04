@@ -1,10 +1,8 @@
 package com.example.thomas.biosapp.Controllers.Tickets;
 
 import android.content.Intent;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.support.v7.widget.SearchView;
+import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +10,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.thomas.biosapp.Controllers.Tickets.TicketViewActivity;
 import com.example.thomas.biosapp.Database.TicketDatabase;
 import com.example.thomas.biosapp.Domain.Ticket;
 import com.example.thomas.biosapp.R;
@@ -22,7 +19,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 /**
- * Created by steph on 26-3-2018.
+ * Created by Thomas on 26-3-2018.
  */
 
 public class TicketOverviewFragment extends Fragment {

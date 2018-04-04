@@ -3,7 +3,7 @@ package com.example.thomas.biosapp.Domain;
 import java.io.Serializable;
 
 /**
- * Created by steph on 21-3-2018.
+ * Created by Thomas on 21-3-2018.
  */
 
 public class Film implements Serializable {
