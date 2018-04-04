@@ -30,12 +30,10 @@ public class TicketSelectionActivity extends AppCompatActivity implements View.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ticket_selection);
 
-
-
         film = (Film) getIntent().getSerializableExtra("FILM_OBJECT");
         textViewTicketSelection = (TextView) findViewById(R.id.filmTicketTitle);
         textViewTicketSelection.setText(film.getName());
-        ticketPoster = (ImageView) findViewById(R.id.imageTicketSelection);
+        //ticketPoster = (ImageView) findViewById(R.id.imageTicketSelection);
 
         confirmButton = (Button) findViewById(R.id.buttonConfirmTickets);
         confirmButton.setOnClickListener(this);
