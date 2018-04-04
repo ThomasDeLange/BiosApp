@@ -115,7 +115,6 @@ public class TicketSelectionActivity extends AppCompatActivity implements View.O
             case R.id.childAddButton:
 
                 intChildNumberOfTickets = addTicket(intChildNumberOfTickets);
-
                 childNumberOfTickets.setText(intChildNumberOfTickets + "");
                 updatePrice();
                 break;
@@ -143,7 +142,7 @@ public class TicketSelectionActivity extends AppCompatActivity implements View.O
             case R.id.normalAddButton:
 
                 intNormalNumberOfTickets = addTicket(intNormalNumberOfTickets);
-                normalNumberOfTickets.setText(addTicket(intNormalNumberOfTickets) + "");
+                normalNumberOfTickets.setText(intNormalNumberOfTickets + "");
                 updatePrice();
 
                 break;
