@@ -64,12 +64,11 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
 
         //Spinner
         spinnerChairAmount = findViewById(R.id.spinnerChairAmount);
-        ArrayList<Integer> integerList = new ArrayList<Integer>();
+        ArrayList<Integer> integerList = new ArrayList<>();
         int maxAmount = seats.size() > 9 ? 9 : seats.size();
-        for (int a = 1; a <= maxAmount; a++)
-            integerList.add(a);
+        for (int a = 1; a <= maxAmount; a++) integerList.add(a);
         System.out.println(maxAmount);
-        ArrayAdapter<Integer> spinnerAdapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_dropdown_item, integerList);
+        ArrayAdapter<Integer> spinnerAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, integerList);
         spinnerChairAmount.setAdapter(spinnerAdapter);
     }
 
