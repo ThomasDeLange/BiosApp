@@ -107,9 +107,9 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
         return ticketArrayList;
     }
 
-    public int getRemaningNumberOfSeats(){
+    public int getRemaningNumberOfSeats(String filmTitle){
         SQLiteDatabase database = this.getReadableDatabase();
-        String query = "SELECT " + TICKET_BEGIN_SEATNUMBER + ", " + TICKET_END_SEATNUMBER +" FROM " + TICKET_TABLE_NAME;
+        String query = "SELECT " + TICKET_BEGIN_SEATNUMBER + ", " + TICKET_END_SEATNUMBER +" FROM " + TICKET_TABLE_NAME + " WHERE " + TICKET_FILM_TITLE + " = " + filmTitle;
 
         Cursor cursor = database.rawQuery(query, null);
 

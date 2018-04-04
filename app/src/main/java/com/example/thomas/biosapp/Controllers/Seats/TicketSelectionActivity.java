@@ -20,7 +20,7 @@ import com.squareup.picasso.Picasso;
  * Created by steph on 3-4-2018.
  */
 
-public class TicketSelectionActivity extends AppCompatActivity implements View.OnClickListener{
+public class TicketSelectionActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView textViewTicketSelection;
     private Film film;
@@ -44,7 +44,7 @@ public class TicketSelectionActivity extends AppCompatActivity implements View.O
         confirmButton.setOnClickListener(this);
 
         ticketDatabase = new TicketDatabase(this);
-        totalOfSeatRemaining =  ticketDatabase.getRemaningNumberOfSeats();
+        totalOfSeatRemaining = ticketDatabase.getRemaningNumberOfSeats(film.getName());
     }
 
     @Override
@@ -54,12 +54,12 @@ public class TicketSelectionActivity extends AppCompatActivity implements View.O
         startActivity(intent);
     }
 
-    public int addTicket(int a){
+    public int addTicket(int a) {
 
-        if (totalOfSeatRemaining > 0){
+        if (totalOfSeatRemaining > 0) {
             totalOfSeatRemaining -= 1;
             return a + 1;
-        }else {
+        } else {
             Toast toast = Toast.makeText(getApplicationContext(), "Er zijn geen stoelen meer over.", Toast.LENGTH_LONG);
             toast.show();
             return 0;
@@ -67,11 +67,11 @@ public class TicketSelectionActivity extends AppCompatActivity implements View.O
         }
     }
 
-    public int deleteTicket(int a, int total){
-        if (total <= 0){
+    public int deleteTicket(int a, int total) {
+        if (total <= 0) {
             totalOfSeatRemaining += 1;
             return a - 1;
-        }else {
+        } else {
             return 0;
         }
     }
