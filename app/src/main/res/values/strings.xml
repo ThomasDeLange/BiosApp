@@ -19,7 +19,7 @@
     <string name="seats">Zitplaats(en)</string>
     <string name="no_seats_selected">Geen zitplaats geselecteerd</string>
     <string name="selected">geselecteerd</string>
-    <string name="select_seat_description">Selecteer hieronder uw gewenste aantal kaartjes en zitplaats.</string>
+    <string name="select_seat_description">Selecteer hieronder uw gewenste zitplaats(en).</string>
     <string name="tickets">Tickets</string>
     <string name="personal_data">Persoonsgegevens</string>
     <string name="chair">Stoel</string>

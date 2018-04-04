@@ -24,9 +24,10 @@ public class TicketSelectionActivity extends AppCompatActivity implements View.O
     private TextView textViewTicketSelection;
     private Film film;
     private Button confirmButton;
-    //private ImageView ticketPoster;
     private int totalOfSeatRemaining;
     private TicketDatabase ticketDatabase;
+
+    private TextView priceView;
 
     //Child
     private int intChildNumberOfTickets = 0;
@@ -71,6 +72,8 @@ public class TicketSelectionActivity extends AppCompatActivity implements View.O
         ticketDatabase = new TicketDatabase(this);
         totalOfSeatRemaining = ticketDatabase.getRemaningNumberOfSeats(film.getName());
 
+        priceView = findViewById(R.id.priceView);
+
         //Child
         childNumberOfTickets = findViewById(R.id.childNumberOfTicketsView);
         childAddButton = findViewById(R.id.childAddButton);
@@ -108,40 +111,71 @@ public class TicketSelectionActivity extends AppCompatActivity implements View.O
             case R.id.buttonConfirmTickets:
                 Intent intent = new Intent(getApplicationContext(), SeatsActivity.class);
                 intent.putExtra("TICKET_OBJECT", film);
+                intent.putExtra("numberOfChairsChild", intChildNumberOfTickets);
+                intent.putExtra("numberOfChairsStudent", intStudentNumberOfTickets);
+                intent.putExtra("numberOfChairsNormal", intNormalNumberOfTickets);
+                intent.putExtra("numberOfChairs65plus", int65plusNumberOfTickets);
+                intent.putExtra("totalNumberOfChairs", int65plusNumberOfTickets + intChildNumberOfTickets + intNormalNumberOfTickets + intStudentNumberOfTickets);
+
                 startActivity(intent);
+
                 break;
 
             case R.id.childAddButton:
 
-                childNumberOfTickets.setText(addTicket(intChildNumberOfTickets) + "");
+                intChildNumberOfTickets = addTicket(intChildNumberOfTickets);
+
+                childNumberOfTickets.setText(intChildNumberOfTickets + "");
+                updatePrice();
                 break;
             case R.id.childDeleteButton:
 
-                childNumberOfTickets.setText(deleteTicket(intChildNumberOfTickets) + "");
+                intChildNumberOfTickets = deleteTicket(intChildNumberOfTickets);
+                childNumberOfTickets.setText(intChildNumberOfTickets + "");
+                updatePrice();
+
                 break;
             case R.id.studentAddButton:
 
-                studentNumberOfTickets.setText(addTicket(intStudentNumberOfTickets) + "");
+                intStudentNumberOfTickets = addTicket(intStudentNumberOfTickets);
+                studentNumberOfTickets.setText(intStudentNumberOfTickets + "");
+                updatePrice();
+
                 break;
             case R.id.studentDeleteButton:
 
-                studentNumberOfTickets.setText(deleteTicket(intStudentNumberOfTickets) + "");
+                intStudentNumberOfTickets = deleteTicket(intStudentNumberOfTickets);
+                studentNumberOfTickets.setText(intStudentNumberOfTickets + "");
+                updatePrice();
+
                 break;
             case R.id.normalAddButton:
 
+                intNormalNumberOfTickets = addTicket(intNormalNumberOfTickets);
                 normalNumberOfTickets.setText(addTicket(intNormalNumberOfTickets) + "");
+                updatePrice();
+
                 break;
             case R.id.normalDeleteButton:
 
-                normalNumberOfTickets.setText(deleteTicket(intNormalNumberOfTickets) + "");
+                intNormalNumberOfTickets = deleteTicket(intNormalNumberOfTickets);
+                normalNumberOfTickets.setText(intNormalNumberOfTickets + "");
+                updatePrice();
+
                 break;
             case R.id._65PlusAddButton:
 
-                _65plusNumberOfTickets.setText(addTicket(int65plusNumberOfTickets) + "");
+                int65plusNumberOfTickets = addTicket(int65plusNumberOfTickets);
+                _65plusNumberOfTickets.setText(int65plusNumberOfTickets + "");
+                updatePrice();
+
                 break;
             case R.id._65plusDeleteButton:
 
-                _65plusNumberOfTickets.setText(deleteTicket(int65plusNumberOfTickets) + "");
+                int65plusNumberOfTickets = deleteTicket(int65plusNumberOfTickets);
+                _65plusNumberOfTickets.setText(int65plusNumberOfTickets + "");
+                updatePrice();
+
                 break;
 
             default:
@@ -153,7 +187,8 @@ public class TicketSelectionActivity extends AppCompatActivity implements View.O
 
         if (totalOfSeatRemaining > 0) {
             totalOfSeatRemaining -= 1;
-            return a++;
+
+            return ++a;
         } else {
             Toast toast = Toast.makeText(getApplicationContext(), "Er zijn geen stoelen meer over.", Toast.LENGTH_LONG);
             toast.show();
@@ -164,9 +199,15 @@ public class TicketSelectionActivity extends AppCompatActivity implements View.O
     public int deleteTicket(int a) {
         if (a > 0) {
             totalOfSeatRemaining += 1;
-            return a--;
+
+            return --a;
         } else {
             return 0;
         }
     }
+
+    public void updatePrice(){
+        priceView.setText(intChildNumberOfTickets * 5 + intStudentNumberOfTickets * 7.5 + intNormalNumberOfTickets * 20 + int65plusNumberOfTickets * 15 + "$");
+    }
+
 }
