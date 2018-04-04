@@ -30,6 +30,8 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
     private Seat seat;
     private Film film;
     private TicketDatabase database;
+    private TextView priceTextView;
+    private int price;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,8 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         textViewBank = findViewById(R.id.textViewBank);
         Button buttonConfirmPayment = findViewById(R.id.buttonConfirmPayment);
         Button buttonCancelPayment = findViewById(R.id.buttonCancelPayment);
+        priceTextView = findViewById(R.id.priceTextView);
+
 
         //Clicklisteners toevoegen
         imageViewPayPal.setOnClickListener(this);
@@ -62,6 +66,11 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         Intent intent = getIntent();
         seat = (Seat) intent.getSerializableExtra("SEAT_OBJECT");
         film = (Film) intent.getSerializableExtra("FILM_OBJECT");
+        price = (int) intent.getSerializableExtra("totalPrice");
+
+        //Set price
+        priceTextView.setText(price);
+
     }
 
     @Override

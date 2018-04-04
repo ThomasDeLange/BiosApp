@@ -65,6 +65,10 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
         film = (Film) getIntent().getSerializableExtra("TICKET_OBJECT");
         totalChairs = (int) getIntent().getSerializableExtra("totalNumberOfChairs");
 
+        if(totalChairs <= 0){
+            buttonSelectChair.setVisibility(View.INVISIBLE);
+        }
+
         //Verkrijg stoelen
         getSeats();
     }

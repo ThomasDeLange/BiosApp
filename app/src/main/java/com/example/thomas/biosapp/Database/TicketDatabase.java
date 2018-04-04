@@ -107,9 +107,9 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
         return ticketArrayList;
     }
 
-    public int getRemaningNumberOfSeats(String filmTitle){
+    public int getRemaningNumberOfSeats(String filmTitle) {
         SQLiteDatabase database = this.getReadableDatabase();
-        String query = "SELECT " + TICKET_BEGIN_SEATNUMBER + ", " + TICKET_END_SEATNUMBER +" FROM " + TICKET_TABLE_NAME + " WHERE " + TICKET_FILM_TITLE + " = '" + filmTitle +"'";
+        String query = "SELECT " + TICKET_BEGIN_SEATNUMBER + ", " + TICKET_END_SEATNUMBER + " FROM " + TICKET_TABLE_NAME + " WHERE " + TICKET_FILM_TITLE + " = '" + filmTitle + "'";
 
         Cursor cursor = database.rawQuery(query, null);
 
@@ -128,43 +128,4 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
 
         return 54 - totalReserved;
     }
-
-
-//    public void printTickets() {
-//
-//        SQLiteDatabase database = this.getReadableDatabase();
-//
-//        String query = "SELECT * FROM " + TICKET_TABLE_NAME;
-//        Cursor cursor = database.rawQuery(query, null);
-//
-//        ArrayList<Ticket> ticketArrayList = new ArrayList<>();
-//
-//        cursor.moveToFirst();
-//
-//        while (!cursor.isAfterLast()) {
-//            int beginSeatNumber = cursor.getInt(cursor.getColumnIndex(TICKET_BEGIN_SEATNUMBER));
-//            int endSeatNumber = cursor.getInt(cursor.getColumnIndex(TICKET_END_SEATNUMBER));
-//            String filmTitle = cursor.getString(cursor.getColumnIndex(TICKET_FILM_TITLE));
-//            String runTime = cursor.getString(cursor.getColumnIndex(TICKET_RUN_TIME));
-//            String qrCode = cursor.getString(cursor.getColumnIndex(TICKET_QR_CODE));
-//            String posterURL = cursor.getString(cursor.getColumnIndex(TICKET_POSTER_URL));
-//
-//
-//            ticketArrayList.add(new Ticket(beginSeatNumber, endSeatNumber, filmTitle, runTime, qrCode, posterURL));
-//            cursor.moveToNext();
-//        }
-//        cursor.close();
-//        database.close();
-//        for (Ticket t : ticketArrayList) {
-//            Log.i(TAG, t.toString());
-//
-//        }
-//    }
-
-
-
-
-
-
-
 }
