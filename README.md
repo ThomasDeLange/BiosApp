@@ -7,4 +7,8 @@ De documentatie kunt u vinden in het mapje Documentatie.
 
 Gemaakt door:
 
-Tobias : 212463
+Julian : 2127530
+Stephan : 210591
+Tobias  : 2124631
+Szonja  : 2128202
+Thomas : 2125564
