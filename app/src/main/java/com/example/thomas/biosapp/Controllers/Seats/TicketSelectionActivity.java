@@ -52,10 +52,15 @@ public class TicketSelectionActivity extends AppCompatActivity implements View.O
     private ImageButton _65plusAddButton;
     private ImageButton _65plusDeleteButton;
 
+    //Toast
+    private Toast toast;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ticket_selection);
+
+        toast = Toast.makeText(getApplicationContext(), "Er zijn geen stoelen meer over.", Toast.LENGTH_SHORT);
 
         film = (Film) getIntent().getSerializableExtra("FILM_OBJECT");
         textViewTicketSelection = (TextView) findViewById(R.id.filmTicketTitle);
@@ -180,7 +185,6 @@ public class TicketSelectionActivity extends AppCompatActivity implements View.O
 
             return ++a;
         } else {
-            Toast toast = Toast.makeText(getApplicationContext(), "Er zijn geen stoelen meer over.", Toast.LENGTH_SHORT);
             toast.show();
             return a;
         }
