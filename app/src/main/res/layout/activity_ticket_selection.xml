@@ -14,9 +14,10 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
         android:text="TextView"
+        android:textAlignment="viewEnd"
         android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/filmImage"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
@@ -25,118 +26,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Selecteer uw ticket:"
+        android:textAlignment="viewEnd"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/filmTicketTitle"
         app:layout_constraintStart_toStartOf="@+id/filmTicketTitle"
         app:layout_constraintTop_toBottomOf="@+id/filmTicketTitle" />
 
-    <TextView
-        android:id="@+id/childCostView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="20dp"
-        android:text="5$"
-        app:layout_constraintEnd_toStartOf="@+id/childTextView"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="155dp" />
-
-    <TextView
-        android:id="@+id/childTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="60dp"
-        android:text="Kind"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/childNumberView"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/childNumberView" />
-
-    <TextView
-        android:id="@+id/childNumberView"
-        android:layout_width="wrap_content"
-        android:layout_height="18dp"
-        android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="@+id/childDeleteButton"
-        app:layout_constraintEnd_toStartOf="@+id/childDeleteButton"
-        app:layout_constraintTop_toTopOf="@+id/childDeleteButton"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ImageButton
-        android:id="@+id/childDeleteButton"
-        android:layout_width="49dp"
-        android:layout_height="36dp"
-        android:background="@color/Button"
-        app:layout_constraintBottom_toBottomOf="@+id/childAddButton"
-        app:layout_constraintEnd_toStartOf="@+id/childAddButton"
-        app:layout_constraintTop_toTopOf="@+id/childAddButton"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@android:drawable/ic_delete" />
-
-    <ImageButton
-        android:id="@+id/childAddButton"
-        android:layout_width="49dp"
-        android:layout_height="36dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/Button"
-        app:layout_constraintBottom_toBottomOf="@+id/childDeleteButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/childDeleteButton"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@android:drawable/ic_input_add" />
-
-    <TextView
-        android:id="@+id/childCostView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="24dp"
-        android:text="5$"
-        app:layout_constraintEnd_toStartOf="@+id/childTextView3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/childCostView" />
-
-    <TextView
-        android:id="@+id/childTextView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:text="Kind"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/childCostView3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/childCostView3" />
-
-    <TextView
-        android:id="@+id/childNumberView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="152dp"
-        tools:layout_editor_absoluteY="274dp" />
-
-    <ImageButton
-        android:id="@+id/childDeleteButton3"
-        android:layout_width="49dp"
-        android:layout_height="36dp"
-        android:background="@color/Button"
-        app:srcCompat="@android:drawable/ic_delete"
-        tools:layout_editor_absoluteX="254dp"
-        tools:layout_editor_absoluteY="265dp" />
-
-    <ImageButton
-        android:id="@+id/childAddButton3"
-        android:layout_width="49dp"
-        android:layout_height="36dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/Button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add"
-        tools:layout_editor_absoluteY="265dp" />
 
     <Button
         android:id="@+id/buttonConfirmTickets"
@@ -150,5 +45,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/filmImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@color/colorAccent" />
 
 </android.support.constraint.ConstraintLayout>

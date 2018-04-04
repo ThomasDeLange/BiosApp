@@ -1,6 +1,9 @@
 package com.example.thomas.biosapp.Controllers.Seats;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -12,7 +15,10 @@ import android.widget.TextView;
 
 import com.example.thomas.biosapp.Domain.Film;
 import com.example.thomas.biosapp.R;
+import com.example.thomas.biosapp.Util.FilmGridAdapter;
 import com.squareup.picasso.Picasso;
+
+import java.net.URL;
 
 /**
  * Created by steph on 3-4-2018.
@@ -33,7 +39,12 @@ public class TicketSelectionActivity extends AppCompatActivity implements View.O
         film = (Film) getIntent().getSerializableExtra("FILM_OBJECT");
         textViewTicketSelection = (TextView) findViewById(R.id.filmTicketTitle);
         textViewTicketSelection.setText(film.getName());
-        //ticketPoster = (ImageView) findViewById(R.id.imageTicketSelection);
+
+        ticketPoster = (ImageView) findViewById(R.id.filmImage);
+
+        Picasso.get().load(film.getPosterUrl()).into(ticketPoster);
+
+
 
         confirmButton = (Button) findViewById(R.id.buttonConfirmTickets);
         confirmButton.setOnClickListener(this);
