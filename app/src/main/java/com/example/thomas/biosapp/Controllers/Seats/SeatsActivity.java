@@ -65,12 +65,7 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
         film = (Film) getIntent().getSerializableExtra("TICKET_OBJECT");
         totalChairs = (int) getIntent().getSerializableExtra("totalNumberOfChairs");
         price = (String) getIntent().getSerializableExtra("totalPrice");
-
-
-        if(totalChairs <= 0){
-            buttonSelectChair.setVisibility(View.INVISIBLE);
-        }
-
+        
         //Verkrijg stoelen
         getSeats();
     }
@@ -80,8 +75,10 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
 
         //Er zijn stoelen geselecteerd
         Button buttonSelectChair = findViewById(R.id.buttonSelectChair);
-        buttonSelectChair.setVisibility(View.VISIBLE);
 
+        if(totalChairs >= 1) {
+            buttonSelectChair.setVisibility(View.VISIBLE);
+        }
         //Verkrijg ID
         int id = v.getId();
 
