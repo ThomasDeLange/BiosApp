@@ -41,9 +41,9 @@ public class TicketsAdapter extends ArrayAdapter<Ticket> {
         }
 
         // Koppelen datasource aan UI
-        ImageView filmPoster = (ImageView) convertView.findViewById(R.id.filmPosterView);
-        TextView filmTitle = (TextView) convertView.findViewById(R.id.filmTitleView);
-        TextView filmRuntime = (TextView) convertView.findViewById(R.id.filmRuntimeView);
+        ImageView filmPoster = convertView.findViewById(R.id.filmPosterView);
+        TextView filmTitle = convertView.findViewById(R.id.filmTitleView);
+        TextView filmRuntime = convertView.findViewById(R.id.filmRuntimeView);
 
         Picasso.get().load(ticket.getPosterURL()).into(filmPoster);
         filmTitle.setText(ticket.getFilmTitle());

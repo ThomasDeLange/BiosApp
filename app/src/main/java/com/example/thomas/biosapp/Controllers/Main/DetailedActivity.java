@@ -45,15 +45,11 @@ public class DetailedActivity extends AppCompatActivity implements View.OnClickL
         //Actie achter reserveer knop
         filmDetailedOrder.setOnClickListener(this);
         buttonGiveMovieFeedback.setOnClickListener(this);
-
     }
 
     @Override
     public void onClick(View v) {
 
-        //Verzoeken om naar een nieuw venster te gaan met het juiste film object
-        //Intent intent = new Intent(getApplicationContext(), TicketSeatInfoActivity.class);
-        //intent.putExtra("FILM_OBJECT", film);
         //Verzoeken om naar een nieuw venster te gaan met het juiste film object
         Intent intent = null;
         switch (v.getId()) {

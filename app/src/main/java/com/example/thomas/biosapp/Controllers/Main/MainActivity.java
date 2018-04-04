@@ -34,9 +34,9 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         //Tijdelijk veranderd naar R.layout_activity_films_tab, default is activity_main
         setContentView(R.layout.activity_main);
-
         mainFragment = new MainFragment();
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);

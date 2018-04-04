@@ -62,10 +62,6 @@ public class TicketSelectionActivity extends AppCompatActivity implements View.O
         textViewTicketSelection = (TextView) findViewById(R.id.filmTicketTitle);
         textViewTicketSelection.setText(film.getName());
 
-        //ticketPoster = (ImageView) findViewById(R.id.filmImage);
-
-        //Picasso.get().load(film.getPosterUrl()).into(ticketPoster);
-
         confirmButton = (Button) findViewById(R.id.buttonConfirmTickets);
         confirmButton.setOnClickListener(this);
 
