@@ -12,7 +12,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.thomas.biosapp.Database.TicketDatabase;
 import com.example.thomas.biosapp.Domain.Film;
 import com.example.thomas.biosapp.R;
 import com.example.thomas.biosapp.Util.FilmGridAdapter;
@@ -24,12 +26,15 @@ import java.net.URL;
  * Created by steph on 3-4-2018.
  */
 
-public class TicketSelectionActivity extends AppCompatActivity implements View.OnClickListener{
+public class TicketSelectionActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView textViewTicketSelection;
     private Film film;
     private Button confirmButton;
-    private ImageView ticketPoster;
+    //private ImageView ticketPoster;
+    private int totalOfSeatRemaining;
+    private TicketDatabase ticketDatabase;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -48,6 +53,9 @@ public class TicketSelectionActivity extends AppCompatActivity implements View.O
 
         confirmButton = (Button) findViewById(R.id.buttonConfirmTickets);
         confirmButton.setOnClickListener(this);
+
+        ticketDatabase = new TicketDatabase(this);
+        totalOfSeatRemaining = ticketDatabase.getRemaningNumberOfSeats(film.getName());
     }
 
     @Override
@@ -56,4 +64,27 @@ public class TicketSelectionActivity extends AppCompatActivity implements View.O
         intent.putExtra("TICKET_OBJECT", film);
         startActivity(intent);
     }
+
+    public int addTicket(int a) {
+
+        if (totalOfSeatRemaining > 0) {
+            totalOfSeatRemaining -= 1;
+            return a + 1;
+        } else {
+            Toast toast = Toast.makeText(getApplicationContext(), "Er zijn geen stoelen meer over.", Toast.LENGTH_LONG);
+            toast.show();
+            return 0;
+
+        }
+    }
+
+    public int deleteTicket(int a, int total) {
+        if (total <= 0) {
+            totalOfSeatRemaining += 1;
+            return a - 1;
+        } else {
+            return 0;
+        }
+    }
+
 }
