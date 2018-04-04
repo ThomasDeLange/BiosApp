@@ -38,7 +38,7 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
     private ArrayList<Integer> orderedSeats;
 
     private int totalChairs;
-
+    private String price;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +64,8 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
         //Verkrijg intent
         film = (Film) getIntent().getSerializableExtra("TICKET_OBJECT");
         totalChairs = (int) getIntent().getSerializableExtra("totalNumberOfChairs");
+        price = (String) getIntent().getSerializableExtra("totalPrice");
+
 
         if(totalChairs <= 0){
             buttonSelectChair.setVisibility(View.INVISIBLE);
@@ -96,6 +98,8 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
             Intent intent = new Intent(getApplicationContext(), PaymentActivity.class);
             intent.putExtra("SEAT_OBJECT", seat);
             intent.putExtra("FILM_OBJECT", film);
+            intent.putExtra("totalPrice", price);
+
             startActivity(intent);
 
         } else {

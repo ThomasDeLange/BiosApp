@@ -31,7 +31,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
     private Film film;
     private TicketDatabase database;
     private TextView priceTextView;
-    private int price;
+    private String price;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,7 +66,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         Intent intent = getIntent();
         seat = (Seat) intent.getSerializableExtra("SEAT_OBJECT");
         film = (Film) intent.getSerializableExtra("FILM_OBJECT");
-        price = (int) intent.getSerializableExtra("totalPrice");
+        price = (String) intent.getSerializableExtra("totalPrice");
 
         //Set price
         priceTextView.setText(price);
