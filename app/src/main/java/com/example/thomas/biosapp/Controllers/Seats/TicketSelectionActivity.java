@@ -206,6 +206,7 @@ public class TicketSelectionActivity extends AppCompatActivity implements View.O
 
     public void updatePrice() {
         double amount = intChildNumberOfTickets * 5 + intStudentNumberOfTickets * 7.5 + intNormalNumberOfTickets * 20 + int65plusNumberOfTickets * 15;
+        confirmButton.setVisibility(amount == 0 ? View.INVISIBLE : View.VISIBLE);
         priceView.setText("€" + String.format("%.02f", amount));
     }
 
