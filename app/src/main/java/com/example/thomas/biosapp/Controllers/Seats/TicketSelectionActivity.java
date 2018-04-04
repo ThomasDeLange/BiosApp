@@ -107,12 +107,12 @@ public class TicketSelectionActivity extends AppCompatActivity implements View.O
             case R.id.buttonConfirmTickets:
                 Intent intent = new Intent(getApplicationContext(), SeatsActivity.class);
                 intent.putExtra("TICKET_OBJECT", film);
-                intent.putExtra("numberOfChairsChild", intChildNumberOfTickets);
-                intent.putExtra("numberOfChairsStudent", intStudentNumberOfTickets);
-                intent.putExtra("numberOfChairsNormal", intNormalNumberOfTickets);
-                intent.putExtra("numberOfChairs65plus", int65plusNumberOfTickets);
+//                intent.putExtra("numberOfChairsChild", intChildNumberOfTickets);
+//                intent.putExtra("numberOfChairsStudent", intStudentNumberOfTickets);
+//                intent.putExtra("numberOfChairsNormal", intNormalNumberOfTickets);
+//                intent.putExtra("numberOfChairs65plus", int65plusNumberOfTickets);
                 intent.putExtra("totalNumberOfChairs", int65plusNumberOfTickets + intChildNumberOfTickets + intNormalNumberOfTickets + intStudentNumberOfTickets);
-
+                intent.putExtra("totalPrice", intChildNumberOfTickets * 5 + intStudentNumberOfTickets * 7.5 + intNormalNumberOfTickets * 20 + int65plusNumberOfTickets * 15 + "$");
                 startActivity(intent);
 
                 break;
@@ -186,7 +186,7 @@ public class TicketSelectionActivity extends AppCompatActivity implements View.O
 
             return ++a;
         } else {
-            Toast toast = Toast.makeText(getApplicationContext(), "Er zijn geen stoelen meer over.", Toast.LENGTH_LONG);
+            Toast toast = Toast.makeText(getApplicationContext(), "Er zijn geen stoelen meer over.", Toast.LENGTH_SHORT);
             toast.show();
             return a;
         }

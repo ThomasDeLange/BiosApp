@@ -41,7 +41,7 @@
         android:layout_height="@android:dimen/notification_large_icon_height"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="104dp"
         app:layout_constraintEnd_toStartOf="@+id/imageViewIDeal"
         app:layout_constraintHorizontal_bias="0.71"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +54,7 @@
         android:layout_height="@android:dimen/notification_large_icon_width"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="104dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.689"
         app:layout_constraintStart_toStartOf="parent"
@@ -81,7 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="164dp"
+        android:layout_marginTop="128dp"
         android:text="@string/validate_payment"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -93,9 +93,10 @@
         android:layout_width="wrap_content"
         android:layout_height="24dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="4dp"
         android:spinnerMode="dialog"
         app:layout_constraintEnd_toEndOf="@+id/textViewBank"
+        app:layout_constraintHorizontal_bias="0.181"
         app:layout_constraintStart_toStartOf="@+id/textViewBank"
         app:layout_constraintTop_toBottomOf="@+id/textViewBank" />
 
@@ -110,4 +111,16 @@
         app:layout_constraintEnd_toEndOf="@+id/imageViewIDeal"
         app:layout_constraintStart_toStartOf="@+id/imageViewPayPal"
         app:layout_constraintTop_toBottomOf="@+id/imageViewPayPal" />
+
+    <TextView
+        android:id="@+id/priceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="32dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewChoosePayment" />
 </android.support.constraint.ConstraintLayout>
