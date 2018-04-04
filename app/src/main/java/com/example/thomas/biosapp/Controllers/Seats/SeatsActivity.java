@@ -32,11 +32,13 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
     private TextView textViewChairSelected;
     private final String CHAIR_ID_NAME = "selectableChair";
     private ArrayList<Integer> selectedChairIDs;
-    private Spinner spinnerChairAmount;
     private Film film;
     private TicketDatabase database;
     private int lastSeat;
     private ArrayList<Integer> orderedSeats;
+
+    private int totalChairs;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,26 +62,13 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
         buttonSelectChair.setOnClickListener(this);
 
         //Verkrijg intent
-        film = (Film) getIntent().getSerializableExtra("FILM_OBJECT");
+        film = (Film) getIntent().getSerializableExtra("TICKET_OBJECT");
+        totalChairs = (int) getIntent().getSerializableExtra("totalNumberOfChairs");
 
         //Verkrijg stoelen
         getSeats();
 
-        //Spinner
-        createSpinner();
-    }
 
-    private void createSpinner() {
-
-        //Spinner
-        spinnerChairAmount = findViewById(R.id.spinnerChairAmount);
-        ArrayList<Integer> integerList = new ArrayList<Integer>();
-        int maxAmount = seats.size() > 9 ? 9 : seats.size();
-        for (int a = 1; a <= maxAmount; a++)
-            integerList.add(a);
-        System.out.println(maxAmount);
-        ArrayAdapter<Integer> spinnerAdapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_dropdown_item, integerList);
-        spinnerChairAmount.setAdapter(spinnerAdapter);
     }
 
     @Override
@@ -119,8 +108,7 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
 
             //Nummer van geselecteerde stoel verkrijgen en selecteren, ervoor zorgen dat het niet de beschikbare stoelen overschrijd
             int number = seats.get(v);
-            int chairAmount = (Integer)spinnerChairAmount.getSelectedItem();
-            for (int a = 0; a < chairAmount; a++)
+            for (int a = 0; a < totalChairs; a++)
                 selectChair(number + a);
 
             //Creeër string

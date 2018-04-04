@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.thomas.biosapp.Controllers.Contact.FeedbackActivity;
 import com.example.thomas.biosapp.Controllers.Seats.SeatsActivity;
+import com.example.thomas.biosapp.Controllers.Seats.TicketSelectionActivity;
 import com.example.thomas.biosapp.Domain.Film;
 import com.example.thomas.biosapp.R;
 import com.squareup.picasso.Picasso;
@@ -63,6 +64,7 @@ public class DetailedActivity extends AppCompatActivity implements View.OnClickL
                 intent = new Intent(getApplicationContext(), FeedbackActivity.class);
                 break;
         }
+
         intent.putExtra("FILM_OBJECT", film);
         startActivity(intent);
     }

@@ -9,4 +9,5 @@
     <color name="colorOrdered">#d50000</color>
     <color name="qrCodePrimary">#000000</color>
     <color name="qrCodeSecondary">#ffffff</color>
+    <color name="Button">#00ffffff</color>
 </resources>
