@@ -1,8 +1,10 @@
 package com.example.thomas.biosapp.Controllers.Tickets;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,11 +31,6 @@ public class TicketOverviewFragment extends Fragment {
     private ArrayList<Ticket> ticketArrayList;
     private TicketsAdapter ticketsAdapter;
     private TicketDatabase database;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
