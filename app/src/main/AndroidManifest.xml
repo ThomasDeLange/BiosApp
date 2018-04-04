@@ -31,12 +31,7 @@
         <activity android:screenOrientation="portrait"
             android:name=".Controllers.Contact.MapsActivity"
             android:label="@string/title_activity_maps" />
-      
-        <!--<activity android:name=".Controllers.Main.DetailedActivity" />-->
-        <activity android:name=".Controllers.Payments.PaymentActivity" />
-        <activity android:name=".Controllers.Seats.SeatsActivity"></activity>
-        <activity android:name=".Controllers.Tickets.TicketViewActivity"></activity>
-        <!--<activity android:name=".Controllers.Tickets.TicketsActivity$BuyTicketActivity" />-->
+
         <activity android:name=".Controllers.Seats.TicketSelectionActivity" />
         <activity android:screenOrientation="portrait" android:name=".Controllers.Payments.PaymentActivity"
             android:theme="@style/MainTheme" />

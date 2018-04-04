@@ -67,8 +67,6 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
 
         //Verkrijg stoelen
         getSeats();
-
-
     }
 
     @Override

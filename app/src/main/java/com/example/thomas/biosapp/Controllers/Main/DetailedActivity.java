@@ -58,7 +58,7 @@ public class DetailedActivity extends AppCompatActivity implements View.OnClickL
         Intent intent = null;
         switch (v.getId()) {
             case R.id.filmDetailedOrder:
-                intent = new Intent(getApplicationContext(), SeatsActivity.class);
+                intent = new Intent(getApplicationContext(), TicketSelectionActivity.class);
                 break;
             case R.id.buttonGiveMovieFeedback:
                 intent = new Intent(getApplicationContext(), FeedbackActivity.class);

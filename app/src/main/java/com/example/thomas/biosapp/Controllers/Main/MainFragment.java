@@ -65,6 +65,7 @@ public class MainFragment extends Fragment implements OnFilmAvailable, AdapterVi
 
         //Film array legen en films uit de filmtaak halen
         films.clear();
+        filteredFilms.clear();
         FilmTask task = new FilmTask(this);
         String[] urls = new String[]{FilmTask.filmQueries.popularUrl};
         task.execute(urls);
