@@ -19,8 +19,7 @@ public class Ticket implements Serializable{
 
 
 
-    public Ticket(/*int rownumber, */int beginSeatNumber, int endSeatNumber, String filmTitle, String runTime, String qRCode, String posterURL) {
-        //this.rownumber = rownumber;
+    public Ticket(int beginSeatNumber, int endSeatNumber, String filmTitle, String runTime, String qRCode, String posterURL) {
         this.beginSeatNumber = beginSeatNumber;
         this.endSeatNumber = endSeatNumber;
         this.filmTitle = filmTitle;
@@ -28,14 +27,6 @@ public class Ticket implements Serializable{
         this.qRCode = qRCode;
         this.posterURL = posterURL;
     }
-
-    /*public int getRownumber() {
-        return rownumber;
-    }
-
-    public void setRownumber(int rownumber) {
-        this.rownumber = rownumber;
-    }*/
 
     public int getBeginSeatNumber() {
         return beginSeatNumber;
@@ -84,37 +75,4 @@ public class Ticket implements Serializable{
     public void setPosterURL(String posterURL) {
         this.posterURL = posterURL;
     }
-
-    /*@Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Ticket ticket = (Ticket) o;
-        return rownumber == ticket.rownumber &&
-                beginSeatNumber == ticket.beginSeatNumber &&
-                endSeatNumber == ticket.endSeatNumber &&
-                Objects.equals(filmTitle, ticket.filmTitle) &&
-                Objects.equals(runTime, ticket.runTime) &&
-                Objects.equals(qRCode, ticket.qRCode) &&
-                Objects.equals(posterURL, ticket.posterURL);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(rownumber, beginSeatNumber, endSeatNumber, filmTitle, runTime, qRCode, posterURL);
-    }
-
-    @Override
-    public String toString() {
-        return "Ticket{" +
-                "rownumber=" + rownumber +
-                ", beginSeatNumber=" + beginSeatNumber +
-                ", endSeatNumber=" + endSeatNumber +
-                ", filmTitle='" + filmTitle + '\'' +
-                ", runTime='" + runTime + '\'' +
-                ", qRCode='" + qRCode + '\'' +
-                ", posterURL='" + posterURL + '\'' +
-                '}';
-    }*/
 }

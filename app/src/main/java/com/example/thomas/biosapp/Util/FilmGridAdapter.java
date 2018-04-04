@@ -39,17 +39,6 @@ public class FilmGridAdapter extends BaseAdapter {
 
     // create a new ImageView for each item referenced by the Adapter
     public View getView(int position, View convertView, ViewGroup parent) {
-//        ImageView imageView;
-//        if (convertView == null) {
-//            // if it's not recycled, initialize some attributes
-//            imageView = new ImageView(context);
-//        } else {
-//            imageView = (ImageView) convertView;
-//        }
-//
-//        imageView.setImageResource(mThumbIds[position]);
-//        return imageView;
-
         ViewHolder viewHolder;
         if (convertView == null) {
             convertView = mInflator.inflate(R.layout.film_gridview_item, null);

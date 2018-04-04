@@ -206,7 +206,6 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
         if (v == null) return;
 
         //Selectie op geselecteerde stoel zetten
-//        v.setBackgroundColor(getColor(R.color.colorOrdered));
         v.setImageBitmap(redChair);
     }
 }
