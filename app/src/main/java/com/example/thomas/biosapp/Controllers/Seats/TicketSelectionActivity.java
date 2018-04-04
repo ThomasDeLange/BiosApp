@@ -14,6 +14,8 @@ import com.example.thomas.biosapp.Database.TicketDatabase;
 import com.example.thomas.biosapp.Domain.Film;
 import com.example.thomas.biosapp.R;
 
+import java.text.DecimalFormat;
+
 /**
  * Created by steph on 3-4-2018.
  */
@@ -101,6 +103,8 @@ public class TicketSelectionActivity extends AppCompatActivity implements View.O
         _65plusDeleteButton = findViewById(R.id._65plusDeleteButton);
         _65plusAddButton.setOnClickListener(this);
         _65plusDeleteButton.setOnClickListener(this);
+
+        updatePrice();
     }
 
     @Override
@@ -201,7 +205,8 @@ public class TicketSelectionActivity extends AppCompatActivity implements View.O
     }
 
     public void updatePrice() {
-        priceView.setText(intChildNumberOfTickets * 5 + intStudentNumberOfTickets * 7.5 + intNormalNumberOfTickets * 20 + int65plusNumberOfTickets * 15 + "$");
+        double amount = intChildNumberOfTickets * 5 + intStudentNumberOfTickets * 7.5 + intNormalNumberOfTickets * 20 + int65plusNumberOfTickets * 15;
+        priceView.setText("€" + String.format("%.02f", amount));
     }
 
 }
