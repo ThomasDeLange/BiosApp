@@ -14,17 +14,15 @@ public class Ticket implements Serializable{
     private int endSeatNumber;
     private String filmTitle;
     private String runTime;
-    private String qRCode;
     private String posterURL;
 
 
 
-    public Ticket(int beginSeatNumber, int endSeatNumber, String filmTitle, String runTime, String qRCode, String posterURL) {
+    public Ticket(int beginSeatNumber, int endSeatNumber, String filmTitle, String runTime, String posterURL) {
         this.beginSeatNumber = beginSeatNumber;
         this.endSeatNumber = endSeatNumber;
         this.filmTitle = filmTitle;
         this.runTime = runTime;
-        this.qRCode = qRCode;
         this.posterURL = posterURL;
     }
 
@@ -58,14 +56,6 @@ public class Ticket implements Serializable{
 
     public void setRunTime(String runTime) {
         this.runTime = runTime;
-    }
-
-    public String getqRCode() {
-        return qRCode;
-    }
-
-    public void setqRCode(String qRCode) {
-        this.qRCode = qRCode;
     }
 
     public String getPosterURL() {

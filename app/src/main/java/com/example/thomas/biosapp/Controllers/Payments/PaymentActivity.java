@@ -107,11 +107,10 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
 
                 String filmName = film.getName();
                 String runtime = "11 uur - 13 uur";
-                String qrCode = "qrcode";
 
                 String posterURL = film.getPosterUrl();
 
-                Ticket ticket = new Ticket(beginSeatNumber , endSeatNumber, filmName, runtime, qrCode, posterURL);
+                Ticket ticket = new Ticket(beginSeatNumber, endSeatNumber, filmName, runtime, posterURL);
 
                 database.buyTicket(film, ticket);
 

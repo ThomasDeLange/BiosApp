@@ -44,7 +44,7 @@ public class TicketViewActivity extends AppCompatActivity implements View.OnClic
         //Voer gegevens in
         textViewTicketSeatRange.setText(getString(R.string.chair) + " " + ticket.getBeginSeatNumber() + " - " + ticket.getEndSeatNumber());
         textViewTicketMovieTitle.setText(ticket.getFilmTitle());
-        textViewTicketMovieTime.setText("11 uur");
+        textViewTicketMovieTime.setText(ticket.getRunTime());
     }
 
     @Override

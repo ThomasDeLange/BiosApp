@@ -23,7 +23,7 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
     private final static String TAG = "TicketDatabase";
 
     private final static String DB_NAME = "TicketDatabse.db";
-    private final static int DB_VERSION = 10;
+    private final static int DB_VERSION = 11;
 
     private final static String TICKET_TABLE_NAME = "Ticket";
 
@@ -31,7 +31,6 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
     private final static String TICKET_END_SEATNUMBER = "EndSeatNumber";
     private final static String TICKET_FILM_TITLE = "FilmTitle";
     private final static String TICKET_RUN_TIME = "RunTime";
-    private final static String TICKET_QR_CODE = "QRCode";
     private final static String TICKET_POSTER_URL = "PosterURL";
 
     public TicketDatabase(Context context) {
@@ -45,7 +44,6 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
                 "`"+TICKET_END_SEATNUMBER +"` INTEGER NOT NULL," +
                 "`"+TICKET_FILM_TITLE +"` TEXT NOT NULL," +
                 "`"+TICKET_RUN_TIME +"` TEXT NOT NULL," +
-                "`"+TICKET_QR_CODE +"` TEXT NOT NULL," +
                 "`"+TICKET_POSTER_URL +"` TEXT NOT NULL" +
                 ");");
     }
@@ -67,7 +65,6 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
         ticketValues.put(TICKET_END_SEATNUMBER, ticket.getEndSeatNumber());
         ticketValues.put(TICKET_FILM_TITLE, film.getName());
         ticketValues.put(TICKET_RUN_TIME, ticket.getRunTime());
-        ticketValues.put(TICKET_QR_CODE, ticket.getqRCode());
         ticketValues.put(TICKET_POSTER_URL, ticket.getPosterURL());
 
         database.insert(TICKET_TABLE_NAME, null, ticketValues);
@@ -96,11 +93,10 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
             int endSeatNumber = cursor.getInt(cursor.getColumnIndex(TICKET_END_SEATNUMBER));
             String filmTitle = cursor.getString(cursor.getColumnIndex(TICKET_FILM_TITLE));
             String runTime = cursor.getString(cursor.getColumnIndex(TICKET_RUN_TIME));
-            String qrCode = cursor.getString(cursor.getColumnIndex(TICKET_QR_CODE));
             String posterURL = cursor.getString(cursor.getColumnIndex(TICKET_POSTER_URL));
 
 
-            ticketArrayList.add(new Ticket(beginSeatNumber, endSeatNumber, filmTitle, runTime, qrCode, posterURL));
+            ticketArrayList.add(new Ticket(beginSeatNumber, endSeatNumber, filmTitle, runTime, posterURL));
             cursor.moveToNext();
         }
 
