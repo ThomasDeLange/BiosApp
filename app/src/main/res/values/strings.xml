@@ -9,6 +9,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="action_search">Zoeken...</string>
+    <string name="action_search_results">Resultaten voor</string>
 
     <string name="payment">Betalen</string>
     <string name="payment_method">Betalingsmethode:</string>
@@ -19,7 +21,7 @@
     <string name="seats">Zitplaats(en)</string>
     <string name="no_seats_selected">Geen zitplaats geselecteerd</string>
     <string name="selected">geselecteerd</string>
-    <string name="select_seat_description">Selecteer hieronder uw gewenste aantal kaartjes en zitplaats.</string>
+    <string name="select_seat_description">Selecteer hieronder uw gewenste zitplaats(en).</string>
     <string name="tickets">Tickets</string>
     <string name="personal_data">Persoonsgegevens</string>
     <string name="chair">Stoel</string>
@@ -63,4 +65,5 @@
     <string name="contactdata">Contactgegevens</string>
     <string name="emailadres_notfilled">Het e-mailadres is niet ingevuld.</string>
     <string name="message_notfilled">Het bericht is niet ingevuld.</string>
+    <string name="TicketSelectionButton">Doorgaan</string>
 </resources>

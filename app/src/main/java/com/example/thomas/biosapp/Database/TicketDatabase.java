@@ -27,7 +27,6 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
 
     private final static String TICKET_TABLE_NAME = "Ticket";
 
-    private final static String TICKET_ROWNUMBER = "Rownumber";
     private final static String TICKET_BEGIN_SEATNUMBER = "BeginSeatNumber";
     private final static String TICKET_END_SEATNUMBER = "EndSeatNumber";
     private final static String TICKET_FILM_TITLE = "FilmTitle";
@@ -42,7 +41,6 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL("CREATE TABLE `"+TICKET_TABLE_NAME +"` (" +
-                "`"+TICKET_ROWNUMBER +"` INTEGER NOT NULL," +
                 "`"+TICKET_BEGIN_SEATNUMBER +"` INTEGER NOT NULL," +
                 "`"+TICKET_END_SEATNUMBER +"` INTEGER NOT NULL," +
                 "`"+TICKET_FILM_TITLE +"` TEXT NOT NULL," +
@@ -65,7 +63,6 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
         SQLiteDatabase database = this.getWritableDatabase();
 
         ContentValues ticketValues = new ContentValues();
-        ticketValues.put(TICKET_ROWNUMBER, 0/*ticket.getRownumber()*/);
         ticketValues.put(TICKET_BEGIN_SEATNUMBER, ticket.getBeginSeatNumber());
         ticketValues.put(TICKET_END_SEATNUMBER, ticket.getEndSeatNumber());
         ticketValues.put(TICKET_FILM_TITLE, film.getName());
@@ -95,7 +92,6 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
         cursor.moveToFirst();
 
         while (!cursor.isAfterLast()) {
-            int rownumber = cursor.getInt(cursor.getColumnIndex(TICKET_ROWNUMBER));
             int beginSeatNumber = cursor.getInt(cursor.getColumnIndex(TICKET_BEGIN_SEATNUMBER));
             int endSeatNumber = cursor.getInt(cursor.getColumnIndex(TICKET_END_SEATNUMBER));
             String filmTitle = cursor.getString(cursor.getColumnIndex(TICKET_FILM_TITLE));
@@ -104,44 +100,70 @@ public class TicketDatabase extends SQLiteOpenHelper implements Serializable {
             String posterURL = cursor.getString(cursor.getColumnIndex(TICKET_POSTER_URL));
 
 
-            ticketArrayList.add(new Ticket(/*rownumber, */beginSeatNumber, endSeatNumber, filmTitle, runTime, qrCode, posterURL));
+            ticketArrayList.add(new Ticket(beginSeatNumber, endSeatNumber, filmTitle, runTime, qrCode, posterURL));
             cursor.moveToNext();
         }
 
         return ticketArrayList;
     }
 
-    public void printTickets() {
-
+    public int getRemaningNumberOfSeats(String filmTitle){
         SQLiteDatabase database = this.getReadableDatabase();
+        String query = "SELECT " + TICKET_BEGIN_SEATNUMBER + ", " + TICKET_END_SEATNUMBER +" FROM " + TICKET_TABLE_NAME + " WHERE " + TICKET_FILM_TITLE + " = '" + filmTitle +"'";
 
-        String query = "SELECT * FROM " + TICKET_TABLE_NAME;
         Cursor cursor = database.rawQuery(query, null);
 
-        ArrayList<Ticket> ticketArrayList = new ArrayList<>();
-
+        int totalReserved = 0;
         cursor.moveToFirst();
 
         while (!cursor.isAfterLast()) {
-            int rownumber = cursor.getInt(cursor.getColumnIndex(TICKET_ROWNUMBER));
             int beginSeatNumber = cursor.getInt(cursor.getColumnIndex(TICKET_BEGIN_SEATNUMBER));
             int endSeatNumber = cursor.getInt(cursor.getColumnIndex(TICKET_END_SEATNUMBER));
-            String filmTitle = cursor.getString(cursor.getColumnIndex(TICKET_FILM_TITLE));
-            String runTime = cursor.getString(cursor.getColumnIndex(TICKET_RUN_TIME));
-            String qrCode = cursor.getString(cursor.getColumnIndex(TICKET_QR_CODE));
-            String posterURL = cursor.getString(cursor.getColumnIndex(TICKET_POSTER_URL));
 
+            totalReserved += endSeatNumber - beginSeatNumber + 1;
 
-            ticketArrayList.add(new Ticket(/*rownumber, */beginSeatNumber, endSeatNumber, filmTitle, runTime, qrCode, posterURL));
             cursor.moveToNext();
         }
-        cursor.close();
-        database.close();
-        for (Ticket t : ticketArrayList) {
-            Log.i(TAG, t.toString());
 
-        }
+
+        return 54 - totalReserved;
     }
+
+
+//    public void printTickets() {
+//
+//        SQLiteDatabase database = this.getReadableDatabase();
+//
+//        String query = "SELECT * FROM " + TICKET_TABLE_NAME;
+//        Cursor cursor = database.rawQuery(query, null);
+//
+//        ArrayList<Ticket> ticketArrayList = new ArrayList<>();
+//
+//        cursor.moveToFirst();
+//
+//        while (!cursor.isAfterLast()) {
+//            int beginSeatNumber = cursor.getInt(cursor.getColumnIndex(TICKET_BEGIN_SEATNUMBER));
+//            int endSeatNumber = cursor.getInt(cursor.getColumnIndex(TICKET_END_SEATNUMBER));
+//            String filmTitle = cursor.getString(cursor.getColumnIndex(TICKET_FILM_TITLE));
+//            String runTime = cursor.getString(cursor.getColumnIndex(TICKET_RUN_TIME));
+//            String qrCode = cursor.getString(cursor.getColumnIndex(TICKET_QR_CODE));
+//            String posterURL = cursor.getString(cursor.getColumnIndex(TICKET_POSTER_URL));
+//
+//
+//            ticketArrayList.add(new Ticket(beginSeatNumber, endSeatNumber, filmTitle, runTime, qrCode, posterURL));
+//            cursor.moveToNext();
+//        }
+//        cursor.close();
+//        database.close();
+//        for (Ticket t : ticketArrayList) {
+//            Log.i(TAG, t.toString());
+//
+//        }
+//    }
+
+
+
+
 
 
 

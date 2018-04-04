@@ -62,7 +62,6 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
         Intent intent = getIntent();
         seat = (Seat) intent.getSerializableExtra("SEAT_OBJECT");
         film = (Film) intent.getSerializableExtra("FILM_OBJECT");
-
     }
 
     @Override
@@ -98,7 +97,7 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
                 int endSeatNumber = seat.getEndsSeatNumber();
 
                 String filmName = film.getName();
-                String runtime = "11 uur";
+                String runtime = "11 uur - 13 uur";
                 String qrCode = "qrcode";
 
                 String posterURL = film.getPosterUrl();
@@ -111,7 +110,6 @@ public class PaymentActivity extends AppCompatActivity implements View.OnClickLi
                 //Geslaagd
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setTitle("De betaling is geslaagd!");
-//                builder.setMessage("");
                 builder.setPositiveButton(getApplicationContext().getString(R.string.ok), this);
                 AlertDialog dialog = builder.create();
                 dialog.show();

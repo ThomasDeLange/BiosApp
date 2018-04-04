@@ -1,8 +1,10 @@
 package com.example.thomas.biosapp.Controllers.Tickets;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -31,11 +33,6 @@ public class TicketOverviewFragment extends Fragment {
     private TicketDatabase database;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
@@ -48,6 +45,7 @@ public class TicketOverviewFragment extends Fragment {
         Collections.reverse(ticketArrayList);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Log.d("SelectedItem: ", i + "");

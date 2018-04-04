@@ -1,6 +1,8 @@
 package com.example.thomas.biosapp.Controllers.Seats;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -22,15 +24,21 @@ import java.util.HashMap;
 
 public class SeatsActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private Bitmap redChair;
+    private Bitmap blueChair;
+    private Bitmap greenChair;
+
     private HashMap<ImageView, Integer> seats;
     private TextView textViewChairSelected;
     private final String CHAIR_ID_NAME = "selectableChair";
     private ArrayList<Integer> selectedChairIDs;
-    private Spinner spinnerChairAmount;
     private Film film;
     private TicketDatabase database;
     private int lastSeat;
     private ArrayList<Integer> orderedSeats;
+
+    private int totalChairs;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +50,9 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
 
         //Chairlijst aanmaken
         selectedChairIDs = new ArrayList<Integer>();
+        redChair = BitmapFactory.decodeResource(getResources(), R.drawable.chair_red);
+        blueChair = BitmapFactory.decodeResource(getResources(), R.drawable.chair_blue);
+        greenChair = BitmapFactory.decodeResource(getResources(), R.drawable.chair_green);
 
         //Laad select text
         textViewChairSelected = findViewById(R.id.textViewChairSelected);
@@ -51,26 +62,11 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
         buttonSelectChair.setOnClickListener(this);
 
         //Verkrijg intent
-        film = (Film) getIntent().getSerializableExtra("FILM_OBJECT");
+        film = (Film) getIntent().getSerializableExtra("TICKET_OBJECT");
+        totalChairs = (int) getIntent().getSerializableExtra("totalNumberOfChairs");
 
         //Verkrijg stoelen
         getSeats();
-
-        //Spinner
-        createSpinner();
-    }
-
-    private void createSpinner() {
-
-        //Spinner
-        spinnerChairAmount = findViewById(R.id.spinnerChairAmount);
-        ArrayList<Integer> integerList = new ArrayList<Integer>();
-        int maxAmount = seats.size() > 9 ? 9 : seats.size();
-        for (int a = 1; a <= maxAmount; a++)
-            integerList.add(a);
-        System.out.println(maxAmount);
-        ArrayAdapter<Integer> spinnerAdapter = new ArrayAdapter<Integer>(this, android.R.layout.simple_spinner_dropdown_item, integerList);
-        spinnerChairAmount.setAdapter(spinnerAdapter);
     }
 
     @Override
@@ -90,9 +86,6 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
             int beginSeatNumber= selectedChairIDs.get(0);
             int endSeatNumber = selectedChairIDs.get(selectedChairIDs.size() - 1);
 
-            //@TODO aanpassen ! ROWNUMBER IS ONNODIG
-            //int rowNumber = 1;
-
             Seat seat = new Seat(/*rowNumber, */beginSeatNumber, endSeatNumber);
 
             //Laad volgende scherm
@@ -105,7 +98,7 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
 
             //Dan is het een stoel, selectie van vorige stoelen afhalen
             for (ImageView seat : seats.keySet()) {
-                seat.setBackgroundColor(getColor(R.color.colorTransparent));
+                seat.setImageBitmap(greenChair);
             }
 
             //Leeg array met geselecteerde stoelen
@@ -113,8 +106,7 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
 
             //Nummer van geselecteerde stoel verkrijgen en selecteren, ervoor zorgen dat het niet de beschikbare stoelen overschrijd
             int number = seats.get(v);
-            int chairAmount = (Integer)spinnerChairAmount.getSelectedItem();
-            for (int a = 0; a < chairAmount; a++)
+            for (int a = 0; a < totalChairs; a++)
                 selectChair(number + a);
 
             //Creeër string
@@ -129,6 +121,7 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
             textViewChairSelected.setText(getString(R.string.seats) + " " + chairString + " " + getString(R.string.selected));
         }
     }
+
     private void getSeats() {
 
         //Bestelde stoelen van de database verkrijgen
@@ -197,7 +190,8 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
             ImageView v = findViewById(id);
 
             //Selectie op geselecteerde stoel zetten
-            v.setBackgroundColor(getColor(R.color.colorSelected));
+            //v.setBackgroundColor(getColor(R.color.colorSelected));
+            v.setImageBitmap(blueChair);
             selectedChairIDs.add(number);
         }
     }
@@ -212,6 +206,7 @@ public class SeatsActivity extends AppCompatActivity implements View.OnClickList
         if (v == null) return;
 
         //Selectie op geselecteerde stoel zetten
-        v.setBackgroundColor(getColor(R.color.colorOrdered));
+//        v.setBackgroundColor(getColor(R.color.colorOrdered));
+        v.setImageBitmap(redChair);
     }
 }
