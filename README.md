@@ -12,3 +12,5 @@ Stephan : 210591
 Tobias  : 2124631
 Szonja  : 2128202
 Thomas : 2125564
+
+![Alt text](../Screenshots Biosapp/Schermafbeelding 2018-06-05 om 21.06.50.png?raw=true "")
